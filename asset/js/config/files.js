@@ -20,7 +20,7 @@ window.HOST = {
 /* resources path */
 window.SERVER = new Object();
 
-if (HOST.localhost || HOST.publish) { // UX팀
+if (HOST.localhost || HOST.publish) { // 로컬환경
     SERVER.asset = "/asset";
     SERVER.view = "/view";
 } else if (HOST.develop || HOST.product) { // 개발 및 운영서버

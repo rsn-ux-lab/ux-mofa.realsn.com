@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/asset/img/favicon.ico" />
 
   
-  <script src="/asset/js/config/files.js?=20221018155833"></script>
-  <script src="/asset/js/import.bundle.js?=20221018155833"></script>
-  <script src="/asset/js/config/router.js?=20221018155833"></script>
+  <script src="/asset/js/config/files.js?=20221019083424"></script>
+  <script src="/asset/js/import.bundle.js?=20221019083424"></script>
+  <script src="/asset/js/config/router.js?=20221019083424"></script>
 </head>
 <body>
 
@@ -86,10 +86,11 @@
         </fieldset>
         <!-- 
               상황별 화면 확인 - url 제일 뒤에 ?preview=... 붙여주시면 됩니다.
-              // 팝업 - 코드 인증키 발송
-                ?preview=send
+
+              // 팝업 - 유효시간 만료 시 알럿 (확인 알럿)
+                ?preview=timeOver
                 > 사용된 스크립트 
-                msgMngr.send('코드 발송', '', 0, 0);
+                msgMngr.send('입력 시간을 초과했습니다.<br>인증 코드를 다시 요청해주세요.', '', 0, 0);
 
               // 팝업 - 2단계 인증 실패
                 ?preview=fail
@@ -99,8 +100,10 @@
               // 팝업 - 2단계 인증 완료
                 ?preview=success
             -->
+
+        <!-- [코드전송] 클릭 → SMS로 전송된 인증코드 입력 → [인증하기] 클릭 → 완료 -->
         <button type="button" class="btn btn-round btn-round--lg btn-login w-100">
-          <span class="txt">Login</span>
+          <span class="txt">인증하기</span>
         </button>
         <p class="form__cmt">회원가입/비밀번호 등의 업무는 각 부서의 담당자에게 문의해 주세요.</p>
       </form>

@@ -6,6 +6,37 @@ $(function () {
   {
     /**
      *
+     *  depth : 해외여론주도층 분석 > 주요현황 > 주요토픽분석
+     *  block : 주요토픽분석
+     *  event : 토픽 할성화 상태  1개 미만인 경우 경고창
+     *
+     */
+
+    const $inputs = document.querySelectorAll("[data-fieldset=주요토픽분석] input");
+    let isState = false;
+
+    $inputs.forEach((_$input) => {
+      _$input.addEventListener("click", (e) => {
+        const $fieldset = e.target.closest("fieldset[data-value-minimum]");
+        const isProtect = $fieldset.classList.contains("form-fieldset--is-protect");
+
+        if (isProtect && isState) {
+          $.modal({
+            className: "alert",
+            message: "최소 한 개 이상 선택되어야 합니다.<br> 다른 항목을 선택 후 해제해 주세요. ",
+          });
+        }
+
+        isState = isProtect ? true : false;
+      });
+    });
+  }
+  /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
+  {
+    /**
+     *
      *  depth : 해외여론주도층 분석 > 주요현황 > 세계현황
      *  block : 차트(월드맵)
      *  event : new AmCharts

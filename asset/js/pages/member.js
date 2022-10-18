@@ -112,6 +112,7 @@ $(function () {
     $loginBtn.addEventListener('click', function () {
       msgMngr.send('2단계 인증에 실패하였습니다.<br>다시 시도해주세요.', '', 0, 0);
     });
+
     $codeNum.onkeyup = function () {
       if (this.value.length >= 6) {
         if (this.getAttribute('data-number') == this.value) {
@@ -119,15 +120,21 @@ $(function () {
           this.setAttribute('readonly', '');
 
           $loginBtn.addEventListener('click', function () {
-            location.href = '../../leaders';
+            location.href = '../leaders';
           });
         }
       }
     };
 
-    $btnCode.addEventListener('click', (e) => {
-      msgMngr.send('코드 발송', '', 0, 0);
-    });
+    $codeNum.oninput = function () {
+      if (this.value.length > 6) {
+        this.value = this.value.substr(0, 6);
+      }
+    };
+
+    // $btnCode.addEventListener('click', (e) => {
+    //   msgMngr.send('코드 발송', '', 0, 0);
+    // });
   }
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -142,10 +149,14 @@ $(function () {
     const $loginBtn = document.querySelector('.btn-login');
     const $codeInputRow = document.querySelector('.form-row[data-row="certification"]');
     switch (name) {
-      // 팝업 - 코드 인증키 발송
-      case 'send':
-        msgMngr.send('코드 발송', '', 0, 0);
+      case 'timeOver':
+        // 팝업 - 유효시간 만료 시 알럿 (확인 알럿)
+        msgMngr.send('입력 시간을 초과했습니다.<br>인증 코드를 다시 요청해주세요.', '', 0, 0);
+        $loginBtn.addEventListener('click', function () {
+          msgMngr.send('입력 시간을 초과했습니다.<br>인증 코드를 다시 요청해주세요.', '', 0, 0);
+        });
         break;
+
       case 'fail':
         // 팝업 - 2단계 인증 실패
         msgMngr.send('2단계 인증에 실패하였습니다.<br>다시 시도해주세요.', '', 0, 0);
@@ -161,7 +172,7 @@ $(function () {
         $codeNum.value = $codeNum.getAttribute('data-number');
         $codeNum.setAttribute('readonly', '');
         $loginBtn.addEventListener('click', function () {
-          location.href = `${SERVER.view}/leaders`;
+          location.href = '../leaders';
         });
         break;
     }
