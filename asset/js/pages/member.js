@@ -119,7 +119,7 @@ $(function () {
           this.setAttribute('readonly', '');
 
           $loginBtn.addEventListener('click', function () {
-            location.href = '../leaders';
+            location.href = '../../leaders';
           });
         }
       }
@@ -161,7 +161,7 @@ $(function () {
         $codeNum.value = $codeNum.getAttribute('data-number');
         $codeNum.setAttribute('readonly', '');
         $loginBtn.addEventListener('click', function () {
-          location.href = '../leaders';
+          location.href = '../../leaders';
         });
         break;
     }

@@ -6,6 +6,10 @@ const routes = [
     script: "/asset/js/pages/member.js",
   },
   {
+    path: "/pw_set",
+    script: "/asset/js/pages/member.js",
+  },
+  {
     path: "/member",
     script: "/asset/js/pages/member.js",
   },
