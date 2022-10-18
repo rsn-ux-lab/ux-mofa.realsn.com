@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+
+  
+  <meta name="robots" content="noindex,nofollow"> 
+
+  
+  <link rel="shortcut icon" href="/asset/img/favicon.ico" />
+
+  
+  <script src="/asset/js/config/files.js?=20221018145014"></script>
+  <script src="/asset/js/import.bundle.js?=20221018145014"></script>
+  <script src="/asset/js/config/router.js?=20221018145014"></script>
+</head>
+<body>
+
+<div id="wrap" data-target-device="pc">
+  
+  <header id="header" class="header" data-header-fixed="true" role="banner">
+    <div class="inner">
+      <div class="header-top">
+        <h1 class="header-top__logo"><a class="link" href="../member/login/index.html"><img class="logo" src="../../asset/img/common/logo.png" alt="외교부" /></a></h1>
+        <ul class="header-top__list ">
+          <li class="header-top__item header-top__item--user">
+            <a href="#">알에스엔님</a>
+          </li>
+          <li class="header-top__item">
+            <a href="#" class="ui_btn is-color-blk" title="Logout"><span class="icon">&#xe071;</span></a>
+          </li>
+          <li class="header-top__item">
+            <a href="#" class="ui_btn is-color-blk" target="_blank" title="System 바로가기"><span class="icon">&#xe070;</span></a>
+          </li>
+          <li class="header-top__item header_fix_pin">
+            <input id="pin_chk_00" type="checkbox" autocomplete="off" />
+            <label class="ui_btn is-icon-only" for="pin_chk_00"><span class="icon">&#xe062;</span></label>
+          </li>
+        </ul>
+      </div>
+      <nav class="header-gnb">
+        <a class="header-gnb__link" data-file-path="leaders"><span class="txt">해외여론주도층 분석</span></a>
+        <a class="header-gnb__link" data-file-path="media"><span class="txt">매체 분석</span></a>
+        <a class="header-gnb__link" data-file-path="trend"><span class="txt">급상승 이슈 분석</span></a>
+        <a class="header-gnb__link" data-file-path="local"><span class="txt">국내 분석</span></a>
+      </nav>
+    </div>
+  </header>
+  
+ 
+
+
+        
+
+<!-- #container -->
+<main id="container" class="member" data-header-hide="true" data-footer-hide="true" role="main">
+    <h2 class="visually-hidden">회원정보</h2>
+    <section class="l-member l-member--login" data-section="로그인">
+      <header class="l-member-header">
+        <h3 class="l-member-header__title">LOGIN</h3>
+      </header>
+      <main class="l-member-body">
+        <form class="form" action="./pw_set.jsp">
+          <fieldset class="form-fieldset" data-fieldset="로그인">
+            <div class="form-row form-text" data-row="id">
+              <input class="form-text__input" placeholder="ID" type="text" required />
+              <label class="form-text__label">로그인 아이디를 입력하세요.</label>
+            </div>
+            <div class="form-row form-text" data-row="password">
+              <input class="form-text__input" placeholder="Password" type="password" required />
+              <label class="form-text__label visually-hidden">password를 입력하세요</label>
+              <button class="btn btn-eye" type="button"><span class="visually-hidden">미리보기</span></button>
+            </div>
+            <div class="form-row form-check mb-30" data-row="remember">
+              <input id="chk_02" class="form-check__input" type="checkbox" />
+              <label for="chk_02" class="form-check__label"><span class="txt">Remember my ID on this Computer</span></label>
+            </div>
+          </fieldset>
+          <button class="btn btn-round btn-round--lg btn-login w-100" disabled><span class="txt">Login</span></button>
+          <p class="form__cmt">회원가입/비밀번호 등의 업무는 각 부서의 담당자에게 문의해 주세요.</p>
+        </form>
+      </main>
+    </section>
+  </main>
+  <!-- //#container -->
+  
+
+<footer id="footer" class="footer" role="contentinfo"></footer>
+
+</div>
+
+</body>
+</html>
+  
+
+
+</html>
+
