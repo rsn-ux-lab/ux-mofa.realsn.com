@@ -89,61 +89,12 @@
 <!-- //#header-->
 
 <!-- #container -->
-<main id="container" class="member" data-header-hide="true" data-footer-hide="true" role="main">
-  <h2 class="visually-hidden">2단계인증</h2>
-  <section class="l-member l-member--auth login--auth" data-section="2단계인증">
-    <header class="l-member-header">
-      <h3 class="l-member-header__title">2단계 인증</h3>
-    </header>
-    <main class="l-member-body">
-      <form action="../../leaders">
-        <fieldset class="form-fieldset" data-fieldset="2단계인증">
-          <div class="form-row form-text" data-row="phone">
-            <input type="tel" id="tel_input" class="form-text__input" placeholder="전화번호 입력" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}" maxlength="13" />
-            <label class="form-text__label visually-hidden">전화번호를 입력하세요</label>
-            <button type="button" class="btn btn-round btn-code btn-round--sm">
-              <span class="txt">코드전송</span>
-            </button>
-          </div>
-          <!-- 
-              코드 입력 성공시
-              // 2단계 인증 완료
-              하단 .form-text 엘리먼트에 success 추가됨
-            -->
-          <div class="form-row form-text" data-row="certification">
-            <!-- data-number 에 세팅된 값이 입력되면 알아서 success 클래스가 추가됩니다 -->
-            <input class="form-text__input" id="code_input" data-number="123456" placeholder="코드입력" type="number" required />
-            <label class="visually-hidden">인증번호를 입력하세요</label>
-            <p class="form-text__watch">유효시간<em class="color-f86666 pr-5 pl-5">4:59</em><button type="button">[시간연장]</button></p>
-          </div>
-        </fieldset>
-        <!-- 
-              상황별 화면 확인 - url 제일 뒤에 ?preview=... 붙여주시면 됩니다.
-
-              // 팝업 - 유효시간 만료 시 알럿 (확인 알럿)
-                ?preview=timeOver
-                > 사용된 스크립트 
-                msgMngr.send('입력 시간을 초과했습니다.<br>인증 코드를 다시 요청해주세요.', '', 0, 0);
-
-              // 팝업 - 2단계 인증 실패
-                ?preview=fail
-                > 사용된 스크립트 
-                msgMngr.send('2단계 인증에 실패하였습니다.<br>다시 시도해주세요.', '', 0, 0);
-
-              // 팝업 - 2단계 인증 완료
-                ?preview=success
-            -->
-
-        <!-- [코드전송] 클릭 → SMS로 전송된 인증코드 입력 → [인증하기] 클릭 → 완료 -->
-        <button type="button" class="btn btn-round btn-round--lg btn-login w-100">
-          <span class="txt">인증하기</span>
-        </button>
-        <p class="form__cmt">회원가입/비밀번호 등의 업무는 각 부서의 담당자에게 문의해 주세요.</p>
-      </form>
-    </main>
-  </section>
+<main id="container" class="leaders" role="main">
+  <h2>매체 분석</h2>
 </main>
 <!-- //#container -->
+
+
 
 <!-- #footer-->
 <footer id="footer" class="footer" role="contentinfo"></footer>
