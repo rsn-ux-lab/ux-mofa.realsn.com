@@ -6,19 +6,54 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
 
-  
+  <!-- SEO -->
   <meta name="robots" content="noindex,nofollow"> 
-
   
+  <!-- FAVICON -->
   <link rel="shortcut icon" href="/asset/img/favicon.ico" />
 
-  
-  <script src="/asset/js/config/files.js?=20221019202213"></script>
-  <script src="/asset/js/import.bundle.js?=20221019202213"></script>
-  <script src="/asset/js/config/router.js?=20221019202213"></script>
+  <!-- JS -->
+  <script src="/asset/js/config/files.js?v=20221019224804&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/asset/js/import.bundle.js?v=20221019224804&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/asset/js/config/router.js?v=20221019224804&v=<%= cache.format(nowTime) %>"></script>
 </head>
+
 <body>
-<!-- 페이지 로딩-->
+<!-- #wrap -->
+<div id="wrap" data-target-device="pc" user-scalable="false">
+  
+<!-- #header -->
+<header id="header" class="header" data-header-fixed="true" role="banner">
+  <div class="inner">
+    <div class="header-top">
+      <h1 class="header-top__logo"><a class="link" href="../member/login/index.html"><img class="logo" src="/asset/img/common/logo.png" alt="외교부" /></a></h1>
+      <ul class="header-top__list ">
+        <li class="header-top__item header-top__item--user">
+          <a href="#">알에스엔님</a>
+        </li>
+        <li class="header-top__item">
+          <a href="#" class="ui_btn is-color-blk" title="Logout"><span class="icon">&#xe071;</span></a>
+        </li>
+        <li class="header-top__item">
+          <a href="#" class="ui_btn is-color-blk" target="_blank" title="System 바로가기"><span class="icon">&#xe070;</span></a>
+        </li>
+        <li class="header-top__item header_fix_pin">
+          <input id="pin_chk_00" type="checkbox" autocomplete="off" />
+          <label class="ui_btn is-icon-only" for="pin_chk_00"><span class="icon">&#xe062;</span></label>
+        </li>
+      </ul>
+    </div>
+    <nav class="header-gnb">
+      <a class="header-gnb__link" data-file-path="leaders"><span class="txt">해외여론주도층 분석</span></a>
+      <a class="header-gnb__link" data-file-path="media"><span class="txt">매체 분석</span></a>
+      <a class="header-gnb__link" data-file-path="trend"><span class="txt">급상승 이슈 분석</span></a>
+      <a class="header-gnb__link" href="//lucy2.realsn.com" target="_blank"><span class="txt">국내 분석</span></a>
+    </nav>
+  </div>
+</header>
+<!-- //#header -->
+
+<!-- 페이지 로딩 -->
 <aside id="lodingWrap">
   <div class="content">
       <div class="img">
@@ -52,42 +87,7 @@
       }
   </style>
 </aside>
-<!-- //페이지 로딩-->
-
-<!-- #wrap-->
-<div id="wrap" data-target-device="pc">
-  
-<!-- #header-->
-<header id="header" class="header" data-header-fixed="true" role="banner">
-  <div class="inner">
-    <div class="header-top">
-      <h1 class="header-top__logo"><a class="link" href="../member/login/index.html"><img class="logo" src="/asset/img/common/logo.png" alt="외교부" /></a></h1>
-      <ul class="header-top__list ">
-        <li class="header-top__item header-top__item--user">
-          <a href="#">알에스엔님</a>
-        </li>
-        <li class="header-top__item">
-          <a href="#" class="ui_btn is-color-blk" title="Logout"><span class="icon">&#xe071;</span></a>
-        </li>
-        <li class="header-top__item">
-          <a href="#" class="ui_btn is-color-blk" target="_blank" title="System 바로가기"><span class="icon">&#xe070;</span></a>
-        </li>
-        <li class="header-top__item header_fix_pin">
-          <input id="pin_chk_00" type="checkbox" autocomplete="off" />
-          <label class="ui_btn is-icon-only" for="pin_chk_00"><span class="icon">&#xe062;</span></label>
-        </li>
-      </ul>
-    </div>
-    <nav class="header-gnb">
-      <a class="header-gnb__link" data-file-path="leaders"><span class="txt">해외여론주도층 분석</span></a>
-      <a class="header-gnb__link" data-file-path="media"><span class="txt">매체 분석</span></a>
-      <a class="header-gnb__link" data-file-path="trend"><span class="txt">급상승 이슈 분석</span></a>
-      <a class="header-gnb__link" data-file-path="local"><span class="txt">국내 분석</span></a>
-    </nav>
-  </div>
-</header>
-<!-- //#header-->
-
+<!-- //페이지 로딩 -->
 
 <!-- #container -->
 <main id="container" class="leaders" role="main">
@@ -5098,12 +5098,12 @@
 </main>
 <!-- //#container -->
 
-<!-- #footer-->
+<!-- #footer -->
 <footer id="footer" class="footer" role="contentinfo"></footer>
-<!-- //#footer-->
+<!-- //#footer -->
 
 </div>
-<!-- //#wrap-->
+<!-- //#wrap -->
 </body>
 </html>
 
