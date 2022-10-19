@@ -22,7 +22,7 @@ window.SERVER = new Object();
 
 if (HOST.localhost || HOST.publish) { // 로컬환경
     SERVER.asset = "/asset";
-    SERVER.view = "/view";
+    SERVER.view = "/";
 } else if (HOST.develop || HOST.product) { // 개발 및 운영서버
     SERVER.asset = null;
     SERVER.view = null;
