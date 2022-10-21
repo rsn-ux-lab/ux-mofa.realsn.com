@@ -12,11 +12,20 @@ $(function () {
      *
      */
 
-    const $inputs = document.querySelectorAll("[data-fieldset=주요토픽분석] input");
     let isState = false;
 
-    $inputs.forEach((_$input) => {
-      _$input.addEventListener("click", (e) => {
+    class Modal {
+      constructor(_$fieldset) {
+        this.$fieldset = _$fieldset;
+        this.$inputs;
+      }
+
+      set() {
+        this.$inputs = $fieldset.querySelectorAll("[data-fieldset=주요토픽분석] input");
+        this.$inputs.forEach((_$input) => _$input.addEventListener("click", this.clickEvent));
+      }
+
+      clickEvent(e) {
         const $fieldset = e.target.closest("fieldset[data-value-minimum]");
         const isProtect = $fieldset.classList.contains("form-fieldset--is-protect");
 
@@ -26,10 +35,25 @@ $(function () {
             message: "최소 한 개 이상 선택되어야 합니다.<br> 다른 항목을 선택 후 해제해 주세요. ",
           });
         }
-
         isState = isProtect ? true : false;
-      });
+      }
+
+      removeClickEvent() {
+        this.$inputs.forEach((_$input) => _$input.removeEventListener("click", this.clickEvent));
+      }
+    }
+
+    const $fieldset = document.querySelector("[data-fieldset=주요토픽분석]");
+    let modal = new Modal($fieldset);
+    modal.set();
+
+    //observer
+    let observer = new MutationObserver(() => {
+      modal.removeClickEvent(); // 초기화
+      modal.set();
     });
+
+    observer.observe($fieldset, { childList: true, subtree: true });
   }
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -418,7 +442,7 @@ $(function () {
         if (flucUpDn == "New") {
           tooltipResult += '<span class="row"><span class="ui_fluc is-color-negative">New</span></span>';
         } else {
-          tooltipResult += '(<span class="ui_fluc before ' + flucUpDn + '">' + Math.abs($target.dataItem.dataContext.fluc) + "%)</span>";
+          tooltipResult += '<span class="row"><span class="ui_fluc before ' + flucUpDn + '">' + Math.abs($target.dataItem.dataContext.fluc) + "%</span></span>";
         }
         tooltipResult += "</div>";
 
