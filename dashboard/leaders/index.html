@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221021220115&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221021220115&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221021220115&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221024081301&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221024081301&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221024081301&v=<%= cache.format(nowTime) %>"></script>
 </head>
 
 <body>
@@ -261,8 +261,9 @@
             <fieldset class="form-fieldse d-flex ml-auto">
               <div class="form-row form-select" data-row="기본정렬">
                 <select class="form-select__select">
-                  <option value="0">10건 씩 보기</option>
-                  <option value="1">30건 씩 보기</option>
+                  <option disabled>메뉴를 선택해 주세요</option>
+                  <option value="0" selected>10건 씩 보기</option>
+                  <option value="1" >30건 씩 보기</option>
                   <option value="2">50건 씩 보기</option>
                 </select>
               </div>

@@ -15,43 +15,48 @@ $(function () {
     let isState = false;
 
     class Modal {
-      constructor(_$fieldset) {
-        this.$fieldset = _$fieldset;
+      /* 기본값 */
+      constructor() {
+        this.$fieldset;
         this.$inputs;
+        this.isState = false;
       }
 
-      set() {
-        this.$inputs = $fieldset.querySelectorAll("[data-fieldset=주요토픽분석] input");
-        this.$inputs.forEach((_$input) => _$input.addEventListener("click", this.clickEvent));
+      /* 초기화 */
+      init(_$fieldset) {
+        this.removeEvent();
+
+        this.$fieldset = _$fieldset;
+        this.$inputs = this.$fieldset.querySelectorAll("[data-fieldset=주요토픽분석] input");
+        this.$inputs && this.$inputs.forEach((_$input) => _$input.addEventListener("click", this.clickEvent));
       }
 
-      clickEvent(e) {
-        const $fieldset = e.target.closest("fieldset[data-value-minimum]");
-        const isProtect = $fieldset.classList.contains("form-fieldset--is-protect");
+      /* 이벤트 제거 */
+      removeEvent() {
+        this.$inputs && this.$inputs.forEach((_$input) => _$input.removeEventListener("click", this.clickEvent));
+      }
 
-        if (isProtect && isState) {
+      /* modal 활성화 */
+      clickEvent = (e) => {
+        const isProtect = this.$fieldset.classList.contains("form-fieldset--is-protect");
+
+        if (isProtect && this.isState) {
           $.modal({
             className: "alert",
             message: "최소 한 개 이상 선택되어야 합니다.<br> 다른 항목을 선택 후 해제해 주세요. ",
           });
         }
-        isState = isProtect ? true : false;
-      }
-
-      removeClickEvent() {
-        this.$inputs.forEach((_$input) => _$input.removeEventListener("click", this.clickEvent));
-      }
+        this.isState = isProtect ? true : false;
+      };
     }
 
+    // install
     const $fieldset = document.querySelector("[data-fieldset=주요토픽분석]");
-    let modal = new Modal($fieldset);
-    modal.set();
+    let modal = new Modal();
+    modal.init($fieldset);
 
     //observer
-    let observer = new MutationObserver(() => {
-      modal.removeClickEvent(); // 초기화
-      modal.set();
-    });
+    let observer = new MutationObserver(() => modal.init($fieldset));
 
     observer.observe($fieldset, { childList: true, subtree: true });
   }
