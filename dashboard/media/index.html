@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221024082631&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221024082631&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221024082631&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221024090448&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221024090448&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221024090448&v=<%= cache.format(nowTime) %>"></script>
 </head>
 
 <body>
@@ -90,9 +90,409 @@
 <!-- //페이지 로딩 -->
 
 <!-- #container -->
-<main id="container" class="leaders" role="main">
-  <h2>매체 분석</h2>
-</main>
+<main id="container" class="media" role="main">
+  <!-- 전체검색 -->
+  <nav class="c-search-bar">
+    <div class="inner">
+      <div class="option">
+        <div class="datepickers">
+          <strong>검색기간</strong>
+          <div class="ui_datepickers" id="dp11" data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }' data-grps='[ "0", "7", "30", "9MT", "10MT" ]' data-type-opts='[ "day", "week", "month" ]'></div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-round rounded-0 btn-search"><span class="txt">검색</span></button>
+    </div>
+  </nav>
+  <!-- //전체검색 -->
+
+<!-- 전체 토픽 현황 -->
+<section class="l-section" data-section="전체 토픽 현황" data-loding-spinner="false">
+  <div class="inner">
+    <header class="l-section-header">
+      <h3 class="l-section-header__title">전체 토픽 현황</h3>
+    </header>
+    <main class="l-section-body">
+      <div class="row gx-10" style="height: 65rem">
+        <div class="col col-8">
+          <article class="l-card bg-fafafa border-0" data-card="세계현황" data-is-empty="false">
+            <header class="l-card-header">
+              <h4 class="l-card-header__title">
+                주요 현황 요약
+              </h4>
+            </header>
+            <main class="l-card-body pt-20">
+              <div class="js-chart h-100"></div>
+            </main>
+          </article>
+        </div>
+        <div class="col col-4">
+          <article class="l-card" data-card="이슈 키워드" data-is-empty="false">
+            <header class="l-card-header">
+              <h4 class="l-card-header__title w-100 mb-10">
+                이슈 키워드
+              </h4>
+              <fieldset class="form-fieldset d-flex" data-fieldset="TOP/HOT">
+                <div class="form-row form-check form-check-button form-check-button--switch" data-row="TOP">
+                  <input id="radioRank1" name="radioRank" class="form-check__input" type="radio" checked />
+                  <label for="radioRank1" class="form-check__label"><span class="txt">TOP</span></label>
+                </div>
+                <div class="form-row form-check form-check-button form-check-button--switch" data-row="HOT">
+                  <input id="radioRank2" name="radioRank" class="form-check__input" type="radio" />
+                  <label for="radioRank2" class="form-check__label"><span class="txt">HOT</span></label>
+                </div>
+              </fieldset>
+            </header>
+            <main class="l-card-body pt-20">
+              <div class="js-chart h-100"></div>
+            </main>
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+<!-- //전체 토픽 현황 -->
+
+<!-- 토픽 상세 현황 -->
+<section class="l-section"  data-section="전체 토픽 현황" data-loding-spinner="false">
+  <div class="inner">
+    <header class="l-section-header">
+      <h3 class="l-section-header__title">토픽 상세 현황</h3>
+    </header>
+
+    <!-- 정보량 점유율 & 정보량 추이 -->
+    <main class="l-section-body">
+      <div class="row gx-10" style="height: 65rem">
+        <div class="col col-8">
+          <article class="l-card bg-fafafa border-0" data-card="세계현황" data-is-empty="false">
+            <header class="l-card-header">
+              <h4 class="l-card-header__title">
+                정보량 점유율
+              </h4>
+            </header>
+            <main class="l-card-body pt-20">
+              <div class="js-chart h-100"></div>
+            </main>
+          </article>
+        </div>
+        <div class="col col-4">
+          <article class="l-card" data-card="이슈 키워드" data-is-empty="false">
+            <header class="l-card-header">
+              <h4 class="l-card-header__title w-100 mb-10">
+                정보량 추이
+              </h4>
+            </header>
+            <main class="l-card-body pt-20">
+              <div class="js-chart h-100"></div>
+            </main>
+          </article>
+        </div>
+      </div>
+    </main>
+    <!-- //정보량 점유율 & 정보량 추이 -->
+
+    <!-- 감성 추이 -->
+    <main class="l-section-body">
+      <div class="row gx-10" style="height: 65rem">
+        <div class="col col-8">
+          <article class="l-card bg-fafafa border-0" data-card="세계현황" data-is-empty="false">
+            <header class="l-card-header">
+              <h4 class="l-card-header__title">
+                감성추이
+              </h4>
+            </header>
+            <main class="l-card-body pt-20">
+              <div class="js-chart h-100"></div>
+            </main>
+          </article>
+        </div>
+      </div>
+    </main>
+    <!-- //감성 추이 --> 
+
+    <!-- 연관키워드 -->
+    <main class="l-section-body">
+      <div class="row gx-10" style="height: 65rem">
+        <div class="col col-8">
+          <article class="l-card bg-fafafa border-0" data-card="세계현황" data-is-empty="false">
+            <header class="l-card-header">
+              <h4 class="l-card-header__title">
+                연관키워드
+              </h4>
+            </header>
+            <main class="l-card-body pt-20">
+              <div class="js-chart h-100"></div>
+            </main>
+          </article>
+        </div>
+      </div>
+    </main>
+    <!-- //연관키워드 --> 
+  </div>
+</section>
+<!-- //토픽 상세 현황 -->
+
+<!-- 뉴스 매체 현황 -->
+<section class="l-section" data-section="전체 토픽 현황" data-loding-spinner="false">
+  <div class="inner">
+    <header class="l-section-header">
+      <h3 class="l-section-header__title">뉴스매체 현황</h3>
+    </header>
+    <main class="l-section-body">
+      <div class="row gx-10" style="height: 65rem">
+        <div class="col col-8">
+          <article class="l-card bg-fafafa border-0" data-card="세계현황" data-is-empty="false">
+            <header class="l-card-header">
+              <h4 class="l-card-header__title">
+                국가별 보도 점유율
+              </h4>
+            </header>
+            <main class="l-card-body pt-20">
+              <div class="js-chart h-100"></div>
+            </main>
+          </article>
+        </div>
+        <div class="col col-4">
+          <article class="l-card" data-card="이슈 키워드" data-is-empty="false">
+            <header class="l-card-header">
+              <h4 class="l-card-header__title w-100 mb-10">
+                Top10 뉴스매체
+              </h4>
+              <fieldset class="form-fieldset d-flex" data-fieldset="TOP/HOT">
+                <div class="form-row form-check form-check-button form-check-button--switch" data-row="TOP">
+                  <input id="radioRank1" name="radioRank" class="form-check__input" type="radio" checked />
+                  <label for="radioRank1" class="form-check__label"><span class="txt">TOP</span></label>
+                </div>
+                <div class="form-row form-check form-check-button form-check-button--switch" data-row="HOT">
+                  <input id="radioRank2" name="radioRank" class="form-check__input" type="radio" />
+                  <label for="radioRank2" class="form-check__label"><span class="txt">HOT</span></label>
+                </div>
+              </fieldset>
+            </header>
+            <main class="l-card-body pt-20">
+              <div class="js-chart h-100"></div>
+            </main>
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+<!-- //뉴스 매체 현황 -->   
+
+<!-- 전체 데이터 -->
+<section class="l-section" data-section="전체 토픽 현황" data-loding-spinner="false">
+  <div class="inner">
+    <header class="l-section-header">
+      <h3 class="l-section-header__title">전체 데이터</h3>
+      <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="언어">
+        <div class="form-row form-check form-check-button form-check-button--switch" data-row="한국어">
+          <input id="radioLanguage1" name="radioLanguage" class="form-check__input" type="radio" checked />
+          <label for="radioLanguage1" class="form-check__label"><span class="txt">한국어</span></label>
+        </div>
+        <div class="form-row form-check form-check-button form-check-button--switch" data-row="영어">
+          <input id="radioLanguage2" name="radioLanguage" class="form-check__input" type="radio" />
+          <label for="radioLanguage2" class="form-check__label"><span class="txt">영어</span></label>
+        </div>
+      </fieldset>
+    </header>
+    <main class="l-section-body">
+      <article class="l-card p-0 border-0" data-card="해외여론주도층분석" data-loding-spinner="false dimmed" data-is-empty="false">
+        <header class="l-card-header mb-15">
+          TOTAL <span class="count">155474</span> (1/1 pages)          
+          <fieldset class="form-fieldse d-flex ml-auto">
+            <div class="form-row form-select mr-10" data-row="기본정렬">
+              <select class="form-select__select">
+                <option value="0">최신 수집 순</option>
+                <option value="1">오래된 수집 순</option>
+                <option value="2">유사글 많은 순</option>
+              </select>
+            </div>            
+            <div class="form-row form-select" data-row="기본정렬">
+              <select class="form-select__select">
+                <option value="0">10건 씩 보기</option> 
+                <option value="1">30건 씩 보기</option>
+                <option value="2">50건 씩 보기</option>
+              </select>
+            </div>
+          </fieldset>
+        </header>
+        <main class="l-card-body">
+          <table class="c-table c-table-every">
+            <colgroup>
+              <col width="8.428%" />
+              <col width="*" />
+              <col width="8%" />
+              <col width="3.574%" />
+              <col width="5.142%" />
+            </colgroup>
+            <thead>
+              <tr>
+                  <th class="bg-dedede">출처</th>
+                  <th class="bg-dedede">제목</th>
+                  <th class="bg-dedede">수집일시</th>
+                  <th class="bg-dedede">감성</th>
+                  <th class="bg-dedede">유사</th>
+                </tr>
+
+            </thead>
+            <tbody>
+              <!-- 요약내용 -->
+              <tr class="summary">
+                <td class="text-center">arirang</td>
+                <td class="clamp-1">
+                  Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..
+                </td>
+                <td class="text-center">2022-07-01 12:43</td>
+                <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                <td class="text-center">205</td>
+              </tr>
+              
+              <tr class="summary">
+                  <td class="text-center">arirang</td>
+                  <td class="clamp-1">
+                      V&A to stage UK’s first major exhibition of Korean culture
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center">205</td>
+                </tr>
+              
+                <tr class="summary">
+                  <td class="text-center">fresnobee</td>
+                  <td class="clamp-1">
+                      Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix bo..
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center">205</td>
+                </tr>
+              
+                <tr class="summary">
+                  <td class="text-center">fresnobee</td>
+                  <td class="clamp-1">
+                      How Korean Pop Culture Took the World by Storm
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true"></i> </td>
+                  <td class="text-center openPop">205</td>
+                </tr>
+              
+                <tr class="summary">
+                  <td class="text-center">arirang</td>
+                  <td class="clamp-1">
+                      Deal for Ukraine grain exports due to be sealed in Istanbul
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center">205</td>
+                </tr>
+              
+                <tr class="summary">
+                  <td class="text-center">arirang</td>
+                  <td class="clamp-1">
+                      Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center">205</td>
+                </tr>
+              
+                <tr class="summary">
+                  <td class="text-center">arirang</td>
+                  <td class="clamp-1">
+                      Park Chan-wook wins Best Director at Cannes Film Festival
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center">205</td>
+                </tr>
+              
+                <tr class="summary">
+                  <td class="text-center">arirang</td>
+                  <td class="clamp-1">
+                      V&A to stage UK’s first major exhibition of Korean culture
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center">205</td>
+                </tr>
+              
+                <tr class="summary">
+                  <td class="text-center">arirang</td>
+                  <td class="clamp-1">
+                      How Korean Pop Culture Took the World by Storm
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center">205</td>
+                </tr>
+              
+                <tr class="summary">
+                  <td class="text-center">arirang</td>
+                  <td class="clamp-1">
+                      How Korean Pop Culture Took the World by Storm
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center">205</td>
+                </tr>
+              <!-- //요약내용 -->
+            </tbody>
+          </table>
+        </main>
+        <footer class="l-card-footer pt-30">
+          <ol class="c-pagination">
+            <li class="c-pagination__item c-pagination__item--first">
+              <button class="c-pagination__btn" type="button" title="첫 페이지"><i class="icon-svg-chevrons-left" aria-hidden="true"></i></button>
+            </li>
+            <li class="c-pagination__item c-pagination__item--prev">
+              <button class="c-pagination__btn" type="button" title="이전 페이지"><i class="icon-svg-chevron-left" aria-hidden="true"></i></button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn c-pagination__btn--is-active" type="button">1</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">2</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">3</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">4</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">5</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">6</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">7</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">8</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">9</button>
+            </li>
+            <li class="c-pagination__item">
+              <button class="c-pagination__btn" type="button">10</button>
+            </li>
+            <li class="c-pagination__item c-pagination__item--next">
+              <button class="c-pagination__btn" type="button" title="다음 페이지"><i class="icon-svg-chevrons-right" aria-hidden="true"></i></button>
+            </li>
+            <li class="c-pagination__item c-pagination__item--last">
+              <button class="c-pagination__btn" type="button" title="마지막 페이지"><i class="icon-svg-chevron-right" aria-hidden="true"></i></button>
+            </li>
+          </ol>
+        </footer>
+      </article>
+    </main>
+  </div>
+</section>
+<!-- //전체 데이터 -->   
+
 <!-- //#container -->
 
 

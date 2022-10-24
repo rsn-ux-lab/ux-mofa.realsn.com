@@ -53,6 +53,7 @@ $(function () {
     // install
     const $fieldset = document.querySelector("[data-fieldset=주요토픽분석]");
     let modal = new Modal();
+
     modal.init($fieldset);
 
     //observer
