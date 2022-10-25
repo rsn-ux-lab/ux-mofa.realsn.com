@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+
+  <!-- SEO -->
+  <meta name="robots" content="noindex,nofollow"> 
+  
+  <!-- FAVICON -->
+  <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />
+
+  <!-- JS -->
+  <script src="/dashboard/asset/js/config/files.js?v=20221025100944&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221025100944&v=<%= cache.format(nowTime) %>"></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221025100944&v=<%= cache.format(nowTime) %>"></script>
+</head>
+
+<body>
+<!-- #wrap -->
+<div id="wrap" data-target-device="pc" user-scalable="false">
+  
+<!-- #header -->
+<header id="header" class="header" data-header-fixed="true" role="banner">
+  <div class="inner">
+    <div class="header-top">
+      <h1 class="header-top__logo"><a class="link" href="../member/login/index.html"><img class="logo" src="/dashboard/asset/img/common/logo.png" alt="외교부" /></a></h1>
+      <ul class="header-top__list ">
+        <li class="header-top__item header-top__item--user">
+          <a href="#">알에스엔님</a>
+        </li>
+        <li class="header-top__item">
+          <a href="#" class="ui_btn is-color-blk" title="Logout"><span class="icon">&#xe071;</span></a>
+        </li>
+        <li class="header-top__item">
+          <a href="#" class="ui_btn is-color-blk" target="_blank" title="System 바로가기"><span class="icon">&#xe070;</span></a>
+        </li>
+        <li class="header-top__item header_fix_pin">
+          <input id="pin_chk_00" type="checkbox" autocomplete="off" />
+          <label class="ui_btn is-icon-only" for="pin_chk_00"><span class="icon">&#xe062;</span></label>
+        </li>
+      </ul>
+    </div>
+    <nav class="header-gnb">
+      <a class="header-gnb__link" data-file-path="leaders"><span class="txt">해외여론주도층 분석</span></a>
+      <a class="header-gnb__link" data-file-path="media"><span class="txt">매체 분석</span></a>
+      <a class="header-gnb__link" data-file-path="trend"><span class="txt">급상승 이슈 분석</span></a>
+      <a class="header-gnb__link" href="//lucy2.realsn.com" target="_blank"><span class="txt">국내 분석</span></a>
+    </nav>
+  </div>
+</header>
+<!-- //#header -->
+
+
+<div id="container">
+  <h2 id="page_title" class="ui_invisible">&nbsp;</h2>
+  <div id="content" class="page-brand">
+    <!-- Search -->
+    <section id="top_searchs" class="ui_searchs">
+      <h3 class="ui_invisible">검색조건</h3>
+      <div class="wrap">
+        <!-- <input type="checkbox" id="ts_toggle" checked><label for="ts_toggle"><span>검색 열기/닫기</span></label> -->
+
+        <!-- 검색조건 설정 -->
+        <form id="searchs_frm" class="searchs_inputs">
+          <div class="inputs_wrap">
+            <div class="searchs_table">
+              <table>
+                <colgroup>
+                  <col />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="fr">
+                        <strong>검색기간</strong>
+                        <div
+                          class="ui_datepickers"
+                          id="dp11"
+                          data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }'
+                          data-move="true"
+                          data-grps='[ "1", "7", "30", "7MT", "8MT" ]'
+                          data-type-opts="disabled"
+                        ></div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- <button type="button" class="btn_search" style="width: 320px"><span class="txt">검색</span></button> -->
+        </form>
+        <!-- // 검색조건 설정 -->
+      </div>
+    </section>
+    <!-- // Search -->
+
+    <!-- SideBar -->
+    <aside id="sidebar">
+      <div class="side-wrap">
+        <div class="side-box">
+            <div class="side-box-title">    
+                <a href="#page_title">박스 제목</a>
+            </div>
+          <ul>
+            <li><a href="#qid_01">1뎁스 박스 헤더</a></li>
+            <li><a href="#qid_02">1뎁스 박스 헤더</a></li>
+            <li><a href="#qid_03">Button</a></li>
+            <li><a href="#qid_04">Checkbox</a></li>
+            <li><a href="#qid_05">radio</a></li>
+            <li><a href="#qid_06">select</a></li>
+            <li><a href="#qid_07">Input</a></li>
+            <li><a href="#qid_08">datepicker</a></li>
+            <li><a href="#qid_09">board</a></li>
+          </ul>
+        </div>
+      </div>
+      <button type="button" class="side-topBtn"><span>TOP</span></button>
+    </aside>
+    <!-- // SideBar -->
+
+    <!-- Content -->
+    <div class="wrap">
+      <section class="ui_section">
+        <div class="wrap">
+          <!-- 1뎁스 박스 헤더 -->
+          <div class="ui_row on_pad" id="qid_01">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>1뎁스 박스 헤더</h4>
+                    <div class="box_header_rc">
+                      <button type="button" class="ui_btn is-icon-only" data-bubble-id="qid_01_01_bubble">
+                        <span class="icon bubble">&#xe006;</span>
+                      </button>
+                      <div class="ui_bubble_box" data-bubble-for="qid_01_01_bubble" data-pos="RB" data-arrowcenter="true">
+                        <span class="arrow"></span>
+                        <div class="tip">
+                          <strong class="title"><span>Guide</span></strong>
+                          <span class="txt">언론 홍보 성과의 매체종류 점유율 현황</span>
+                        </div>
+                      </div>
+                      <button type="button" class="ui_btn is-icon-only">
+                        <span class="icon">&#xe005;</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box_content">
+                    1
+                    <div class="ui_row">
+                      <div class="ui_col is-no-pad">
+                        <div class="ui_box is-2-depth">
+                          <div class="box_header">
+                            <h5>2뎁스 박스 헤더</h5>
+                            <div class="box_header_rc">
+                              <button type="button" class="ui_btn small is-icon-only" data-bubble-id="qid_01_02_bubble">
+                                <span class="icon bubble">&#xe006;</span>
+                              </button>
+                              <div class="ui_bubble_box" data-bubble-for="qid_01_02_bubble" data-pos="RB" data-arrowcenter="true">
+                                <span class="arrow"></span>
+                                <div class="tip">
+                                  <strong class="title"><span>Guide</span></strong>
+                                  <span class="txt">상위 선택된 매체종류 內 사이트 순위</span>
+                                </div>
+                              </div>
+                              <button type="button" class="ui_btn is-icon-only small">
+                                <span class="icon">&#xe005;</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="box_content">2</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1뎁스 박스 헤더 -->
+          <div class="ui_row on_pad is-pad-05" id="qid_02">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>1뎁스 박스 헤더</h4>
+                  </div>
+                  <div class="box_content">
+                    <div class="ui_row on_pad is-no-pad-top">
+                      <div class="ui_col w10">
+                        <div class="ui_box is-2-depth">
+                          <div class="box_header">
+                            <h5>2뎁스 박스 헤더</h5>
+                            <div class="box_header_rc">
+                              <button type="button" class="ui_btn small is-icon-only" data-bubble-id="qid_02_01_bubble">
+                                <span class="icon bubble"></span>
+                              </button>
+                              <div
+                                class="ui_bubble_box"
+                                data-bubble-for="qid_02_01_bubble"
+                                data-pos="RB"
+                                data-arrowcenter="true"
+                                style="top: 27px; left: -194px; display: none"
+                              >
+                                <span class="arrow"></span>
+                                <div class="tip">
+                                  <strong class="title"><span>Guide</span></strong>
+                                  <span class="txt">언론 홍보 성과의 기사유형 별 점유율 현황</span>
+                                </div>
+                              </div>
+                              <button type="button" class="ui_btn is-icon-only small">
+                                <span class="icon"></span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="box_content">
+                            <div class="ui_function is-no-pad">
+                              <div class="lc">
+                                <div class="dcp small">
+                                  <select id="qid_02_02_chart_sel">
+                                    <option value="1">온라인 일반</option>
+                                    <option value="2">보도자료</option>
+                                    <option value="2">당사 대응</option>
+                                    <option value="3">기획기사</option>
+                                  </select>
+                                  <label for="qid_02_02_chart_sel"></label>
+                                </div>
+                              </div>
+                            </div>
+                            2
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ui_col w14">
+                        <div class="ui_box is-2-depth">
+                          <div class="box_header">
+                            <h5>2뎁스 박스 헤더</h5>
+                            <div class="box_header_rc">
+                              <button type="button" class="ui_btn small is-icon-only" data-bubble-id="qid_02_02_bubble">
+                                <span class="icon bubble"></span>
+                              </button>
+                              <div
+                                class="ui_bubble_box"
+                                data-bubble-for="qid_02_02_bubble"
+                                data-pos="RB"
+                                data-arrowcenter="true"
+                                style="top: 27px; left: -194px; display: none"
+                              >
+                                <span class="arrow"></span>
+                                <div class="tip">
+                                  <strong class="title"><span>Guide</span></strong>
+                                  <span class="txt">언론 홍보 성과의 기사유형 별 상위 연관어 리스트</span>
+                                </div>
+                              </div>
+                              <button type="button" class="ui_btn is-icon-only small">
+                                <span class="icon"></span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="box_content">
+                            <div class="ui_function is-no-pad">
+                              <div class="lc">
+                                <div class="dcp small">
+                                  <select id="qid_02_02_chart_sel">
+                                    <option value="1">온라인 일반</option>
+                                    <option value="2">보도자료</option>
+                                    <option value="2">당사 대응</option>
+                                    <option value="3">기획기사</option>
+                                  </select>
+                                  <label for="qid_02_02_chart_sel"></label>
+                                </div>
+                              </div>
+                            </div>
+                            2
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="ui_row" id="qid_03">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>Button</h4>
+                  </div>
+                  <div class="box_content">
+                    <div class="ui_brd_list">
+                      <div class="wrap">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th><strong>X-Small</strong></th>
+                              <th><strong>Small</strong></th>
+                              <th><strong>Default</strong></th>
+                              <th><strong>Large</strong></th>
+                              <th><strong>Active</strong></th>
+                              <th><strong>Disabled</strong></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th><strong>기본</strong></th>
+                              <td>-</td>
+                              <td>
+                                <button class="ui_btn is-small">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-large">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-active">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" disabled="">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>Color white</strong></th>
+                              <td>-</td>
+                              <td>
+                                <button class="ui_btn is-small is-color-wht">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-color-wht">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-large is-color-wht">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-active is-color-wht">
+                                  <span class="txt">버튼</span>
+                                </button>
+                                <button class="ui_btn is-large is-active is-color-wht">
+                                  <span class="txt">버튼</span>
+                                </button>
+                              </td>
+                              <td>
+                                <!-- <button class="ui_btn is-icon-only" disabled><span class="icon">&#xe007;</span></button> -->
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>Color white - icon</strong></th>
+                              <td>-</td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-small is-color-wht">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-color-wht">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-large is-color-wht">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-active is-color-wht">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                                <button class="ui_btn is-icon-only is-large is-active is-color-wht">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <!-- <button class="ui_btn is-icon-only" disabled><span class="icon">&#xe007;</span></button> -->
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>Active Color Default</strong></th>
+                              <td>-</td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-small">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-large">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-active">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                                <button class="ui_btn is-large is-icon-only is-active">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <!-- <button class="ui_btn is-icon-only" disabled><span class="icon">&#xe007;</span></button> -->
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>Active Color black</strong></th>
+                              <td>-</td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-small is-color-blk">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-color-blk">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-large is-color-blk">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="ui_btn is-icon-only is-active is-color-blk">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                                <button class="ui_btn is-large is-icon-only is-active is-color-blk">
+                                  <span class="icon">&#xe007;</span>
+                                </button>
+                              </td>
+                              <td>
+                                <!-- <button class="ui_btn is-icon-only" disabled><span class="icon">&#xe007;</span></button> -->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkbox -->
+          <div class="ui_row" id="qid_04">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>Checkbox</h4>
+                  </div>
+                  <div class="box_content">
+                    <div class="ui_brd_list">
+                      <div class="wrap">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th><strong>X-Small</strong></th>
+                              <th><strong>Small</strong></th>
+                              <th><strong>Default</strong></th>
+                              <th><strong>Large</strong></th>
+                              <th><strong>Active</strong></th>
+                              <th><strong>Disabled</strong></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th><strong>기본</strong></th>
+                              <td style="text-align: center">
+                                <div class="dcp is-xsmall"><input type="checkbox" id="chk_01_01" checked /><label for="chk_01_01">언론</label></div>
+                              </td>
+                              <td>-</td>
+                              <td style="text-align: center">
+                                <div class="dcp"><input type="checkbox" id="chk_01_01" checked /><label for="chk_01_01">언론</label></div>
+                              </td>
+                              <td style="text-align: center">
+                                <div class="dcp"><input type="checkbox" id="chk_01_02" checked /><label for="chk_01_02">해외언론</label></div>
+                              </td>
+                              <td style="text-align: center">
+                                <div class="dcp"><input type="checkbox" id="chk_01_03" checked /><label for="chk_01_03">포탈</label></div>
+                              </td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th><strong>스위치</strong></th>
+                              <td>-</td>
+                              <td></td>
+                              <td>
+                                <div class="dcp_switch is-small">
+                                  <input id="chk_31" type="checkbox" /><label for="chk_31"><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="chk_32" type="checkbox" /><label for="chk_32"><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="chk_33" type="checkbox" checked /><label for="chk_33"><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="chk_34" type="checkbox" disabled /><label for="chk_34"><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>스위치(라벨포함)</strong></th>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>
+                                <div class="dcp_switch is-small">
+                                  <input id="chk_41" type="checkbox" /><label for="chk_41"><span class="txt">스위치</span><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="chk_42" type="checkbox" /><label for="chk_42"><span class="txt">스위치</span><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="chk_43" type="checkbox" checked /><label for="chk_43"
+                                    ><span class="txt">스위치</span><span class="anchor"></span
+                                  ></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="chk_44" type="checkbox" disabled /><label for="chk_44"
+                                    ><span class="txt">스위치</span><span class="anchor"></span
+                                  ></label>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- radio -->
+          <div class="ui_row" id="qid_05">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>radio</h4>
+                  </div>
+                  <div class="box_content">
+                    <div class="ui_brd_list">
+                      <div class="wrap">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th><strong>Small</strong></th>
+                              <th><strong>Default</strong></th>
+                              <th><strong>Checked</strong></th>
+                              <th><strong>Disabled</strong></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- <tr>
+                                                                <th><strong>기본</strong></th>
+                                                                <td><div class="dcp is-small is-square"><input id="radio_31" type="radio" name="radios_04"><label for="radio_31"><span class="anchor"></span></label></div></td>
+                                                                <td><div class="dcp"><input id="radio_32" type="radio" name="radios_04"><label for="radio_32"><span class="anchor"></span></label></div></td>
+                                                                <td><div class="dcp"><input id="radio_33" type="radio" name="radios_04" checked><label for="radio_33"><span class="anchor"></span></label></div></td>
+                                                                <td><div class="dcp"><input id="radio_34" type="radio" name="radios_04" disabled><label for="radio_34"><span class="anchor"></span></label></div></td>
+                                                            </tr> -->
+                            <tr>
+                              <th><strong>스위치</strong></th>
+                              <td>
+                                <div class="dcp_switch is-small">
+                                  <input id="radio_31" type="radio" name="radios_04" /><label for="radio_31"><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="radio_32" type="radio" name="radios_04" /><label for="radio_32"><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="radio_33" type="radio" name="radios_04" checked /><label for="radio_33"><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="radio_34" type="radio" name="radios_04" disabled /><label for="radio_34"><span class="anchor"></span></label>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>스위치(라벨포함)</strong></th>
+                              <td>
+                                <div class="dcp_switch is-small">
+                                  <input id="radio_41" type="radio" name="radios_05" /><label for="radio_41"
+                                    ><span class="anchor"></span><span class="txt">스위치</span></label
+                                  >
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="radio_42" type="radio" name="radios_05" /><label for="radio_42"
+                                    ><span class="txt">스위치</span><span class="anchor"></span
+                                  ></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="radio_43" type="radio" name="radios_05" checked /><label for="radio_43"
+                                    ><span class="txt">스위치</span><span class="anchor"></span
+                                  ></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp_switch">
+                                  <input id="radio_44" type="radio" name="radios_05" disabled /><label for="radio_44"
+                                    ><span class="txt">스위치</span><span class="anchor"></span
+                                  ></label>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- select -->
+          <div class="ui_row" id="qid_06">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>select</h4>
+                  </div>
+                  <div class="box_content">
+                    <div class="ui_brd_list">
+                      <div class="wrap">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th><strong>Small</strong></th>
+                              <th><strong>Default</strong></th>
+                              <th><strong>Disabled</strong></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th><strong>기본</strong></th>
+                              <td>
+                                <div class="dcp is-small">
+                                  <select id="sel_01">
+                                    <option>옵션 1</option>
+                                    <option>옵션 2</option>
+                                  </select>
+                                  <label for="sel_01"></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp">
+                                  <select id="sel_02">
+                                    <option>옵션 1</option>
+                                    <option>옵션 2</option>
+                                  </select>
+                                  <label for="sel_02"></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp">
+                                  <select id="sel_04" disabled>
+                                    <option>옵션 1</option>
+                                    <option>옵션 2</option>
+                                  </select>
+                                  <label for="sel_04"></label>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>멀티</strong></th>
+                              <td>
+                                <div class="dcp is-mselect is-small" data-label="회사" data-value="1,2,3,4,5,6,7,8,9,10,11,12,13,14" style="width: 120px">
+                                  <select id="sel_12" multiple>
+                                    <option value="1">옵션 1</option>
+                                    <option value="2">옵션 2</option>
+                                    <option value="3">옵션 3</option>
+                                    <option value="4">옵션 4</option>
+                                    <option value="5">옵션 5</option>
+                                    <option value="6">옵션 6</option>
+                                    <option value="7">옵션 7</option>
+                                    <option value="8">옵션 8</option>
+                                    <option value="9">옵션 9</option>
+                                    <option value="10">옵션 10</option>
+                                    <option value="11">옵션 11</option>
+                                    <option value="12">옵션 12</option>
+                                    <option value="13">옵션 13</option>
+                                    <option value="14">옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션14</option>
+                                  </select>
+                                  <label for="sel_12"></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp is-mselect" data-label="회사" data-value="1,2,3,4,5,6,7,8,9,10,11,12,13,14" style="width: 120px">
+                                  <select id="sel_13" multiple>
+                                    <option value="1">옵션 1</option>
+                                    <option value="2">옵션 2</option>
+                                    <option value="3">옵션 3</option>
+                                    <option value="4">옵션 4</option>
+                                    <option value="5">옵션 5</option>
+                                    <option value="6">옵션 6</option>
+                                    <option value="7">옵션 7</option>
+                                    <option value="8">옵션 8</option>
+                                    <option value="9">옵션 9</option>
+                                    <option value="10">옵션 10</option>
+                                    <option value="11">옵션 11</option>
+                                    <option value="12">옵션 12</option>
+                                    <option value="13">옵션 13</option>
+                                    <option value="14">옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션옵션 14</option>
+                                  </select>
+                                  <label for="sel_13"></label>
+                                </div>
+                                <button class="ui_btn" onclick="evt_selChangeClick()">
+                                  <span class="txt">값변환</span>
+                                </button>
+                                <button class="ui_btn" onclick="evt_selOptAddClick()">
+                                  <span class="txt">목록추가</span>
+                                </button>
+                                <script>
+                                  function evt_selChangeClick() {
+                                    $("#sel_13").parent()[0].setAttribute("data-value", "5");
+                                  }
+                                  function evt_selOptAddClick() {
+                                    // var opts = '<option value="1">옵션 1</option><option value="2">옵션 2</option><option value="3">옵션 3</option><option value="4">옵션 4</option><option value="5">옵션 5</option><option value="6">옵션 6</option><option value="7">옵션 7</option><option value="8">옵션 8</option>';
+                                    // $( "#sel_13" ).html( opts );
+
+                                    var len = $("#sel_13 option").length + 1;
+                                    var opts = '<option value="' + len + '">옵션 ' + len + "</option>";
+                                    $("#sel_13").append(opts);
+                                  }
+                                </script>
+                              </td>
+                              <td>-</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input -->
+          <div class="ui_row" id="qid_07">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>Input</h4>
+                  </div>
+                  <div class="box_content">
+                    <div class="ui_brd_list">
+                      <div class="wrap">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th><strong>Small</strong></th>
+                              <th><strong>Default</strong></th>
+                              <th><strong>Disabled</strong></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th><strong>기본</strong></th>
+                              <td></td>
+                              <td>
+                                <div class="dcp ui_wid_100p">
+                                  <input type="text" id="ts_search_input" placeholder="검색어를 입력해 주세요." />
+                                </div>
+                              </td>
+                              <td>
+                                <div class="dcp ui_wid_100p">
+                                  <input type="text" id="ts_search_input" placeholder="disabled" disabled />
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- datepicker -->
+          <div class="ui_row" id="qid_08">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>datepicker</h4>
+                  </div>
+                  <div class="box_content">
+                    <div class="ui_brd_list">
+                      <div class="wrap">
+                        <table>
+                          <colgroup>
+                            <col style="width: 200px" />
+                            <col />
+                            <col style="width: 200px" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th><strong>Default</strong></th>
+                              <th><strong>Disabled</strong></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th><strong>기본</strong></th>
+                              <td>
+                                <div
+                                  class="ui_datepickers"
+                                  id="dp11"
+                                  data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }'
+                                  data-move="true"
+                                  data-grps='[ "1", "7", "30", "7MT", "8MT" ]'
+                                  data-type-opts="disabled"
+                                ></div>
+                              </td>
+                              <td>
+                                <!-- <div class="ui_datepickers" id="dp12" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }'  data-onecalendar="true" data-type-opts="disabled" ></div> -->
+                              </td>
+                              <!-- <td>-</td> -->
+                            </tr>
+                            <!-- <tr>
+                                                                <th><strong>범위</strong></th>
+                                                                <td><div class="ui_datepickers is-small" id="dp21" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }' data-type-opts="disabled"></div></td>
+                                                                <td><div class="ui_datepickers" id="dp22" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }' data-type-opts="disabled"></div></td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th><strong>범위 - 타입포함</strong></th>
+                                                                <td><div class="ui_datepickers is-small" id="dp31" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }'></div></td>
+                                                                <td><div class="ui_datepickers" id="dp32" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }'></div></td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th><strong>범위 - 최소날짜</strong></th>
+                                                                <td><div class="ui_datepickers is-small" id="dp41" data-date='{ "minDate": "1900-01-01", "sDate": "2021-01-04", "eDate": "2022-01-04" }' data-type="week" data-firstday="0"></div></td>
+                                                                <td><div class="ui_datepickers" id="dp42" data-date='{ "minDate": "1900-01-01", "sDate": "2021-01-04", "eDate": "2022-01-04" }' data-type="week" data-firstday="0"></div></td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th><strong>범위 - 그룹포함</strong></th>
+                                                                <td><div class="ui_datepickers is-small" id="dp51" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }' data-grps='[ "0", "1", "7MT", "3TH", "2019YR", "1YA" ]'></div></td>
+                                                                <td><div class="ui_datepickers" id="dp52" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }' data-grps='[ "0", "1", "7MT", "3TH", "2019YR", "1YA" ]'></div></td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th><strong>Today 변경</strong></th>
+                                                                <td><div class="ui_datepickers is-small" id="dp61" data-date='{ "sDate": "2021-01-01", "eDate": "2033-12-31" }' data-grps='[ "0", "7", "30", "3TH", "1YA", "1MT", "2020YR" ]' data-type="week" data-lastday="-1"></div></td>
+                                                                <td><div class="ui_datepickers" id="dp62" data-date='{ "sDate": "2021-01-01", "eDate": "2021-12-31" }' data-grps='[ "0", "7", "30", "3TH", "1YA", "1MT", "2020YR" ]' data-type="week" data-lastday="1"></div></td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                
+                                                                    시작일 변경( data-firstday )
+                                                                    - 달력 기준 첫 시작요일 설정
+                                                                    - 0: 일요일
+                                                                    - 1: 월요일(Default)
+                                                                    - 2: 화요일
+                                                                    - 3: 수요일
+                                                                    - 4: 목요일
+                                                                    - 5: 금요일
+                                                                    - 6: 토요일
+                                                                
+                                                                <th><strong>시작 요일 변경</strong></th>
+                                                                <td><div class="ui_datepickers is-small" id="dp71" data-date='{ "sDate": "2021-01-01", "eDate": "2033-12-31" }' data-type-opts="disabled" data-type="week" data-firstday="2"></div></td>
+                                                                <td><div class="ui_datepickers" id="dp72" data-date='{ "sDate": "2021-01-01", "eDate": "2021-09-15" }' data-type-opts="disabled" data-type="week" data-firstday="2"></div></td>
+                                                                <td>-</td>
+                                                            </tr> -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- board -->
+          <div class="ui_row on_pad is-pad-05" id="qid_09">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>board</h4>
+                    <div class="box_header_rc">
+                      <button type="button" class="ui_btn is-icon-only" data-bubble-id="qid_08_01_bubble">
+                        <span class="icon bubble">&#xe006;</span>
+                      </button>
+                      <div class="ui_bubble_box" data-bubble-for="qid_08_01_bubble" data-pos="RB" data-arrowcenter="true">
+                        <span class="arrow"></span>
+                        <div class="tip">
+                          <strong class="title"><span>Guide</span></strong>
+                          <span class="txt"
+                            >LG디스플레이 기사 전체 리스트 <br />
+                            (상세 회사 구분, 성향의 세부 조건 검색 가능)</span
+                          >
+                        </div>
+                      </div>
+                      <button type="button" class="ui_btn is-icon-only">
+                        <span class="icon">&#xe005;</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box_content">
+                    <!-- <div class="ui_function is-no-pad">
+                                                <div class="lc">
+                                                    <div class="dcp small">
+                                                        <select id="qid_08_01_01_chart_sel_01">
+                                                            <option value="1">성향 전체</option>
+                                                            <option value="2">긍정</option>
+                                                            <option value="3">부정</option>
+                                                            <option value="4">중립</option>
+                                                        </select>
+                                                        <label for="qid_08_01_01_chart_sel_01"></label>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                    <div class="ui_brd_list">
+                      <div class="header is-pad-t-7 no_bg">
+                        <div class="lc">
+                          <!-- <span class="page_info"><strong><span class="count">0</span> 건</strong>, <span><span class="count">1</span>/<span class="count">1</span> Page</span></span> -->
+                          <span class="page_info">Total: <span class="cnt">115</span> <span class="page">(<em>1</em>/29p)</span></span>
+                        </div>
+                      </div>
+                      <div class="wrap">
+                        <table>
+                          <colgroup>
+                            <col style="width: 90px" />
+                            <col style="width: 40px" />
+                            <col style="width: 100px" />
+                            <col style="width: 90px" />
+                            <col style="width: 130px" />
+                            <col />
+                            <col style="width: 130px" />
+                            <col style="width: 60px" />
+                            <col style="width: 60px" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th scope="col"><span>일자</span></th>
+                              <th scope="col"><span>포탈노출</span></th>
+                              <th scope="col"><span>기사유형</span></th>
+                              <th scope="col"><span>내용비중</span></th>
+                              <th scope="col"><span>매체</span></th>
+                              <th scope="col"><span>제목</span></th>
+                              <th scope="col">
+                                <span>주제/속성 상세</span>
+                              </th>
+                              <th scope="col">
+                                <span>홍보<br />지수</span>
+                              </th>
+                              <th scope="col"><span>성향</span></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- 데이터 없는 경우
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            <tr><td colspan="9" class="no_over no_data in_list"><span class="ui_no_data_txt">데이터가 없습니다.</span></td></tr>
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            <tr><td colspan="9" class="no_over"></td></tr>
+                                                            -->
+                            <tr>
+                              <td>2021-07-21</td>
+                              <td>O</td>
+                              <td>온라인일반</td>
+                              <td>단순언급</td>
+                              <td title="The Wall Street Journal(WSJ)">The Wall Street Journal(WSJ)</td>
+                              <td class="ui_al">
+                                <a href="#" class="lnk" target="_blank" title="상담사 잘만났네요"><span>상담사 잘만났네요</span></a>
+                              </td>
+                              <td>QD-디스플레이</td>
+                              <td>99</td>
+                              <td><span class="fc_positive">긍정</span></td>
+                            </tr>
+                            <tr>
+                              <td>2021-07-21</td>
+                              <td>-</td>
+                              <td>온라인일반</td>
+                              <td>단순언급</td>
+                              <td title="The Wall Street Journal(WSJ)">The Wall Street Journal(WSJ)</td>
+                              <td class="ui_al">
+                                <a href="#" class="lnk" target="_blank" title="상담사 잘만났네요"><span>상담사 잘만났네요</span></a>
+                              </td>
+                              <td>QD-디스플레이</td>
+                              <td>99</td>
+                              <td><span class="fc_negative">부정</span></td>
+                            </tr>
+                            <tr>
+                              <td>2021-07-21</td>
+                              <td>-</td>
+                              <td>온라인일반</td>
+                              <td>단순언급</td>
+                              <td title="The Wall Street Journal(WSJ)">The Wall Street Journal(WSJ)</td>
+                              <td class="ui_al">
+                                <a href="#" class="lnk" target="_blank" title="상담사 잘만났네요"><span>상담사 잘만났네요</span></a>
+                              </td>
+                              <td>QD-디스플레이</td>
+                              <td>99</td>
+                              <td><span class="fc_neutral">중립</span></td>
+                            </tr>
+                            <tr>
+                              <td colspan="9" class="no_over"></td>
+                            </tr>
+                            <tr>
+                              <td colspan="9" class="no_over"></td>
+                            </tr>
+                            <tr>
+                              <td colspan="9" class="no_over"></td>
+                            </tr>
+                            <tr>
+                              <td colspan="9" class="no_over"></td>
+                            </tr>
+                            <tr>
+                              <td colspan="9" class="no_over"></td>
+                            </tr>
+                            <tr>
+                              <td colspan="9" class="no_over"></td>
+                            </tr>
+                            <tr>
+                              <td colspan="9" class="no_over"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="footer">
+                        <div class="ui_paginate">
+                          <div class="in_wrap">
+                            <a href="#" class="page_prev prev ui_disabled" onclick="return false"></a>
+                            <a href="#" class="page_prev ui_disabled" onclick="return false"></a>
+                            <a href="#" class="" onclick="return false;">1</a>
+                            <a href="#" class="active" onclick="return false;">2</a>
+                            <a href="#" onclick="return false;">3</a>
+                            <a href="#" onclick="return false;">4</a>
+                            <a href="#" onclick="return false;">5</a>
+                            <a href="#" onclick="return false;">6</a>
+                            <a href="#" onclick="return false;">7</a>
+                            <a href="#" onclick="return false;">8</a>
+                            <a href="#" onclick="return false;">9</a>
+                            <a href="#" onclick="return false;">10</a>
+                            <a href="#" class="page_next disabled" onclick="return false;"></a>
+                            <a href="#" class="page_next next disabled" onclick="return false;"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- // Content -->
+  </div>
+</div>
+
+<!-- #footer -->
+<footer id="footer" class="footer" role="contentinfo"></footer>
+<!-- //#footer -->
+
+</div>
+<!-- //#wrap -->
+</body>
+</html>
+
