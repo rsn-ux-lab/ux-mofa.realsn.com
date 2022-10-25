@@ -10,17 +10,53 @@
   <meta name="robots" content="noindex,nofollow"> 
   
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />
-
-  <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
+  <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 </head>
 
 <body>
+<!-- 페이지 로딩 -->
+<aside id="lodingWrap">
+  <div class="content">
+      <div class="img">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <p>페이지를 불러오고 있습니다.</p>
+  </div>
+
+  <style type="text/css">
+      #lodingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.5)}
+      #lodingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+      #lodingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:lodingWrap 2.4s infinite linear;}
+      #lodingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
+      #lodingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
+      #lodingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
+      #lodingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
+      #lodingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
+      #lodingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
+      #lodingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
+      #lodingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
+      #lodingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
+      #lodingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
+      #lodingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
+
+      @media screen and (min-width:768px) {
+          #lodingWrap .content .img {width:100px;height:100px;}
+      }
+      @keyframes lodingWrap {
+          0% {transform: rotate(0);}
+          100% {transform: rotate(360deg);}
+      }
+  </style>
+</aside>
+<!-- //페이지 로딩 -->
+
+<!-- JS -->
+<script src="/dashboard/asset/js/config/files.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+<script src="/dashboard/asset/js/import.bundle.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+<script src="/dashboard/asset/js/config/router.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+
 <!-- #wrap -->
-<div id="wrap" data-target-device="pc" user-scalable="false">
+<div id="wrap" data-target-device="pc" user-scalable="false" style="opacity: 0; visibility: hidden;">
   
 <!-- #header -->
 <header id="header" class="header" data-header-fixed="true" role="banner">
@@ -54,42 +90,6 @@
 <!-- //#header -->
 
 
-<!-- 페이지 로딩 -->
-<aside id="lodingWrap">
-  <div class="content">
-      <div class="img">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <p>페이지를 불러오고 있습니다.</p>
-  </div>
-
-  <style type="text/css">
-      #lodingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.5)}
-      #lodingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
-      #lodingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:lodingWrap 2.4s infinite linear;}
-      #lodingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
-      #lodingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
-      #lodingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
-      #lodingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
-      #lodingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
-      #lodingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
-      #lodingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
-      #lodingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
-      #lodingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
-      #lodingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
-      #lodingWrap .content p {position:absolute;left:50%;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
-
-      @media screen and (min-width:768px) {
-          #lodingWrap .content .img {width:100px;height:100px;}
-      }
-      @keyframes lodingWrap {
-          0% {transform: rotate(0);}
-          100% {transform: rotate(360deg);}
-      }
-  </style>
-</aside>
-<!-- //페이지 로딩 -->
-
 <!-- #container -->
 <main id="container" class="media" role="main">
   <!-- 전체검색 -->
@@ -113,7 +113,7 @@
   <!-- //전체검색 -->
 
   <!-- 전체 토픽 현황 -->
-  <section class="l-section" data-section="전체 토픽 현황" data-loding-spinner="false">
+  <section class="l-section" data-section="전체토픽현황" data-loding-spinner="false">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">전체 토픽 현황</h3>
@@ -121,19 +121,118 @@
       <main class="l-section-body">
         <div class="row gx-10" style="height: 52rem">
           <div class="col col-8">
-            <article class="l-card" data-card="세계현황" data-is-empty="false">
+            <article class="l-card" data-card="주요현황요약" data-is-empty="false">
               <header class="l-card-header">
                 <h4 class="l-card-header__title">주요 현황 요약</h4>
               </header>
               <main class="l-card-body pt-20">
-                <div class="js-chart h-100">
-                   막대그래프(no AMchart)
-                </div>
+                <ul class="summary-list">
+                  <li class="summary-list__item">
+                    <div class="graph-box" style="--color-set:#8B3244">
+                      <p class="tit">한반도</p>
+                      <i class="graph" style="height: 75.25%;" aria-hidden="true"><span class="percent">75.25</span></i>
+                    </div>
+                    <div class="info-box">
+                      <p class="tit">정보량</p>
+                      <p class="count">6,553</p>
+                      <p class="rate">
+                        <i class="icon-svg-triangle-up" title="상승"></i>
+                        <span class="percent">17.8</span>
+                      </p>
+                    </div>
+                    <dl class="emotion-list">
+                      <dt class="tit">감성</dt>
+                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
+                    </dl>
+                  </li>
+                  <li class="summary-list__item">
+                    <div class="graph-box" style="--color-set:#A47E4F">
+                      <p class="tit">외교/정치/군사</p>
+                      <i class="graph" style="height: 100%;" aria-hidden="true"><span class="percent">100</span></i>
+                    </div>
+                    <div class="info-box">
+                      <p class="tit">정보량</p>
+                      <p class="count">6,553</p>
+                      <p class="rate">
+                        <i class="icon-svg-bar" title="동일"></i>
+                        <span class="percent">17.8</span>
+                      </p>
+                    </div>
+                    <dl class="emotion-list">
+                      <dt class="tit">감성</dt>
+                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
+                    </dl>
+                  </li>
+                  <li class="summary-list__item">
+                    <div class="graph-box" style="--color-set:#4F8058">
+                      <p class="tit">경제/통상</p>
+                      <i class="graph" style="height: 56.789%;" aria-hidden="true"><span class="percent">56.789</span></i>
+                    </div>
+                    <div class="info-box">
+                      <p class="tit">정보량</p>
+                      <p class="count">6,553</p>
+                      <p class="rate">
+                        <i class="icon-svg-triangle-down" title="동일"></i>
+                        <span class="percent">17.8</span>
+                      </p>
+                    </div>
+                    <dl class="emotion-list">
+                      <dt class="tit">감성</dt>
+                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
+                    </dl>
+                  </li>
+                  <li class="summary-list__item">
+                    <div class="graph-box" style="--color-set:#3B448A">
+                      <p class="tit">기후변화</p>
+                      <i class="graph" style="height: 11.11%;" aria-hidden="true"><span class="percent">11.11</span></i>
+                    </div>
+                    <div class="info-box">
+                      <p class="tit">정보량</p>
+                      <p class="count">6,553</p>
+                      <p class="rate">
+                        <i class="icon-svg-triangle-down" title="동일"></i>
+                        <span class="percent">17.8</span>
+                      </p>
+                    </div>
+                    <dl class="emotion-list">
+                      <dt class="tit">감성</dt>
+                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
+                    </dl>
+                  </li>
+                  <li class="summary-list__item">
+                    <div class="graph-box">
+                      <p class="tit">기타</p>
+                      <i class="graph" style="height: 5.9%;" aria-hidden="true"><span class="percent">5.9</span></i>
+                    </div>
+                    <div class="info-box">
+                      <p class="tit">정보량</p>
+                      <p class="count">6,553</p>
+                      <p class="rate">
+                        <i class="icon-svg-triangle-down" title="동일"></i>
+                        <span class="percent">17.8</span>
+                      </p>
+                    </div>
+                    <dl class="emotion-list">
+                      <dt class="tit">감성</dt>
+                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
+                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
+                    </dl>
+                  </li>
+                </ul>
               </main>
             </article>
           </div>
           <div class="col col-4">
-            <article class="l-card" data-card="이슈 키워드" data-is-empty="false">
+            <article class="l-card" data-card="이슈키워드" data-is-empty="false">
               <header class="l-card-header">
                 <h4 class="l-card-header__title w-100 mb-10">이슈 키워드</h4>
                 <fieldset class="form-fieldset d-flex" data-fieldset="TOP/HOT">
@@ -148,90 +247,88 @@
                 </fieldset>
               </header>
               <main class="l-card-body pt-15">
-                <div class="js-chart h-100">
-                  <ol class="ol_list">
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">1</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">29,159</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">2</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">3</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new"></span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">4</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">5</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new"></span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">6</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">7</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">8</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">9</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="ol_list_box">
-                        <span class="rank">10</span>
-                        <span class="tit clamp-1">Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award </span>
-                        <span class="cnt">984</span>
-                        <span class="new">NEW</span>
-                      </div>
-                    </li>
-                  </ol>
-                </div>
+                <ol class="ol_list">
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">2Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">3Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">4Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">5Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">6Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">7Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">8Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">9Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="ol_list_box">
+                      <span class="rank"></span>
+                      <span class="tit"><span class="clamp-1">10Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span> </span>
+                      <span class="cnt">29,159</span>
+                      <span class="new">NEW</span>
+                    </div>
+                  </li>            
+                </ol>
               </main>
             </article>
           </div>
@@ -412,22 +509,38 @@
                   <main class="l-card-body d-flex flex-column">
                     <div class="cnt_box">
                       <div class="cnt_box_row">
-                        <div class="cnt_box_cell"><span class="cnt_box_label">정보량 순위</span><span class="cnt_box_cnt">No.610</span></div>
-                        <div class="cnt_box_cell"><span class="cnt_box_label">정보량</span><span class="cnt_box_cnt">18,366</span></div>
+                        <div class="cnt_box_cell">
+                          <div class="cnt_box_wrap">
+                            <span class="cnt_box_label">정보량 순위</span><span class="cnt_box_cnt">No.610</span>
+                          </div>
+                        </div>
+                        <div class="cnt_box_cell">
+                          <div class="cnt_box_wrap">
+                            <span class="cnt_box_label">정보량</span><span class="cnt_box_cnt">18,366</span>
+                          </div>
+                        </div>
                       </div>
                       <div class="cnt_box_row">
-                        <div class="cnt_box_cell"><span class="cnt_box_label">증감률 순위</span><span class="cnt_box_cnt">No.7</span></div>
-                        <div class="cnt_box_cell"><span class="cnt_box_label">증감률</span><span class="cnt_box_cnt new">NEW</span></div>
+                        <div class="cnt_box_cell">
+                          <div class="cnt_box_wrap">
+                            <span class="cnt_box_label">증감률 순위</span><span class="cnt_box_cnt">No.7</span>
+                          </div>
+                        </div>
+                        <div class="cnt_box_cell">
+                          <div class="cnt_box_wrap">
+                            <span class="cnt_box_label">증감률</span><span class="cnt_box_cnt new">NEW</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <fieldset class="form-fieldset d-flex" data-fieldset="연관어/감성어">
-                      <div class="form-row form-check form-check-button form-check-button--switch" data-row="연관어">
-                        <input id="radioKeyword_2_1" name="radioKeyword_2" class="form-check__input" type="radio" checked />
-                        <label for="radioKeyword_2_1" class="form-check__label"><span class="txt">연관어</span></label>
+                    <fieldset class="form-fieldset d-flex pt-10" data-fieldset="일별/주별">
+                      <div class="form-row form-check form-check-button form-check-button--switch" data-row="일별">
+                        <input id="radioRange_2_1" name="radioRange_2" class="form-check__input" type="radio" checked />
+                        <label for="radioRange_2_1" class="form-check__label"><span class="txt">일별</span></label>
                       </div>
-                      <div class="form-row form-check form-check-button form-check-button--switch" data-row="감성어">
-                        <input id="radioKeyword_2_2" name="radioKeyword_2" class="form-check__input" type="radio" />
-                        <label for="radioKeyword_2_2" class="form-check__label"><span class="txt">감성어</span></label>
+                      <div class="form-row form-check form-check-button form-check-button--switch" data-row="주별">
+                        <input id="radioRange_2_2" name="radioRange_2" class="form-check__input" type="radio" />
+                        <label for="radioRange_2_2" class="form-check__label"><span class="txt">주별</span></label>
                       </div>
                     </fieldset>
                     <div class="js-chart h-100">선형그래프</div>
@@ -452,167 +565,166 @@
                         </colgroup>
                         <thead>
                           <tr>
-                              <th class="bg-dedede">순위</th>
-                              <th class="bg-dedede">연관키워드</th>
-                              <th class="bg-dedede">정보량</th>
-                            </tr>
-
+                            <th>순위</th>
+                            <th>연관키워드</th>
+                            <th>정보량</th>
+                          </tr>                        
                         </thead>
                         <tbody>
                           <!-- 요약내용 -->
                           
                           
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">1</td>
-                            <td class="text-center clamp-1">여왕</td>
-                            <td class="text-right"><a href="#" onclick="">18,366</a></td>
+                            <td class="text-center clamp-1">-</td>
+                            <td class="text-right">-</td>
                           </tr>
                           
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">2</td>
                             <td class="text-center clamp-1">영국 여왕</td>
-                            <td class="text-right"><a href="#" onclick="">18,366</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                           </tr>
                           
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">3</td>
                             <td class="text-center clamp-1">런던</td>
-                            <td class="text-right"><a href="#" onclick="">18,366</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">4</td>
                             <td class="text-center clamp-1">장례식</td>
-                            <td class="text-right"><a href="#" onclick="">9,366</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">5</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">7,521</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">6</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">4,889</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">4,889</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">7</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">3,074</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">3,074</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">8</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">3,011</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">3,011</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">9</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">2,775</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">2,775</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">10</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">2,775</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">2,775</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">11</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">1,775</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">1,775</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">12</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">1,775</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">1,775</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">13</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">14</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">15</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">16</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">17</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">18</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">19</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">20</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">21</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">22</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">23</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">24</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">25</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">26</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">27</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">28</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">30</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">1</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">1</a></td>
                           </tr>
-                          <tr class="summary">
+                          <tr>
                             <td class="text-center">29</td>
                             <td class="text-center clamp-1">총리</td>
-                            <td class="text-right"><a href="#" onclick="">975</a></td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
                           <!-- //요약내용 -->
                         </tbody>
@@ -631,7 +743,7 @@
   <!-- //토픽 상세 현황 -->
 
   <!-- 뉴스 매체 현황 -->
-  <section class="l-section" data-section="전체 토픽 현황" data-loding-spinner="false">
+  <section class="l-section" data-section="뉴스매체현황" data-loding-spinner="false">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">뉴스매체 현황</h3>
@@ -692,37 +804,37 @@
   </section>
   <!-- //뉴스 매체 현황 -->
 
-  <!-- 전체 데이터 --> 
-  <section class="l-section" data-section="전체 토픽 현황" data-loding-spinner="false">
+  <!-- 전체 데이터 -->
+  <section class="l-section" data-section="전체데이터" data-loding-spinner="false">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">전체 데이터</h3>
-        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="언어">
-          <div class="form-row form-check form-check-button form-check-button--switch" data-row="한국어">
-            <input id="radioLanguage1" name="radioLanguage" class="form-check__input" type="radio" checked />
-            <label for="radioLanguage1" class="form-check__label"><span class="txt">한국어</span></label>
-          </div>
-          <div class="form-row form-check form-check-button form-check-button--switch" data-row="영어">
-            <input id="radioLanguage2" name="radioLanguage" class="form-check__input" type="radio" />
-            <label for="radioLanguage2" class="form-check__label"><span class="txt">영어</span></label>
-          </div>
-        </fieldset>
+          <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
+            <div class="form-row form-check form-check-button form-check-button--switch" data-row="연관어">
+              <input id="radioLang1" name="radioLang" class="form-check__input" type="radio" checked />
+              <label for="radioLang1" class="form-check__label"><span class="txt">연관어</span></label>
+            </div>
+            <div class="form-row form-check form-check-button form-check-button--switch" data-row="감성어">
+              <input id="radioLang2" name="radioLang" class="form-check__input" type="radio" />
+              <label for="radioLang2" class="form-check__label"><span class="txt">감성어</span></label>
+            </div>
+          </fieldset>
       </header>
       <main class="l-section-body">
-        <article class="l-card p-0 border-0" data-card="해외여론주도층분석" data-loding-spinner="false dimmed" data-is-empty="false">
+        <article class="l-card p-0 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false">
           <header class="l-card-header mb-15">
-            TOTAL <span class="count">155474</span> (1/1 pages)
+            TOTAL. <span class="count">155474</span> (1/1 pages)
             <fieldset class="form-fieldse d-flex ml-auto">
               <div class="form-row form-select mr-10" data-row="기본정렬">
                 <select class="form-select__select">
-                  <option value="0">최신 수집 순</option>
+                  <option value="0" selected>최신 수집 순</option>
                   <option value="1">오래된 수집 순</option>
                   <option value="2">유사글 많은 순</option>
                 </select>
               </div>
               <div class="form-row form-select" data-row="기본정렬">
                 <select class="form-select__select">
-                  <option value="0">10건 씩 보기</option>
+                  <option value="0" selected>10건 씩 보기</option>
                   <option value="1">30건 씩 보기</option>
                   <option value="2">50건 씩 보기</option>
                 </select>
@@ -730,126 +842,137 @@
             </fieldset>
           </header>
           <main class="l-card-body">
-            <table class="c-table c-table-every">
+            <table class="c-table">
               <colgroup>
                 <col width="8.428%" />
                 <col width="*" />
-                <col width="8%" />
+                <col width="10%" />
                 <col width="3.574%" />
                 <col width="5.142%" />
               </colgroup>
               <thead>
                 <tr>
-                    <th class="bg-dedede">출처</th>
-                    <th class="bg-dedede">제목</th>
-                    <th class="bg-dedede">수집일시</th>
-                    <th class="bg-dedede">감성</th>
-                    <th class="bg-dedede">유사</th>
-                  </tr>
-
+                  <th>출처</th>
+                  <th>제목</th>
+                  <th>수집일시</th>
+                  <th>감성</th>
+                  <th>유사</th>
+                </tr>
               </thead>
               <tbody>
+                <!--  prettier-ignore -->
                 <!-- 요약내용 -->
-                <tr class="summary">
+                <tr>
                   <td class="text-center">arirang</td>
-                  <td class="clamp-1">
-                    Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #8b3244">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
                   </td>
                   <td class="text-center">2022-07-01 12:43</td>
                   <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center">205</td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
                 </tr>
-                
-                <tr class="summary">
-                    <td class="text-center">arirang</td>
-                    <td class="clamp-1">
-                        V&A to stage UK’s first major exhibition of Korean culture
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                    <td class="text-center">205</td>
-                  </tr>
-                
-                  <tr class="summary">
-                    <td class="text-center">fresnobee</td>
-                    <td class="clamp-1">
-                        Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix bo..
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
-                    <td class="text-center">205</td>
-                  </tr>
-                
-                  <tr class="summary">
-                    <td class="text-center">fresnobee</td>
-                    <td class="clamp-1">
-                        How Korean Pop Culture Took the World by Storm
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true"></i> </td>
-                    <td class="text-center openPop">205</td>
-                  </tr>
-                
-                  <tr class="summary">
-                    <td class="text-center">arirang</td>
-                    <td class="clamp-1">
-                        Deal for Ukraine grain exports due to be sealed in Istanbul
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                    <td class="text-center">205</td>
-                  </tr>
-                
-                  <tr class="summary">
-                    <td class="text-center">arirang</td>
-                    <td class="clamp-1">
-                        Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                    <td class="text-center">205</td>
-                  </tr>
-                
-                  <tr class="summary">
-                    <td class="text-center">arirang</td>
-                    <td class="clamp-1">
-                        Park Chan-wook wins Best Director at Cannes Film Festival
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                    <td class="text-center">205</td>
-                  </tr>
-                
-                  <tr class="summary">
-                    <td class="text-center">arirang</td>
-                    <td class="clamp-1">
-                        V&A to stage UK’s first major exhibition of Korean culture
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
-                    <td class="text-center">205</td>
-                  </tr>
-                
-                  <tr class="summary">
-                    <td class="text-center">arirang</td>
-                    <td class="clamp-1">
-                        How Korean Pop Culture Took the World by Storm
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                    <td class="text-center">205</td>
-                  </tr>
-                
-                  <tr class="summary">
-                    <td class="text-center">arirang</td>
-                    <td class="clamp-1">
-                        How Korean Pop Culture Took the World by Storm
-                    </td>
-                    <td class="text-center">2022-07-01 12:43</td>
-                    <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                    <td class="text-center">205</td>
-                  </tr>
-                <!-- //요약내용 -->
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #a47e4f">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #4f8058">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #8b3244">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #a47e4f">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #4f8058">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #8b3244">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #a47e4f">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #4f8058">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <tr>
+                  <td class="text-center">arirang</td>
+                  <td>
+                    <a href="#" class="link" target="_blank">
+                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<i class="highlight" style="--color-set: #4f8058">Squid Game</i>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                    </a>
+                  </td>
+                  <td class="text-center">2022-07-01 12:43</td>
+                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                </tr>
+                <!-- //요약내용 -->   
               </tbody>
             </table>
           </main>
@@ -906,187 +1029,6 @@
   <!-- //전체 데이터 -->
 </main>
 <!-- //#container -->
----
----
-<div id="popup_container">
-  <div class="bg"></div>
-  <main id="container" class="media" role="main"></main>
-  <section id="popup_rel_info_detail" class="popup_item">
-    <div class="header">
-      <span class="header-title">관련정보</span>
-      <a href="#" class="ui_btn is-icon-only is-large close" onclick="popupMngr.close( $( this ).parents( '.popup_item' ).eq( 0 ) );return false;" title="닫기"><span class="icon">&#xe019;</span></a>
-    </div>
-    <div class="content ui_loader_container">
-      <div class="wrap">
-        <div class="ui_row on_pad">
-          <div class="ui_col">
-            <div class="ui_box ui_loader_container /*is-loading*/">
-              <div class="box_header">
-                <div class="box_header_rc">
-                  <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="언어">
-                      <div class="form-row form-check form-check-button form-check-button--switch" data-row="한국어">
-                        <input id="radioLanguage1" name="radioLanguage" class="form-check__input" type="radio" />
-                        <label for="radioLanguage1" class="form-check__label"><span class="txt">한국어</span></label>
-                      </div>
-                      <div class="form-row form-check form-check-button form-check-button--switch" data-row="영어">
-                        <input id="radioLanguage2" name="radioLanguage" class="form-check__input" type="radio" checked />
-                        <label for="radioLanguage2" class="form-check__label"><span class="txt">영어</span></label>
-                      </div>
-                    </fieldset>
-                </div>
-              </div>
-              <div class="ui_brd_list">
-                <div class="header is-pad-t-7 no_bg pb-20 pt-0">
-                  <div class="lc">
-                    <span class="page_info">TOTAL. <span class="cnt">115474</span> (1/1 Pages)</span>
-                  </div>
-                </div>
-                <div class="wrap">
-                  <table class="pop-table">
-                    <colgroup>
-                      <col width="11.41%" />
-                      <col width="*" />
-                      <col width="9.33%" />
-                    </colgroup>
-                    <thead>
-                      <tr>
-                        <th scope="col"><span>출처</span></th>
-                        <th scope="col"><span>제목</span></th>
-                        <th scope="col"><span>수집일시</span></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                      <tr>
-    <td>아시아경제/통상</td>
-    <td class="ui_al">
-      <a href="#" class="lnk clr_00" target="_blank" title="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos"><span>Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boos</span></a>
-    </td>
-    <td>2022-07-01 12:43</td>
-  </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="footer">
-                  <ol class="c-pagination">
-                      <li class="c-pagination__item c-pagination__item--first">
-                        <button class="c-pagination__btn" type="button" title="첫 페이지"><i class="icon-svg-chevrons-left" aria-hidden="true"></i></button>
-                      </li>
-                      <li class="c-pagination__item c-pagination__item--prev">
-                        <button class="c-pagination__btn" type="button" title="이전 페이지"><i class="icon-svg-chevron-left" aria-hidden="true"></i></button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn c-pagination__btn--is-active" type="button">1</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">2</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">3</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">4</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">5</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">6</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">7</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">8</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">9</button>
-                      </li>
-                      <li class="c-pagination__item">
-                        <button class="c-pagination__btn" type="button">10</button>
-                      </li>
-                      <li class="c-pagination__item c-pagination__item--next">
-                        <button class="c-pagination__btn" type="button" title="다음 페이지"><i class="icon-svg-chevrons-right" aria-hidden="true"></i></button>
-                      </li>
-                      <li class="c-pagination__item c-pagination__item--last">
-                        <button class="c-pagination__btn" type="button" title="마지막 페이지"><i class="icon-svg-chevron-right" aria-hidden="true"></i></button>
-                      </li>
-                    </ol>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      
-      <div class="ui_loader"><span class="loader"></span></div>
-      
-    </div>
-  </section>
-</div>
 
 <!-- #footer -->
 <footer id="footer" class="footer" role="contentinfo"></footer>

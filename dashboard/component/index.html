@@ -10,17 +10,53 @@
   <meta name="robots" content="noindex,nofollow"> 
   
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />
-
-  <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
+  <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 </head>
 
 <body>
+<!-- 페이지 로딩 -->
+<aside id="lodingWrap">
+  <div class="content">
+      <div class="img">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <p>페이지를 불러오고 있습니다.</p>
+  </div>
+
+  <style type="text/css">
+      #lodingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.5)}
+      #lodingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+      #lodingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:lodingWrap 2.4s infinite linear;}
+      #lodingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
+      #lodingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
+      #lodingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
+      #lodingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
+      #lodingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
+      #lodingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
+      #lodingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
+      #lodingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
+      #lodingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
+      #lodingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
+      #lodingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
+
+      @media screen and (min-width:768px) {
+          #lodingWrap .content .img {width:100px;height:100px;}
+      }
+      @keyframes lodingWrap {
+          0% {transform: rotate(0);}
+          100% {transform: rotate(360deg);}
+      }
+  </style>
+</aside>
+<!-- //페이지 로딩 -->
+
+<!-- JS -->
+<script src="/dashboard/asset/js/config/files.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+<script src="/dashboard/asset/js/import.bundle.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+<script src="/dashboard/asset/js/config/router.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+
 <!-- #wrap -->
-<div id="wrap" data-target-device="pc" user-scalable="false">
+<div id="wrap" data-target-device="pc" user-scalable="false" style="opacity: 0; visibility: hidden;">
   
 <!-- #header -->
 <header id="header" class="header" data-header-fixed="true" role="banner">

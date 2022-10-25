@@ -10,17 +10,53 @@
   <meta name="robots" content="noindex,nofollow"> 
   
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />
-
-  <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221025112853&v=<%= cache.format(nowTime) %>"></script>
+  <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 </head>
 
 <body>
+<!-- 페이지 로딩 -->
+<aside id="lodingWrap">
+  <div class="content">
+      <div class="img">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <p>페이지를 불러오고 있습니다.</p>
+  </div>
+
+  <style type="text/css">
+      #lodingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.5)}
+      #lodingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+      #lodingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:lodingWrap 2.4s infinite linear;}
+      #lodingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
+      #lodingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
+      #lodingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
+      #lodingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
+      #lodingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
+      #lodingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
+      #lodingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
+      #lodingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
+      #lodingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
+      #lodingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
+      #lodingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
+
+      @media screen and (min-width:768px) {
+          #lodingWrap .content .img {width:100px;height:100px;}
+      }
+      @keyframes lodingWrap {
+          0% {transform: rotate(0);}
+          100% {transform: rotate(360deg);}
+      }
+  </style>
+</aside>
+<!-- //페이지 로딩 -->
+
+<!-- JS -->
+<script src="/dashboard/asset/js/config/files.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+<script src="/dashboard/asset/js/import.bundle.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+<script src="/dashboard/asset/js/config/router.js?v=20221026002725&v=<%= cache.format(nowTime) %>"></script>
+
 <!-- #wrap -->
-<div id="wrap" data-target-device="pc" user-scalable="false">
+<div id="wrap" data-target-device="pc" user-scalable="false" style="opacity: 0; visibility: hidden;">
   
 <!-- #header -->
 <header id="header" class="header" data-header-fixed="true" role="banner">
@@ -53,41 +89,7 @@
 </header>
 <!-- //#header -->
 
-<!-- 페이지 로딩 -->
-<aside id="lodingWrap">
-  <div class="content">
-      <div class="img">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <p>페이지를 불러오고 있습니다.</p>
-  </div>
 
-  <style type="text/css">
-      #lodingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.5)}
-      #lodingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
-      #lodingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:lodingWrap 2.4s infinite linear;}
-      #lodingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
-      #lodingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
-      #lodingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
-      #lodingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
-      #lodingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
-      #lodingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
-      #lodingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
-      #lodingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
-      #lodingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
-      #lodingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
-      #lodingWrap .content p {position:absolute;left:50%;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
-
-      @media screen and (min-width:768px) {
-          #lodingWrap .content .img {width:100px;height:100px;}
-      }
-      @keyframes lodingWrap {
-          0% {transform: rotate(0);}
-          100% {transform: rotate(360deg);}
-      }
-  </style>
-</aside>
-<!-- //페이지 로딩 -->
 <!-- #container -->
 <main id="container" class="leaders" role="main">
   <!-- 전체검색 -->
@@ -96,7 +98,13 @@
       <div class="option">
         <div class="datepickers">
           <strong>검색기간</strong>
-          <div class="ui_datepickers" id="dp11" data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }' data-grps='[ "0", "7", "30", "9MT", "10MT" ]' data-type-opts='[ "day", "week", "month" ]'></div>
+          <div
+            class="ui_datepickers"
+            id="dp11"
+            data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }'
+            data-grps='[ "0", "7", "30", "9MT", "10MT" ]'
+            data-type-opts='[ "day", "week", "month" ]'
+          ></div>
         </div>
       </div>
       <button type="button" class="btn btn-round rounded-0 btn-search"><span class="txt">검색</span></button>
@@ -261,9 +269,8 @@
             <fieldset class="form-fieldse d-flex ml-auto">
               <div class="form-row form-select" data-row="기본정렬">
                 <select class="form-select__select">
-                  <option disabled>메뉴를 선택해 주세요</option>
                   <option value="0" selected>10건 씩 보기</option>
-                  <option value="1" >30건 씩 보기</option>
+                  <option value="1">30건 씩 보기</option>
                   <option value="2">50건 씩 보기</option>
                 </select>
               </div>
@@ -347,13 +354,14 @@
                 </tr>
               </thead>
               <tbody>
+                <!--  prettier-ignore -->
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">1</td>
                   <td class="text-center"><i class="icon-twitter" aria-hidden="true" title="twitter"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">Nancy Pelosi</p>
                       <p class="id clamp-1">Speaker Pelosi</p>
                     </div>
@@ -381,7 +389,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">Nancy Pelosi</p>
                     <p class="id clamp-1">Speaker Pelosi</p>
@@ -532,12 +540,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -661,12 +664,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -820,15 +818,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 -->
-
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">2</td>
                   <td class="text-center"><i class="icon-facebook" aria-hidden="true" title="facebook"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">President Biden</p>
                       <p class="id clamp-1">POTUS</p>
                     </div>
@@ -856,7 +853,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">President Biden</p>
                     <p class="id clamp-1">POTUS</p>
@@ -1007,12 +1004,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -1136,12 +1128,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -1295,15 +1282,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 --> 
-
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">1</td>
                   <td class="text-center"><i class="icon-twitter" aria-hidden="true" title="twitter"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">Nancy Pelosi</p>
                       <p class="id clamp-1">Speaker Pelosi</p>
                     </div>
@@ -1331,7 +1317,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">Nancy Pelosi</p>
                     <p class="id clamp-1">Speaker Pelosi</p>
@@ -1482,12 +1468,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -1611,12 +1592,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -1770,15 +1746,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 --> 
-
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">2</td>
                   <td class="text-center"><i class="icon-facebook" aria-hidden="true" title="facebook"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">President Biden</p>
                       <p class="id clamp-1">POTUS</p>
                     </div>
@@ -1806,7 +1781,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">President Biden</p>
                     <p class="id clamp-1">POTUS</p>
@@ -1957,12 +1932,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -2086,12 +2056,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -2245,15 +2210,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 --> 
-
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">1</td>
                   <td class="text-center"><i class="icon-twitter" aria-hidden="true" title="twitter"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">Nancy Pelosi</p>
                       <p class="id clamp-1">Speaker Pelosi</p>
                     </div>
@@ -2281,7 +2245,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">Nancy Pelosi</p>
                     <p class="id clamp-1">Speaker Pelosi</p>
@@ -2432,12 +2396,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -2561,12 +2520,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -2720,15 +2674,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 --> 
-
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">2</td>
                   <td class="text-center"><i class="icon-facebook" aria-hidden="true" title="facebook"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">President Biden</p>
                       <p class="id clamp-1">POTUS</p>
                     </div>
@@ -2756,7 +2709,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">President Biden</p>
                     <p class="id clamp-1">POTUS</p>
@@ -2907,12 +2860,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -3036,12 +2984,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -3195,15 +3138,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 --> 
-
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">1</td>
                   <td class="text-center"><i class="icon-twitter" aria-hidden="true" title="twitter"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">Nancy Pelosi</p>
                       <p class="id clamp-1">Speaker Pelosi</p>
                     </div>
@@ -3231,7 +3173,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">Nancy Pelosi</p>
                     <p class="id clamp-1">Speaker Pelosi</p>
@@ -3382,12 +3324,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -3511,12 +3448,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -3670,15 +3602,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 --> 
-
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">2</td>
                   <td class="text-center"><i class="icon-facebook" aria-hidden="true" title="facebook"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">President Biden</p>
                       <p class="id clamp-1">POTUS</p>
                     </div>
@@ -3706,7 +3637,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">President Biden</p>
                     <p class="id clamp-1">POTUS</p>
@@ -3857,12 +3788,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -3986,12 +3912,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -4145,15 +4066,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 --> 
-
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">1</td>
                   <td class="text-center"><i class="icon-twitter" aria-hidden="true" title="twitter"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">Nancy Pelosi</p>
                       <p class="id clamp-1">Speaker Pelosi</p>
                     </div>
@@ -4181,7 +4101,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/pelosi.jpg" alt="pelosi"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">Nancy Pelosi</p>
                     <p class="id clamp-1">Speaker Pelosi</p>
@@ -4332,12 +4252,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -4461,12 +4376,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -4620,15 +4530,14 @@
                     </article>
                   </td>
                 </tr>
-                <!-- //상세내용 --> 
-                  
+                <!-- //상세내용 -->   
                 <!-- 요약내용 -->
                 <tr class="summary">
                   <td class="text-center">2</td>
                   <td class="text-center"><i class="icon-facebook" aria-hidden="true" title="facebook"></i></td>
                   <td>
                     <div class="user">
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden"  onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                       <p class="name clamp-1">President Biden</p>
                       <p class="id clamp-1">POTUS</p>
                     </div>
@@ -4656,7 +4565,7 @@
                         <div class="profile">
                     <div class="profile__photo-box">
                       <i class="icon-twitter" aria-hidden="true" title="twitter"></i>
-                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" />
+                      <img class="img" src="/dashboard/asset/img/sample_profile_photo/biden.jpg" alt="biden" onerror="this.onerror=null; this.src='/dashboard/asset/img/common/noprofile.png';"/>
                     </div>
                     <p class="name clamp-1">President Biden</p>
                     <p class="id clamp-1">POTUS</p>
@@ -4807,12 +4716,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
@@ -4936,12 +4840,7 @@
                   <ul class="section__news-list">
                     <li class="section__news-list__item">
                       <i class="icon-memo" aria-hidden="true" title="twitter"></i>
-                      <a class="link" href="#" target="_blank">
-                        <span class="clamp-1">
-                          1흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성
-                          부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁
-                        </span>
-                      </a>
+                      <a class="link" href="#" target="_blank"><span class="clamp-1">3흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁 흐름 좋았던 조규성 부상 이탈, 조영욱 추가 발탁</span></a>
                       <div class="ml-auto">
                         <span class="source">Speaker Peoliosi</span>
                         <span class="date">2022-09-13 18:12</span>
