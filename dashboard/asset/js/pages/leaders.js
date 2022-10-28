@@ -1,5 +1,8 @@
 // DOCUMENT READY...
 $(function () {
+  am4core.options.commercialLicense = true;
+  am4core.options.autoSetClassName = true;
+
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
   */
