@@ -125,7 +125,7 @@ $(function () {
     const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=정보량점유율] .js-chart");
     var chart = AmCharts.makeChart($chart, {
       type: "pie",
-      path: `${SERVER.asset}/img/amchart/`,
+      path: "//public.realsn.com/libs/amcharts/v3",
       fontSize: 12,
       balloonText: "<strong>[[title]] : [[value]] <span style='font-size: 11px;'>([[percents]]%)</span></strong>",
       // '<strong>' + $b.title + ': <span>' + String($a.dataContext[$b['valueField']]).addComma() + '</span> <span style="font-size: 11px;">(' + percents + '%)</span></strong>';
@@ -199,7 +199,7 @@ $(function () {
 
     var chart = AmCharts.makeChart($chart, {
       type: "serial",
-      path: `${SERVER.asset}/img/amchart/`,
+      path: "//public.realsn.com/libs/amcharts/v3",
       categoryField: "category",
       addClassNames: true,
       columnWidth: 0.32,
@@ -400,7 +400,7 @@ $(function () {
 
     var chart = AmCharts.makeChart($chart, {
       type: "serial",
-      path: `${SERVER.asset}/img/amchart/`,
+      path: "//public.realsn.com/libs/amcharts/v3",
       categoryField: "category",
       addClassNames: true,
       fontSize: 12,
@@ -901,7 +901,7 @@ $(function () {
 
     var chart = AmCharts.makeChart($chart, {
       type: "serial",
-      path: `${SERVER.asset}/img/amchart/`,
+      path: "//public.realsn.com/libs/amcharts/v3",
       categoryField: "category",
       addClassNames: true,
       columnWidth: 0.32,
@@ -1040,7 +1040,7 @@ $(function () {
     const $chart = document.querySelector("[data-section=뉴스매체현황] [data-card=국가별보도점유율] .js-chart");
     var chart = AmCharts.makeChart($chart, {
       type: "pie",
-      path: `${SERVER.asset}/img/amchart/`,
+      path: "//public.realsn.com/libs/amcharts/v3",
       fontSize: 12,
       balloonText: "<strong>[[title]] : [[value]] <span style='font-size: 11px;'>([[percents]]%)</span></strong>",
       innerRadius: "40%",
@@ -1113,7 +1113,7 @@ $(function () {
 
     var chart = AmCharts.makeChart($chart, {
       type: "serial",
-      path: `${SERVER.asset}/img/amchart/`,
+      path: "//public.realsn.com/libs/amcharts/v3",
       categoryField: "category",
       addClassNames: true,
       fontSize: 12,
