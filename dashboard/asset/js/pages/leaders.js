@@ -518,39 +518,4 @@ $(function () {
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
   */
-  {
-    /**
-     *
-     * depth : 해외여론주도층 분석
-     * event : TEST 파라미터
-     * cmt   : 화면 테스트용, 삭제하시면되요
-     *
-     */
-
-    const name = new URLSearchParams(location.search).get("preview");
-
-    if (name) {
-      switch (name) {
-        //  데이터 로딩 예시
-        case "loding":
-          const $lodings = document.querySelectorAll("[data-loding-spinner]");
-
-          Array.from($lodings).forEach((_$loding) => {
-            _$loding.setAttribute("data-loding-spinner", "true dimmed");
-          });
-          break;
-        //  데이터 없는 경우
-        case "empty":
-          const $emptys = document.querySelectorAll("[data-is-empty]");
-
-          Array.from($emptys).forEach((_$empty) => {
-            _$empty.setAttribute("data-is-empty", "true");
-          });
-          break;
-      }
-    }
-  }
-  /*
-  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-  */
 }); // DOCUMENT READY...
