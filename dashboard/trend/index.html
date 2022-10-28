@@ -11,38 +11,43 @@
   
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
+
+  <!-- JS -->
+  <script src="/dashboard/asset/js/config/files.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
 <!-- 페이지 로딩 -->
-<aside id="lodingWrap">
+<!-- 페이지 로딩 -->
+<aside id="loadingWrap">
   <div class="content">
-      <div class="img">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <p>페이지를 불러오고 있습니다.</p>
+    <div class="img"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <p>페이지를 불러오고 있습니다.</p>
   </div>
 
+  
   <style type="text/css">
-      #lodingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.5)}
-      #lodingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
-      #lodingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:lodingWrap 2.4s infinite linear;}
-      #lodingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
-      #lodingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
-      #lodingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
-      #lodingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
-      #lodingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
-      #lodingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
-      #lodingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
-      #lodingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
-      #lodingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
-      #lodingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
-      #lodingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
+      #loadingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.3)}
+      #loadingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+      #loadingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:loadingWrap 2.4s infinite linear;}
+      #loadingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
+      #loadingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
+      #loadingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
+      #loadingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
+      #loadingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
+      #loadingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
+      #loadingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
+      #loadingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
+      #loadingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
+      #loadingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
+      #loadingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
 
       @media screen and (min-width:768px) {
-          #lodingWrap .content .img {width:100px;height:100px;}
+          #loadingWrap .content .img {width:100px;height:100px;}
       }
-      @keyframes lodingWrap {
+      @keyframes loadingWrap {
           0% {transform: rotate(0);}
           100% {transform: rotate(360deg);}
       }
@@ -50,10 +55,6 @@
 </aside>
 <!-- //페이지 로딩 -->
 
-<!-- JS -->
-<script src="/dashboard/asset/js/config/files.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
-<script src="/dashboard/asset/js/import.bundle.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
-<script src="/dashboard/asset/js/config/router.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
 
 <!-- #wrap -->
 <div id="wrap" data-target-device="pc" user-scalable="false" style="opacity: 0; visibility: hidden;">
@@ -74,7 +75,7 @@
           <a href="#" class="ui_btn is-color-blk" target="_blank" title="System 바로가기"><span class="icon">&#xe070;</span></a>
         </li>
         <li class="header-top__item header_fix_pin">
-          <input id="pin_chk_00" type="checkbox" autocomplete="off" />
+          <input id="pin_chk_00" class="js-headerPin" type="checkbox" autocomplete="off" />
           <label class="ui_btn is-icon-only" for="pin_chk_00"><span class="icon">&#xe062;</span></label>
         </li>
       </ul>
@@ -91,20 +92,14 @@
 
 
 <!-- #container -->
-<main id="container" class="trend" role="main">
+<main id="container" class="trend" role="main" data-quick-title="급상승 이슈 분석">
   <!-- 전체검색 -->
   <nav class="c-search-bar">
     <div class="inner">
       <div class="option">
         <div class="datepickers">
           <strong>검색기간</strong>
-          <div
-            class="ui_datepickers"
-            id="dp11"
-            data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }'
-            data-grps='[ "0", "7", "30", "9MT", "10MT" ]'
-            data-type-opts='[ "day", "week", "month" ]'
-          ></div>
+          <div class="ui_datepickers" id="dp11" data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }' data-grps='[ "0", "7", "30", "9MT", "10MT" ]' data-type-opts='[ "day", "week", "month" ]'></div>
         </div>
       </div>
       <button type="button" class="btn btn-round rounded-0 btn-search"><span class="txt">검색</span></button>
@@ -129,7 +124,7 @@
         </fieldset>
       </header>
       <main class="l-section-body">
-        <article class="l-card p-0 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false">
+        <article class="l-card p-0 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false" data-quick-menu="전체 이슈 현황">
           <header class="l-card-header mb-15">TOTAL. <span class="count">155,474</span> (1/1 pages)</header>
           <main class="l-card-body">테이블</main>
           <footer class="l-card-footer pt-30">
@@ -181,9 +176,9 @@
         </article>
 
         <!-- 이슈 상세 현황 -->
-        <article class="l-card" data-card="이슈 상세 현황" data-is-empty="false">
-          <header class="l-card-header mb-10">
-            <h4 class="l-card-header__title">연관키워드</h4>
+        <article class="l-card mt-30" data-card="이슈상세현황" data-is-empty="false" data-quick-menu="이슈 상세 현황">
+          <header class="l-card-header mb-15">
+            <h4 class="l-card-header__title">이슈 상세 현황 <i class="c-badge" style="--color-set: #e8e4e2; color: #000000">코로나 19</i></h4>
             <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
               <div class="form-row form-check form-check-button form-check-button--switch" data-row="연관어">
                 <input id="radioKeyword1" name="radioKeyword" class="form-check__input" type="radio" checked />
@@ -197,10 +192,10 @@
           </header>
           <main class="l-card-body">
             <!-- 정보량 및 감성 추이 -->
-            <article class="l-card h-100 bg-fafafa mb-10" data-card="정보량및감성추이" data-is-empty="false">
+            <article class="l-card bg-fafafa mb-10" data-card="정보량및감성추이" data-is-empty="false" style="height: 49rem">
               <header class="l-card-header">
                 <h4 class="l-card-header__title fs-13">정보량 및 감성 추이</h4>
-                <fieldset class="form-fieldset d-flex pt-10 ml-auto" data-fieldset="일별/주별">
+                <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="일별/주별">
                   <div class="form-row form-check form-check-button form-check-button--switch" data-row="일별">
                     <input id="radioRange_2_1" name="radioRange_2" class="form-check__input" type="radio" checked />
                     <label for="radioRange_2_1" class="form-check__label"><span class="txt">일별</span></label>
@@ -218,10 +213,10 @@
             <!-- // 정보량 및 감성 추이 -->
 
             <!-- 기간별 연관어 변화 -->
-            <article class="l-card h-100 bg-fafafa mb-10" data-card="기간별연관어변화" data-is-empty="false">
-              <header class="l-card-header">
+            <article class="l-card bg-fafafa mb-10" data-card="기간별연관어변화" data-is-empty="false" style="height: 47rem">
+              <header class="l-card-header mb-15">
                 <h4 class="l-card-header__title fs-13">기간별 연관어 변화</h4>
-                <fieldset class="form-fieldset d-flex pt-10 ml-auto" data-fieldset="연관어/감성어">
+                <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
                   <div class="form-row form-check form-check-button form-check-button--switch" data-row="연관어">
                     <input id="radioKeyword_0_1" name="radioKeyword_0" class="form-check__input" type="radio" checked />
                     <label for="radioKeyword_0_1" class="form-check__label"><span class="txt">연관어</span></label>
@@ -232,26 +227,1189 @@
                   </div>
                 </fieldset>
               </header>
-              <main class="l-card-body">테이블 영역</main>
+              <main class="l-card-body">
+                <div class="scroll-container">
+                  <div class="row flex-nowrap">
+                    <div>
+                      <div class="range_box">
+                        <strong class="week">6월 4주차</strong>
+                        <span class="week_detail">2022-06-21 ~ 2022-06-26</span>
+                      </div>
+                      <table class="c-table">
+                        <colgroup>
+                          <col width="*" />
+                          <col width="30%" />
+                          <col width="30%" />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>연관어</th>
+                            <th>정보량</th>
+                            <th>증감률</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!--  prettier-ignore -->
+                          <!-- 요약내용 -->
+                          
+                          
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <!-- //요약내용 -->
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <div class="range_box">
+                        <strong class="week">6월 5주차</strong>
+                        <span class="week_detail">2022-06-27 ~ 2022-07-03</span>
+                      </div>
+                      <table class="c-table">
+                        <colgroup>
+                          <col width="*" />
+                          <col width="30%" />
+                          <col width="30%" />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>연관어</th>
+                            <th>정보량</th>
+                            <th>증감률</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!--  prettier-ignore -->
+                          <!-- 요약내용 -->
+                          
+                          
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <!-- //요약내용 -->
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <div class="range_box">
+                        <strong class="week">7월 1주차</strong>
+                        <span class="week_detail">2022-07-04 ~ 2022-07-10</span>
+                      </div>
+                      <table class="c-table">
+                        <colgroup>
+                          <col width="*" />
+                          <col width="30%" />
+                          <col width="30%" />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>연관어</th>
+                            <th>정보량</th>
+                            <th>증감률</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!--  prettier-ignore -->
+                          <!-- 요약내용 -->
+                          
+                          
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <!-- //요약내용 -->
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <div class="range_box">
+                        <strong class="week">7월 2주차</strong>
+                        <span class="week_detail">2022-07-17 ~ 2022-07-23</span>
+                      </div>
+                      <table class="c-table">
+                        <colgroup>
+                          <col width="*" />
+                          <col width="30%" />
+                          <col width="30%" />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>연관어</th>
+                            <th>정보량</th>
+                            <th>증감률</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!--  prettier-ignore -->
+                          <!-- 요약내용 -->
+                          
+                          
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <!-- //요약내용 -->
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <div class="range_box">
+                        <strong class="week">7월 1주차</strong>
+                        <span class="week_detail">2022-07-17 ~ 2022-07-23</span>
+                      </div>
+                      <table class="c-table">
+                        <colgroup>
+                          <col width="*" />
+                          <col width="30%" />
+                          <col width="30%" />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>연관어</th>
+                            <th>정보량</th>
+                            <th>증감률</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!--  prettier-ignore -->
+                          <!-- 요약내용 -->
+                          
+                          
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="영국 여왕">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-up" title="상승"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="장례식">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-triangle-down" title="하락"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="발리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <tr data-idx="총리">
+                            <td class="text-left fw-bold">
+                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                            </td>
+                            <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
+                            <td class="text-right">
+                              <i class="icon-svg-bar" title="동일"></i>
+                              <span class="percent">17.8</span>
+                            </td>
+                          </tr>
+                          <!-- //요약내용 -->
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </main>
             </article>
             <!-- // 기간별 연관어 변화 -->
 
             <!-- 연관어 비교-->
-            <article class="l-card h-100 bg-fafafa" data-card="기간별연관어변화" data-is-empty="false">
+            <article class="l-card bg-fafafa" data-card="연관어비교" data-is-empty="false" style="height: 41rem">
               <header class="l-card-header">
                 <h4 class="l-card-header__title fs-13">연관어 비교</h4>
-                <fieldset class="form-fieldset d-flex pt-10 ml-auto" data-fieldset="연관어/감성어">
+                <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
                   <div class="form-row form-check form-check-button form-check-button--switch" data-row="연관어">
-                    <input id="radioRange_2_1" name="radioRange_2" class="form-check__input" type="radio" checked />
-                    <label for="radioRange_2_1" class="form-check__label"><span class="txt">연관어</span></label>
+                    <input id="radioRange_3_1" name="radioRange_3" class="form-check__input" type="radio" checked />
+                    <label for="radioRange_3_1" class="form-check__label"><span class="txt">연관어</span></label>
                   </div>
                   <div class="form-row form-check form-check-button form-check-button--switch" data-row="감성어">
-                    <input id="radioRange_2_2" name="radioRange_2" class="form-check__input" type="radio" />
-                    <label for="radioRange_2_2" class="form-check__label"><span class="txt">감성어</span></label>
+                    <input id="radioRange_3_2" name="radioRange_3" class="form-check__input" type="radio" />
+                    <label for="radioRange_3_2" class="form-check__label"><span class="txt">감성어</span></label>
                   </div>
                 </fieldset>
               </header>
-              <main class="l-card-body">차트 영역</main>
+              <main class="l-card-body">
+                <ul class="keyword-map">
+                  <li class="is-position-left is-top_1"><span class="item is-color-01">앨렌</span></li>
+                  <li class="is-position-left is-top_2"><span class="item is-color-01">에너지 가격</span></li>
+                  <li class="is-position-left is-top_3"><span class="item is-color-01">식량안보</span></li>
+                  <li class="is-position-left is-top_4"><span class="item is-color-01">유가 폭등</span></li>
+                  <li class="is-position-left is-top_5"><span class="item is-color-01">바이든</span></li>
+                  <li class="is-position-center is-top_1"><span class="item is-color-02">러시아</span></li>
+                  <li class="is-position-center is-top_2"><span class="item is-color-02">미국미국미국</span></li>
+                  <li class="is-position-center is-top_3"><span class="item is-color-02">지원</span></li>
+                  <li class="is-position-center is-top_4"><span class="item is-color-02">위기위기위기위기위기위기위기위기위기위기</span></li>
+                  <li class="is-position-center is-top_5"><span class="item is-color-02">우려하다</span></li>
+                  <li class="is-position-right is-top_1"><span class="item is-color-03">곡물 수출</span></li>
+                  <li class="is-position-right is-top_2"><span class="item is-color-03">협상</span></li>
+                  <li class="is-position-right is-top_3"><span class="item is-color-03">흑해</span></li>
+                  <li class="is-position-right is-top_4"><span class="item is-color-03">기타</span></li>
+                  <li class="is-position-right is-top_5"><span class="item is-color-03">폭염</span></li>
+                </ul>
+              </main>
             </article>
             <!-- // 연관어 비교 -->
           </main>
@@ -263,7 +1421,7 @@
   <!-- //전체 이슈 현황 -->
 
   <!-- 전체 데이터 -->
-  <section class="l-section" data-section="전체데이터" data-loding-spinner="false">
+  <section class="l-section" data-section="전체데이터" data-loding-spinner="false" data-quick-menu="전체 데이터">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">전체 데이터</h3>
@@ -279,7 +1437,7 @@
         </fieldset>
       </header>
       <main class="l-section-body">
-        <article class="l-card p-0 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false">
+        <article class="l-card p-0 pb-30 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false">
           <header class="l-card-header mb-15">
             TOTAL. <span class="count">155,474</span> (1/1 pages)
             <fieldset class="form-fieldse d-flex ml-auto">
@@ -323,7 +1481,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -334,7 +1492,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -345,7 +1503,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -356,7 +1514,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -367,7 +1525,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -378,7 +1536,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -389,7 +1547,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -400,7 +1558,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -411,7 +1569,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>
@@ -422,7 +1580,7 @@
                 <tr>
                   <td class="text-center">arirang</td>
                   <td>
-                    <a href="#" class="link" target="_blank">
+                    <a href="#" class="link" target="_blank" data-tooltip="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
                       <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
                     </a>
                   </td>

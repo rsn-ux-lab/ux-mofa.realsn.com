@@ -12,14 +12,14 @@ $(function () {
      *
      */
 
-    const $summary = document.querySelector("[data-section=전체토픽현황] [data-card=주요현황요약]");
+    const $summary = document.querySelector('[data-section=전체토픽현황] [data-card=주요현황요약]');
 
-    $summary.classList.add("l-card--is-active");
+    $summary.classList.add('l-card--is-active');
 
     //observer
     const observer = new MutationObserver(() => {
-      $summary.classList.remove("l-card--is-active");
-      setTimeout(() => $summary.classList.add("l-card--is-active"), 100);
+      $summary.classList.remove('l-card--is-active');
+      setTimeout(() => $summary.classList.add('l-card--is-active'), 100);
     });
 
     observer.observe($summary, { childList: true, subtree: true });
@@ -47,7 +47,7 @@ $(function () {
         this.removeEvent();
 
         this.$list = _$list;
-        this.$tits = this.$list.querySelectorAll(".tit");
+        this.$tits = this.$list.querySelectorAll('.tit');
 
         this.$tits && this.$tits.forEach((_$tit) => this.setTootip(_$tit));
       }
@@ -59,53 +59,53 @@ $(function () {
 
       /* tooltip */
       setTootip = (_$tit) => {
-        const hasTooltip = _$tit.querySelectorAll(".tooltip").length;
-        const $clamp = _$tit.querySelector("[class*=clamp]");
+        const hasTooltip = _$tit.querySelectorAll('.tooltip').length;
+        const $clamp = _$tit.querySelector('[class*=clamp]');
 
         if (hasTooltip === 0) {
           const msg = $clamp.textContent;
           const $template = `<aside class="tooltip">${msg}</aside> `;
 
-          _$tit.insertAdjacentHTML("beforeend", $template);
+          _$tit.insertAdjacentHTML('beforeend', $template);
         }
 
-        $clamp.addEventListener("mouseover", this.mouseoverTootip);
-        $clamp.addEventListener("mouseout", this.mouseoutTootip);
+        $clamp.addEventListener('mouseover', this.mouseoverTootip);
+        $clamp.addEventListener('mouseout', this.mouseoutTootip);
       };
 
       /* tooltip - remove */
       removeTootip = (_$tit) => {
-        const $clamp = _$tit.querySelector("[class*=clamp]");
+        const $clamp = _$tit.querySelector('[class*=clamp]');
 
-        $clamp.removeEventListener("mouseover", this.mouseoverTootip);
-        $clamp.removeEventListener("mouseout", this.mouseoutTootip);
+        $clamp.removeEventListener('mouseover', this.mouseoverTootip);
+        $clamp.removeEventListener('mouseout', this.mouseoutTootip);
       };
 
       /* tooltip - mouseover */
       mouseoverTootip = (e) => {
-        e.target.style.overflow = "visible";
-        e.target.siblings(".tooltip")[0].classList.add("tooltip--is-active");
+        e.target.style.overflow = 'visible';
+        e.target.siblings('.tooltip')[0].classList.add('tooltip--is-active');
       };
 
       /* tooltip - mouseout */
       mouseoutTootip = (e) => {
-        e.target.style.overflow = "";
-        e.target.siblings(".tooltip")[0].classList.remove("tooltip--is-active");
+        e.target.style.overflow = '';
+        e.target.siblings('.tooltip')[0].classList.remove('tooltip--is-active');
       };
     }
 
     // install
-    const $keyword = document.querySelector("[data-section=전체토픽현황] [data-card=이슈키워드]");
-    const $list = $keyword.querySelector("[data-section=전체토픽현황] [data-card=이슈키워드] .ol_list");
+    const $keyword = document.querySelector('[data-section=전체토픽현황] [data-card=이슈키워드]');
+    const $list = $keyword.querySelector('[data-section=전체토픽현황] [data-card=이슈키워드] .ol_list');
     const tooltip = new Tooltip();
 
-    $keyword.classList.add("l-card--is-active");
+    $keyword.classList.add('l-card--is-active');
     tooltip.init($list);
 
     //observer
     let observer = new MutationObserver(() => {
-      $keyword.classList.remove("l-card--is-active");
-      setTimeout(() => $keyword.classList.add("l-card--is-active"), 100);
+      $keyword.classList.remove('l-card--is-active');
+      setTimeout(() => $keyword.classList.add('l-card--is-active'), 100);
       tooltip.init($list);
     });
 
@@ -122,20 +122,20 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=정보량점유율] .js-chart");
+    const $chart = document.querySelector('[data-section=토픽상세현황] [data-card=정보량점유율] .js-chart');
     var chart = AmCharts.makeChart($chart, {
-      type: "pie",
+      type: 'pie',
       fontSize: 12,
       balloonText: "<strong>[[title]] : [[value]] <span style='font-size: 11px;'>([[percents]]%)</span></strong>",
       // '<strong>' + $b.title + ': <span>' + String($a.dataContext[$b['valueField']]).addComma() + '</span> <span style="font-size: 11px;">(' + percents + '%)</span></strong>';
-      innerRadius: "40%",
+      innerRadius: '40%',
       labelRadius: -30,
-      labelText: "[[percents]]%",
-      pullOutRadius: "0%",
-      radius: "45%",
+      labelText: '[[percents]]%',
+      pullOutRadius: '0%',
+      radius: '45%',
       startAngle: 0,
-      startRadius: "0%",
-      colors: ["#8B3244", "#A47E4F", "#4F8058", "#3B448A", "#424242"],
+      startRadius: '0%',
+      colors: ['#8B3244', '#A47E4F', '#4F8058', '#3B448A', '#424242'],
       hideLabelsPercent: 5,
       marginTop: 0,
       marginBottom: 0,
@@ -144,12 +144,12 @@ $(function () {
       outlineThickness: 1,
       pullOutDuration: 0,
       startDuration: 0,
-      titleField: "category",
-      valueField: "column-1",
+      titleField: 'category',
+      valueField: 'column-1',
       accessible: false,
       addClassNames: true,
       autoResize: true,
-      color: "#ffffff",
+      color: '#ffffff',
       percentPrecision: 0,
       balloon: {
         fillAlpha: 0.95,
@@ -158,29 +158,29 @@ $(function () {
       },
       legend: {
         enabled: true,
-        align: "center",
+        align: 'center',
         equalWidths: true,
-        position: "top",
+        position: 'top',
         markerSize: 8,
-        markerType: "circle",
+        markerType: 'circle',
         // spacing: 5,
         valueWidth: 80,
         verticalGap: 5,
         marginTop: 0,
         maxColumns: 2,
-        valueText: ": [[value]] ([[percents]]%)",
+        valueText: ': [[value]] ([[percents]]%)',
       },
       titles: [],
       dataProvider: [
-        { category: "한반도", "column-1": "29" },
-        { category: "외교/정치/군사", "column-1": "27" },
-        { category: "경제/통상", "column-1": "25" },
-        { category: "기후환경", "column-1": "33" },
-        { category: "기타", "column-1": "10" },
+        { category: '한반도', 'column-1': '29' },
+        { category: '외교/정치/군사', 'column-1': '27' },
+        { category: '경제/통상', 'column-1': '25' },
+        { category: '기후환경', 'column-1': '33' },
+        { category: '기타', 'column-1': '10' },
       ],
     });
-    chart.addListener("clickSlice", function () {
-      $.modal({ className: "alert", message: "작업중" });
+    chart.addListener('clickSlice', function () {
+      $.modal({ className: 'alert', message: '작업중' });
     });
   }
   /*
@@ -194,37 +194,37 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=정보량추이] .js-chart");
+    const $chart = document.querySelector('[data-section=토픽상세현황] [data-card=정보량추이] .js-chart');
 
     var chart = AmCharts.makeChart($chart, {
-      type: "serial",
-      categoryField: "category",
+      type: 'serial',
+      categoryField: 'category',
       addClassNames: true,
       columnWidth: 0.32,
       autoMarginOffset: 10,
       marginRight: 10,
       marginTop: 15,
-      colors: ["#8B3244", "#A47E4F", "#4F8058", "#3B448A", "#424242"],
+      colors: ['#8B3244', '#A47E4F', '#4F8058', '#3B448A', '#424242'],
       fontSize: 12,
       categoryAxis: {
         labelOffset: -2,
         equalSpacing: true,
-        color: "#666666",
+        color: '#666666',
         fontSize: 11,
         // "parseDates": true,
         axisAlpha: 1,
         fillAlpha: 1,
         gridAlpha: 1,
-        axisColor: "#EDEDEF",
-        gridColor: "#EDEDEF",
+        axisColor: '#EDEDEF',
+        gridColor: '#EDEDEF',
         autoGridCount: false,
         markPeriodChange: false,
         labelFunction: function ($txt, $date, $axis) {
           /* 주별일때 */
-          if ($txt.indexOf("~") > 0) {
-            var year = $txt.split("-")[0];
-            var days = $txt.split("~")[0];
-            var result = year + "_W" + days.getWeekDay() + "\n";
+          if ($txt.indexOf('~') > 0) {
+            var year = $txt.split('-')[0];
+            var days = $txt.split('~')[0];
+            var result = year + '_W' + days.getWeekDay() + '\n';
 
             return result;
           } else {
@@ -235,10 +235,10 @@ $(function () {
       chartCursor: {
         enabled: true,
         animationDuration: 0,
-        categoryBalloonColor: "#505050 ",
-        categoryBalloonDateFormat: "MM-DD",
+        categoryBalloonColor: '#505050 ',
+        categoryBalloonDateFormat: 'MM-DD',
         cursorAlpha: 0.1,
-        cursorColor: "#000000",
+        cursorColor: '#000000',
         fullWidth: true,
       },
       trendLines: [],
@@ -246,93 +246,93 @@ $(function () {
         {
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           balloonFunction: get_chartBalloonValueTextAllLine,
-          bullet: "round",
+          bullet: 'round',
           bulletSize: 10,
-          bulletColor: "#FFFFFF",
+          bulletColor: '#FFFFFF',
           bulletBorderAlpha: 1,
-          bulletBorderColor: "#8B3244",
+          bulletBorderColor: '#8B3244',
           lineThickness: 2,
           stackable: false,
-          id: "AmGraph-1",
-          title: "한반도",
-          valueField: "column-1",
+          id: 'AmGraph-1',
+          title: '한반도',
+          valueField: 'column-1',
           showHandOnHover: true,
         },
         {
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           balloonFunction: get_chartBalloonValueTextAllLine,
-          bullet: "round",
+          bullet: 'round',
           bulletSize: 10,
-          bulletColor: "#FFFFFF",
+          bulletColor: '#FFFFFF',
           bulletBorderAlpha: 1,
-          bulletBorderColor: "#A47E4F",
+          bulletBorderColor: '#A47E4F',
           stackable: false,
-          id: "AmGraph-2",
+          id: 'AmGraph-2',
           lineThickness: 2,
-          title: "외교/정치/군사",
-          valueField: "column-2",
+          title: '외교/정치/군사',
+          valueField: 'column-2',
           showHandOnHover: true,
         },
         {
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           balloonFunction: get_chartBalloonValueTextAllLine,
-          bullet: "round",
+          bullet: 'round',
           bulletSize: 10,
-          bulletColor: "#FFFFFF",
+          bulletColor: '#FFFFFF',
           bulletBorderAlpha: 1,
-          bulletBorderColor: "#4F8058",
+          bulletBorderColor: '#4F8058',
           stackable: false,
-          id: "AmGraph-3",
+          id: 'AmGraph-3',
           lineThickness: 2,
-          title: "경제/통상",
-          valueField: "column-3",
+          title: '경제/통상',
+          valueField: 'column-3',
           showHandOnHover: true,
         },
         {
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           balloonFunction: get_chartBalloonValueTextAllLine,
-          bullet: "round",
+          bullet: 'round',
           bulletSize: 10,
-          bulletColor: "#FFFFFF",
+          bulletColor: '#FFFFFF',
           bulletBorderAlpha: 1,
-          bulletBorderColor: "#3B448A",
+          bulletBorderColor: '#3B448A',
           stackable: false,
-          id: "AmGraph-4",
+          id: 'AmGraph-4',
           lineThickness: 2,
-          title: "기후환경",
-          valueField: "column-4",
+          title: '기후환경',
+          valueField: 'column-4',
           showHandOnHover: true,
         },
         {
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           balloonFunction: get_chartBalloonValueTextAllLine,
-          bullet: "round",
+          bullet: 'round',
           bulletSize: 10,
-          bulletColor: "#FFFFFF",
+          bulletColor: '#FFFFFF',
           bulletBorderAlpha: 1,
-          bulletBorderColor: "#424242",
+          bulletBorderColor: '#424242',
           stackable: false,
-          id: "AmGraph-5",
+          id: 'AmGraph-5',
           lineThickness: 2,
-          title: "기타",
-          valueField: "column-5",
+          title: '기타',
+          valueField: 'column-5',
           showHandOnHover: true,
         },
       ],
       guides: [],
       valueAxes: [
         {
-          id: "ValueAxis-1",
-          stackType: "regular",
+          id: 'ValueAxis-1',
+          stackType: 'regular',
           zeroGridAlpha: 0,
           axisThickness: 0,
-          color: "#666666",
+          color: '#666666',
           fontSize: 11,
           dashLength: 0,
           gridAlpha: 1,
-          gridColor: "#EDEDEF",
+          gridColor: '#EDEDEF',
           tickLength: 0,
-          title: "",
+          title: '',
         },
       ],
       allLabels: [],
@@ -351,17 +351,17 @@ $(function () {
       },
       legend: {
         enabled: true,
-        align: "center",
+        align: 'center',
         autoMargins: false,
-        color: "#333333",
-        markerType: "circle",
+        color: '#333333',
+        markerType: 'circle',
         marginTop: 0,
         marginRight: 0,
         marginBottom: 10,
         marginLeft: 0,
         markerSize: 8,
         fontSize: 11,
-        position: "top",
+        position: 'top',
         spacing: 15,
         valueFunction: get_chartLegendValueText,
         valueWidth: 65,
@@ -371,16 +371,16 @@ $(function () {
       },
       titles: [],
       dataProvider: [
-        { category: "2021-09-23", "column-1": 112, "column-2": 238, "column-3": 330, "column-4": 230, "column-5": 130 },
-        { category: "2021-09-23", "column-1": 312, "column-2": 538, "column-3": 400, "column-4": 430, "column-5": 530 },
-        { category: "2021-09-23", "column-1": 212, "column-2": 538, "column-3": 400, "column-4": 230, "column-5": 130 },
-        { category: "2021-09-23 ~ 2021-09-30", "column-1": 512, "column-2": 538, "column-3": 400, "column-4": 430, "column-5": 530 },
-        { category: "2021-10-01 ~ 2021-10-07", "column-1": 212, "column-2": 538, "column-3": 400, "column-4": 230, "column-5": 130 },
-        { category: "2021-10-08 ~ 2021-10-14", "column-1": 112, "column-2": 538, "column-3": 400, "column-4": 150, "column-5": 150 },
+        { category: '2021-09-23', 'column-1': 112, 'column-2': 238, 'column-3': 330, 'column-4': 230, 'column-5': 130 },
+        { category: '2021-09-23', 'column-1': 312, 'column-2': 538, 'column-3': 400, 'column-4': 430, 'column-5': 530 },
+        { category: '2021-09-23', 'column-1': 212, 'column-2': 538, 'column-3': 400, 'column-4': 230, 'column-5': 130 },
+        { category: '2021-09-23 ~ 2021-09-30', 'column-1': 512, 'column-2': 538, 'column-3': 400, 'column-4': 430, 'column-5': 530 },
+        { category: '2021-10-01 ~ 2021-10-07', 'column-1': 212, 'column-2': 538, 'column-3': 400, 'column-4': 230, 'column-5': 130 },
+        { category: '2021-10-08 ~ 2021-10-14', 'column-1': 112, 'column-2': 538, 'column-3': 400, 'column-4': 150, 'column-5': 150 },
       ],
     });
-    chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ className: "alert", message: "작업중" });
+    chart.addListener('clickGraphItem', function ($e) {
+      $.modal({ className: 'alert', message: '작업중' });
     });
   }
   /*
@@ -394,38 +394,38 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=감성추이] .js-chart");
+    const $chart = document.querySelector('[data-section=토픽상세현황] [data-card=감성추이] .js-chart');
 
     var chart = AmCharts.makeChart($chart, {
-      type: "serial",
-      categoryField: "category",
+      type: 'serial',
+      categoryField: 'category',
       addClassNames: true,
       fontSize: 12,
       columnWidth: 0.32,
       autoMarginOffset: 10,
       marginRight: 10,
       marginTop: 15,
-      colors: ["#5BA1E0", "#EA7070", "#808080"],
-      color: "#505050",
+      colors: ['#5BA1E0', '#EA7070', '#808080'],
+      color: '#505050',
       categoryAxis: {
         labelOffset: -2,
         equalSpacing: true,
-        color: "#666666",
+        color: '#666666',
         fontSize: 11,
         // "parseDates": true,
         axisAlpha: 1,
         fillAlpha: 1,
         gridAlpha: 1,
-        axisColor: "#EDEDEF",
-        gridColor: "#EDEDEF",
+        axisColor: '#EDEDEF',
+        gridColor: '#EDEDEF',
         autoGridCount: false,
         markPeriodChange: false,
         labelFunction: function ($txt, $date, $axis) {
           /* 주별일때 */
-          if ($txt.indexOf("~") > 0) {
-            var year = $txt.split("-")[0];
-            var days = $txt.split("~")[0];
-            var result = year + "_W" + days.getWeekDay() + "\n";
+          if ($txt.indexOf('~') > 0) {
+            var year = $txt.split('-')[0];
+            var days = $txt.split('~')[0];
+            var result = year + '_W' + days.getWeekDay() + '\n';
 
             return result;
           } else {
@@ -436,10 +436,10 @@ $(function () {
       chartCursor: {
         enabled: true,
         animationDuration: 0,
-        categoryBalloonDateFormat: "MM-DD",
-        categoryBalloonColor: "#505050 ",
+        categoryBalloonDateFormat: 'MM-DD',
+        categoryBalloonColor: '#505050 ',
         cursorAlpha: 0.1,
-        cursorColor: "#000000",
+        cursorColor: '#000000',
         fullWidth: true,
       },
       trendLines: [],
@@ -448,47 +448,47 @@ $(function () {
           balloonFunction: get_chartBalloonValueTextAllLine,
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           fillAlphas: 1,
-          id: "AmGraph-1",
-          title: "긍정",
-          type: "column",
-          valueField: "column-1",
+          id: 'AmGraph-1',
+          title: '긍정',
+          type: 'column',
+          valueField: 'column-1',
           showHandOnHover: true,
         },
         {
           balloonFunction: get_chartBalloonValueTextAllLine,
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           fillAlphas: 1,
-          id: "AmGraph-2",
-          title: "부정",
-          type: "column",
-          valueField: "column-2",
+          id: 'AmGraph-2',
+          title: '부정',
+          type: 'column',
+          valueField: 'column-2',
           showHandOnHover: true,
         },
         {
           balloonFunction: get_chartBalloonValueTextAllLine,
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           fillAlphas: 1,
-          id: "AmGraph-3",
-          title: "중립",
-          type: "column",
-          valueField: "column-3",
+          id: 'AmGraph-3',
+          title: '중립',
+          type: 'column',
+          valueField: 'column-3',
           showHandOnHover: true,
         },
       ],
       guides: [],
       valueAxes: [
         {
-          id: "ValueAxis-1",
-          stackType: "regular",
+          id: 'ValueAxis-1',
+          stackType: 'regular',
           zeroGridAlpha: 0,
           axisThickness: 0,
-          color: "#666666",
+          color: '#666666',
           fontSize: 11,
           dashLength: 0,
           gridAlpha: 1,
-          gridColor: "#EDEDEF",
+          gridColor: '#EDEDEF',
           tickLength: 0,
-          title: "",
+          title: '',
         },
       ],
       allLabels: [],
@@ -507,17 +507,17 @@ $(function () {
       },
       legend: {
         enabled: true,
-        align: "center",
+        align: 'center',
         autoMargins: false,
-        color: "#333333",
-        markerType: "circle",
+        color: '#333333',
+        markerType: 'circle',
         marginTop: 0,
         marginRight: 0,
         marginBottom: 10,
         marginLeft: 0,
         markerSize: 8,
         fontSize: 11,
-        position: "top",
+        position: 'top',
         spacing: 15,
         valueFunction: get_chartLegendValueText,
         valueWidth: 65,
@@ -526,14 +526,14 @@ $(function () {
       },
       titles: [],
       dataProvider: [
-        { category: "2021-09-23", "column-1": 0, "column-2": 0, "column-3": 0 },
-        { category: "2021-09-24", "column-1": 1126, "column-2": 1127, "column-3": 1129 },
-        { category: "2021-09-01 ~ 2021-09-07", "column-1": 1130, "column-2": 1233, "column-3": 1112 },
-        { category: "2021-09-08 ~ 2021-09-14", "column-1": 1111, "column-2": 1113, "column-3": 1110 },
+        { category: '2021-09-23', 'column-1': 0, 'column-2': 0, 'column-3': 0 },
+        { category: '2021-09-24', 'column-1': 1126, 'column-2': 1127, 'column-3': 1129 },
+        { category: '2021-09-01 ~ 2021-09-07', 'column-1': 1130, 'column-2': 1233, 'column-3': 1112 },
+        { category: '2021-09-08 ~ 2021-09-14', 'column-1': 1111, 'column-2': 1113, 'column-3': 1110 },
       ],
     });
-    chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ className: "alert", message: "작업중" });
+    chart.addListener('clickGraphItem', function ($e) {
+      $.modal({ className: 'alert', message: '작업중' });
     });
   }
   /*
@@ -548,7 +548,7 @@ $(function () {
      *
      */
 
-    const $chart = document.querySelector("[data-card=연관키워드] [data-card=TOP30연관키워드] .js-chart");
+    const $chart = document.querySelector('[data-card=연관키워드] [data-card=TOP30연관키워드] .js-chart');
 
     am4core.ready(function () {
       /*
@@ -559,30 +559,30 @@ $(function () {
         #424242 -  기타
       */
       var data = [
-        { name: "우리", fill: "#8B3244", value: 285, fluc: 38.7 },
-        { name: "생각", fill: "#8B3244", value: 183, fluc: 38.7 },
-        { name: "좋아하다", fill: "#8B3244", value: 338, fluc: 38.7 },
-        { name: "한국", fill: "#8B3244", value: 312, fluc: 38.7 },
-        { name: "못한다", fill: "#8B3244", value: 279, fluc: 38.7 },
-        { name: "어렵다", fill: "#8B3244", value: 218, fluc: 38.7 },
-        { name: "생각", fill: "#A47E4F", value: 197, fluc: 38.7 },
-        { name: "높다", fill: "#A47E4F", value: 80, fluc: -40.1 },
-        { name: "현재", fill: "#A47E4F", value: 222, fluc: 38.7 },
-        { name: "지역", fill: "#A47E4F", value: 30, fluc: -40.1 },
-        { name: "문제", fill: "#A47E4F", value: 191, fluc: 38.7 },
-        { name: "사업", fill: "#A47E4F", value: 188, fluc: -36.0 },
-        { name: "기업", fill: "#4F8058", value: 125, fluc: 38.7 },
-        { name: "대상", fill: "#4F8058", value: 283, fluc: 38.7 },
-        { name: "대표", fill: "#4F8058", value: 132, fluc: 38.7 },
-        { name: "국내", fill: "#4F8058", value: 232, fluc: 38.7 },
-        { name: "기대하다", fill: "#4F8058", value: 179, fluc: 38.7 },
-        { name: "기준", fill: "#4F8058", value: 188, fluc: 38.7 },
-        { name: "나라", fill: "#3B448A", value: 227, fluc: 38.7 },
-        { name: "중요", fill: "#3B448A", value: 150, fluc: -40.1 },
-        { name: "세계", fill: "#3B448A", value: 252, fluc: 38.7 },
-        { name: "새로운", fill: "#424242", value: 60, fluc: -40.1 },
-        { name: "전하", fill: "#424242", value: 80, fluc: 38.7 },
-        { name: "중요하다", fill: "#424242", value: 90, fluc: -36.0 },
+        { name: '우리', fill: '#8B3244', value: 285, fluc: 38.7 },
+        { name: '생각', fill: '#8B3244', value: 183, fluc: 38.7 },
+        { name: '좋아하다', fill: '#8B3244', value: 338, fluc: 38.7 },
+        { name: '한국', fill: '#8B3244', value: 312, fluc: 38.7 },
+        { name: '못한다', fill: '#8B3244', value: 279, fluc: 38.7 },
+        { name: '어렵다', fill: '#8B3244', value: 218, fluc: 38.7 },
+        { name: '생각', fill: '#A47E4F', value: 197, fluc: 38.7 },
+        { name: '높다', fill: '#A47E4F', value: 80, fluc: -40.1 },
+        { name: '현재', fill: '#A47E4F', value: 222, fluc: 38.7 },
+        { name: '지역', fill: '#A47E4F', value: 30, fluc: -40.1 },
+        { name: '문제', fill: '#A47E4F', value: 191, fluc: 38.7 },
+        { name: '사업', fill: '#A47E4F', value: 188, fluc: -36.0 },
+        { name: '기업', fill: '#4F8058', value: 125, fluc: 38.7 },
+        { name: '대상', fill: '#4F8058', value: 283, fluc: 38.7 },
+        { name: '대표', fill: '#4F8058', value: 132, fluc: 38.7 },
+        { name: '국내', fill: '#4F8058', value: 232, fluc: 38.7 },
+        { name: '기대하다', fill: '#4F8058', value: 179, fluc: 38.7 },
+        { name: '기준', fill: '#4F8058', value: 188, fluc: 38.7 },
+        { name: '나라', fill: '#3B448A', value: 227, fluc: 38.7 },
+        { name: '중요', fill: '#3B448A', value: 150, fluc: -40.1 },
+        { name: '세계', fill: '#3B448A', value: 252, fluc: 38.7 },
+        { name: '새로운', fill: '#424242', value: 60, fluc: -40.1 },
+        { name: '전하', fill: '#424242', value: 80, fluc: 38.7 },
+        { name: '중요하다', fill: '#424242', value: 90, fluc: -36.0 },
       ];
 
       var chart_cloud = am4core.create($chart, am4plugins_wordCloud.WordCloud);
@@ -593,24 +593,24 @@ $(function () {
       series_cloud.padding(0, 0, 0, 0);
 
       series_cloud.data = data;
-      series_cloud.id = "wordCloud";
+      series_cloud.id = 'wordCloud';
 
-      series_cloud.dataFields.word = "name";
-      series_cloud.dataFields.value = "value";
-      series_cloud.dataFields.color = "fill";
+      series_cloud.dataFields.word = 'name';
+      series_cloud.dataFields.value = 'value';
+      series_cloud.dataFields.color = 'fill';
 
       series_cloud.labels.template.hiddenState.transitionDuration = 0;
       series_cloud.labels.template.defaultState.transitionDuration = 0;
       series_cloud.labels.template.padding(1, 6, 1, 6);
-      series_cloud.labels.template.propertyFields.fill = "fill";
+      series_cloud.labels.template.propertyFields.fill = 'fill';
       series_cloud.labels.template.zIndex = 0;
-      series_cloud.labels.template.adapter.add("text", function ($val, $target) {
-        $($target.dom).addClass("word_item");
-        return "\r" + $val + "\r";
+      series_cloud.labels.template.adapter.add('text', function ($val, $target) {
+        $($target.dom).addClass('word_item');
+        return '\r' + $val + '\r';
       });
       series_cloud.cursorOverStyle = am4core.MouseCursorStyle.pointer;
       series_cloud.labels.template.background.strokeWidth = 0;
-      series_cloud.labels.template.background.adapter.add("stroke", function ($val, $target) {
+      series_cloud.labels.template.background.adapter.add('stroke', function ($val, $target) {
         if ($target.dataItem && $target.dataItem.dataContext) {
           $target.fill = am4core.color($target.dataItem.dataContext.fill);
           return $target.dataItem.dataContext.fill;
@@ -620,33 +620,33 @@ $(function () {
 
       // Tooltip(Bubble)
       series_cloud.tooltip.getFillFromObject = false;
-      series_cloud.tooltip.background.fill = am4core.color("#ffffff");
+      series_cloud.tooltip.background.fill = am4core.color('#ffffff');
       series_cloud.tooltip.background.cornerRadius = 3;
       series_cloud.tooltip.background.strokeOpacity = 1;
       series_cloud.tooltip.background.strokeWidth = 2;
-      series_cloud.tooltip.label.fill = am4core.color("#666666");
-      series_cloud.labels.template.tooltipText = "[bold]{name}[/]: {value}";
-      series_cloud.labels.template.adapter.add("tooltipHTML", function ($value, $target) {
-        $($target.dom).addClass("word_item");
+      series_cloud.tooltip.label.fill = am4core.color('#666666');
+      series_cloud.labels.template.tooltipText = '[bold]{name}[/]: {value}';
+      series_cloud.labels.template.adapter.add('tooltipHTML', function ($value, $target) {
+        $($target.dom).addClass('word_item');
         $($target.background.dom)
-          .find("rect")
-          .attr("rx", $target.background.measuredHeight / 2);
+          .find('rect')
+          .attr('rx', $target.background.measuredHeight / 2);
         $target.background.dy = -$target.background.measuredHeight * 0.05;
 
-        var flucUpDn = $target.dataItem.dataContext.fluc == null ? "New" : $target.dataItem.dataContext.fluc;
-        if (flucUpDn != "New") {
-          flucUpDn = $target.dataItem.dataContext.fluc > 0 ? "up" : $target.dataItem.dataContext.fluc == 0 ? "none" : "dn";
+        var flucUpDn = $target.dataItem.dataContext.fluc == null ? 'New' : $target.dataItem.dataContext.fluc;
+        if (flucUpDn != 'New') {
+          flucUpDn = $target.dataItem.dataContext.fluc > 0 ? 'up' : $target.dataItem.dataContext.fluc == 0 ? 'none' : 'dn';
         }
         var cateColor;
-        var tooltipResult = "";
+        var tooltipResult = '';
         tooltipResult += '<div class="chart_tooltip">';
         tooltipResult += '<strong class="title">{name}</strong><span class="dv">{value}&nbsp;</span>';
-        if (flucUpDn == "New") {
+        if (flucUpDn == 'New') {
           tooltipResult += '<span class="row"><span class="ui_fluc is-color-negative">New</span></span>';
         } else {
-          tooltipResult += '<span class="row"><span class="ui_fluc before ' + flucUpDn + '">' + Math.abs($target.dataItem.dataContext.fluc) + "%</span></span>";
+          tooltipResult += '<span class="row"><span class="ui_fluc before ' + flucUpDn + '">' + Math.abs($target.dataItem.dataContext.fluc) + '%</span></span>';
         }
-        tooltipResult += "</div>";
+        tooltipResult += '</div>';
 
         if ($target.tooltip) {
           $target.tooltip.background.stroke = $target.dataItem.dataContext.fill;
@@ -654,19 +654,19 @@ $(function () {
         return tooltipResult;
       });
 
-      var hs = series_cloud.labels.template.states.create("hover");
+      var hs = series_cloud.labels.template.states.create('hover');
       hs.properties.zIndex = 1;
 
       // Event
-      series_cloud.labels.template.events.on("over", function ($e) {
-        if ($e.target.tooltip.verticalOrientation == "up") $e.target.tooltip.dy = -($e.target.background.measuredHeight / 3);
+      series_cloud.labels.template.events.on('over', function ($e) {
+        if ($e.target.tooltip.verticalOrientation == 'up') $e.target.tooltip.dy = -($e.target.background.measuredHeight / 3);
         else $e.target.tooltip.dy = $e.target.background.measuredHeight / 3;
       });
-      series_cloud.labels.template.events.on("hit", function ($e) {
-        $($e.target.dom).addClass("active").siblings().removeClass("active");
-        console.log("클릭 데이터 >> ");
+      series_cloud.labels.template.events.on('hit', function ($e) {
+        $($e.target.dom).addClass('active').siblings().removeClass('active');
+        console.log('클릭 데이터 >> ');
         console.log($e.target._dataItem._dataContext);
-        $.modal({ className: "alert", message: "작업중" });
+        $.modal({ className: 'alert', message: '작업중' });
       });
       var indicator;
       var indicatorInterval;
@@ -674,15 +674,15 @@ $(function () {
       function showIndicator() {
         if (!indicator) {
           indicator = chart_cloud.tooltipContainer.createChild(am4core.Container);
-          indicator.background.fill = am4core.color("#fafafa");
+          indicator.background.fill = am4core.color('#fafafa');
           indicator.width = am4core.percent(100);
           indicator.height = am4core.percent(100);
 
           var indicatorLabel = indicator.createChild(am4core.Label);
-          indicatorLabel.text = "Loading...";
-          indicatorLabel.fill = "#909090";
-          indicatorLabel.align = "center";
-          indicatorLabel.valign = "middle";
+          indicatorLabel.text = 'Loading...';
+          indicatorLabel.fill = '#909090';
+          indicatorLabel.align = 'center';
+          indicatorLabel.valign = 'middle';
           indicatorLabel.dy = 1;
         }
 
@@ -704,7 +704,7 @@ $(function () {
 
       showIndicator();
 
-      series_cloud.events.on("arrangeended", function (ev) {
+      series_cloud.events.on('arrangeended', function (ev) {
         hideIndicator();
       });
     });
@@ -721,7 +721,7 @@ $(function () {
      *
      */
 
-    const $chart = document.querySelector("[data-card=연관키워드] [data-card=HOT30연관키워드] .js-chart");
+    const $chart = document.querySelector('[data-card=연관키워드] [data-card=HOT30연관키워드] .js-chart');
 
     am4core.ready(function () {
       /*
@@ -732,30 +732,30 @@ $(function () {
         #424242 -  기타
       */
       var data = [
-        { name: "우리", fill: "#8B3244", value: 285, fluc: 38.7 },
-        { name: "생각", fill: "#8B3244", value: 183, fluc: 38.7 },
-        { name: "좋아하다", fill: "#8B3244", value: 338, fluc: 38.7 },
-        { name: "한국", fill: "#8B3244", value: 312, fluc: 38.7 },
-        { name: "못한다", fill: "#8B3244", value: 279, fluc: 38.7 },
-        { name: "어렵다", fill: "#8B3244", value: 218, fluc: 38.7 },
-        { name: "생각", fill: "#A47E4F", value: 197, fluc: 38.7 },
-        { name: "높다", fill: "#A47E4F", value: 80, fluc: -40.1 },
-        { name: "현재", fill: "#A47E4F", value: 222, fluc: 38.7 },
-        { name: "지역", fill: "#A47E4F", value: 30, fluc: -40.1 },
-        { name: "문제", fill: "#A47E4F", value: 191, fluc: 38.7 },
-        { name: "사업", fill: "#A47E4F", value: 188, fluc: -36.0 },
-        { name: "기업", fill: "#4F8058", value: 125, fluc: 38.7 },
-        { name: "대상", fill: "#4F8058", value: 283, fluc: 38.7 },
-        { name: "대표", fill: "#4F8058", value: 132, fluc: 38.7 },
-        { name: "국내", fill: "#4F8058", value: 232, fluc: 38.7 },
-        { name: "기대하다", fill: "#4F8058", value: 179, fluc: 38.7 },
-        { name: "기준", fill: "#4F8058", value: 188, fluc: 38.7 },
-        { name: "나라", fill: "#3B448A", value: 227, fluc: 38.7 },
-        { name: "중요", fill: "#3B448A", value: 150, fluc: -40.1 },
-        { name: "세계", fill: "#3B448A", value: 252, fluc: 38.7 },
-        { name: "새로운", fill: "#424242", value: 60, fluc: -40.1 },
-        { name: "전하", fill: "#424242", value: 80, fluc: 38.7 },
-        { name: "중요하다", fill: "#424242", value: 90, fluc: -36.0 },
+        { name: '우리', fill: '#8B3244', value: 285, fluc: 38.7 },
+        { name: '생각', fill: '#8B3244', value: 183, fluc: 38.7 },
+        { name: '좋아하다', fill: '#8B3244', value: 338, fluc: 38.7 },
+        { name: '한국', fill: '#8B3244', value: 312, fluc: 38.7 },
+        { name: '못한다', fill: '#8B3244', value: 279, fluc: 38.7 },
+        { name: '어렵다', fill: '#8B3244', value: 218, fluc: 38.7 },
+        { name: '생각', fill: '#A47E4F', value: 197, fluc: 38.7 },
+        { name: '높다', fill: '#A47E4F', value: 80, fluc: -40.1 },
+        { name: '현재', fill: '#A47E4F', value: 222, fluc: 38.7 },
+        { name: '지역', fill: '#A47E4F', value: 30, fluc: -40.1 },
+        { name: '문제', fill: '#A47E4F', value: 191, fluc: 38.7 },
+        { name: '사업', fill: '#A47E4F', value: 188, fluc: -36.0 },
+        { name: '기업', fill: '#4F8058', value: 125, fluc: 38.7 },
+        { name: '대상', fill: '#4F8058', value: 283, fluc: 38.7 },
+        { name: '대표', fill: '#4F8058', value: 132, fluc: 38.7 },
+        { name: '국내', fill: '#4F8058', value: 232, fluc: 38.7 },
+        { name: '기대하다', fill: '#4F8058', value: 179, fluc: 38.7 },
+        { name: '기준', fill: '#4F8058', value: 188, fluc: 38.7 },
+        { name: '나라', fill: '#3B448A', value: 227, fluc: 38.7 },
+        { name: '중요', fill: '#3B448A', value: 150, fluc: -40.1 },
+        { name: '세계', fill: '#3B448A', value: 252, fluc: 38.7 },
+        { name: '새로운', fill: '#424242', value: 60, fluc: -40.1 },
+        { name: '전하', fill: '#424242', value: 80, fluc: 38.7 },
+        { name: '중요하다', fill: '#424242', value: 90, fluc: -36.0 },
       ];
 
       var chart_cloud = am4core.create($chart, am4plugins_wordCloud.WordCloud);
@@ -766,24 +766,24 @@ $(function () {
       series_cloud.padding(0, 0, 0, 0);
 
       series_cloud.data = data;
-      series_cloud.id = "wordCloud";
+      series_cloud.id = 'wordCloud';
 
-      series_cloud.dataFields.word = "name";
-      series_cloud.dataFields.value = "value";
-      series_cloud.dataFields.color = "fill";
+      series_cloud.dataFields.word = 'name';
+      series_cloud.dataFields.value = 'value';
+      series_cloud.dataFields.color = 'fill';
 
       series_cloud.labels.template.hiddenState.transitionDuration = 0;
       series_cloud.labels.template.defaultState.transitionDuration = 0;
       series_cloud.labels.template.padding(1, 6, 1, 6);
-      series_cloud.labels.template.propertyFields.fill = "fill";
+      series_cloud.labels.template.propertyFields.fill = 'fill';
       series_cloud.labels.template.zIndex = 0;
-      series_cloud.labels.template.adapter.add("text", function ($val, $target) {
-        $($target.dom).addClass("word_item");
-        return "\r" + $val + "\r";
+      series_cloud.labels.template.adapter.add('text', function ($val, $target) {
+        $($target.dom).addClass('word_item');
+        return '\r' + $val + '\r';
       });
       series_cloud.cursorOverStyle = am4core.MouseCursorStyle.pointer;
       series_cloud.labels.template.background.strokeWidth = 0;
-      series_cloud.labels.template.background.adapter.add("stroke", function ($val, $target) {
+      series_cloud.labels.template.background.adapter.add('stroke', function ($val, $target) {
         if ($target.dataItem && $target.dataItem.dataContext) {
           $target.fill = am4core.color($target.dataItem.dataContext.fill);
           return $target.dataItem.dataContext.fill;
@@ -793,33 +793,33 @@ $(function () {
 
       // Tooltip(Bubble)
       series_cloud.tooltip.getFillFromObject = false;
-      series_cloud.tooltip.background.fill = am4core.color("#ffffff");
+      series_cloud.tooltip.background.fill = am4core.color('#ffffff');
       series_cloud.tooltip.background.cornerRadius = 3;
       series_cloud.tooltip.background.strokeOpacity = 1;
       series_cloud.tooltip.background.strokeWidth = 2;
-      series_cloud.tooltip.label.fill = am4core.color("#666666");
-      series_cloud.labels.template.tooltipText = "[bold]{name}[/]: {value}";
-      series_cloud.labels.template.adapter.add("tooltipHTML", function ($value, $target) {
-        $($target.dom).addClass("word_item");
+      series_cloud.tooltip.label.fill = am4core.color('#666666');
+      series_cloud.labels.template.tooltipText = '[bold]{name}[/]: {value}';
+      series_cloud.labels.template.adapter.add('tooltipHTML', function ($value, $target) {
+        $($target.dom).addClass('word_item');
         $($target.background.dom)
-          .find("rect")
-          .attr("rx", $target.background.measuredHeight / 2);
+          .find('rect')
+          .attr('rx', $target.background.measuredHeight / 2);
         $target.background.dy = -$target.background.measuredHeight * 0.05;
 
-        var flucUpDn = $target.dataItem.dataContext.fluc == null ? "New" : $target.dataItem.dataContext.fluc;
-        if (flucUpDn != "New") {
-          flucUpDn = $target.dataItem.dataContext.fluc > 0 ? "up" : $target.dataItem.dataContext.fluc == 0 ? "none" : "dn";
+        var flucUpDn = $target.dataItem.dataContext.fluc == null ? 'New' : $target.dataItem.dataContext.fluc;
+        if (flucUpDn != 'New') {
+          flucUpDn = $target.dataItem.dataContext.fluc > 0 ? 'up' : $target.dataItem.dataContext.fluc == 0 ? 'none' : 'dn';
         }
         var cateColor;
-        var tooltipResult = "";
+        var tooltipResult = '';
         tooltipResult += '<div class="chart_tooltip">';
         tooltipResult += '<strong class="title">{name}</strong><span class="dv">{value}&nbsp;</span>';
-        if (flucUpDn == "New") {
+        if (flucUpDn == 'New') {
           tooltipResult += '<span class="row"><span class="ui_fluc is-color-negative">New</span></span>';
         } else {
-          tooltipResult += '<span class="row"><span class="ui_fluc before ' + flucUpDn + '">' + Math.abs($target.dataItem.dataContext.fluc) + "%</span></span>";
+          tooltipResult += '<span class="row"><span class="ui_fluc before ' + flucUpDn + '">' + Math.abs($target.dataItem.dataContext.fluc) + '%</span></span>';
         }
-        tooltipResult += "</div>";
+        tooltipResult += '</div>';
 
         if ($target.tooltip) {
           $target.tooltip.background.stroke = $target.dataItem.dataContext.fill;
@@ -827,19 +827,19 @@ $(function () {
         return tooltipResult;
       });
 
-      var hs = series_cloud.labels.template.states.create("hover");
+      var hs = series_cloud.labels.template.states.create('hover');
       hs.properties.zIndex = 1;
 
       // Event
-      series_cloud.labels.template.events.on("over", function ($e) {
-        if ($e.target.tooltip.verticalOrientation == "up") $e.target.tooltip.dy = -($e.target.background.measuredHeight / 3);
+      series_cloud.labels.template.events.on('over', function ($e) {
+        if ($e.target.tooltip.verticalOrientation == 'up') $e.target.tooltip.dy = -($e.target.background.measuredHeight / 3);
         else $e.target.tooltip.dy = $e.target.background.measuredHeight / 3;
       });
-      series_cloud.labels.template.events.on("hit", function ($e) {
-        $($e.target.dom).addClass("active").siblings().removeClass("active");
-        console.log("클릭 데이터 >> ");
+      series_cloud.labels.template.events.on('hit', function ($e) {
+        $($e.target.dom).addClass('active').siblings().removeClass('active');
+        console.log('클릭 데이터 >> ');
         console.log($e.target._dataItem._dataContext);
-        $.modal({ className: "alert", message: "작업중" });
+        $.modal({ className: 'alert', message: '작업중' });
       });
       var indicator;
       var indicatorInterval;
@@ -847,15 +847,15 @@ $(function () {
       function showIndicator() {
         if (!indicator) {
           indicator = chart_cloud.tooltipContainer.createChild(am4core.Container);
-          indicator.background.fill = am4core.color("#fafafa");
+          indicator.background.fill = am4core.color('#fafafa');
           indicator.width = am4core.percent(100);
           indicator.height = am4core.percent(100);
 
           var indicatorLabel = indicator.createChild(am4core.Label);
-          indicatorLabel.text = "Loading...";
-          indicatorLabel.fill = "#909090";
-          indicatorLabel.align = "center";
-          indicatorLabel.valign = "middle";
+          indicatorLabel.text = 'Loading...';
+          indicatorLabel.fill = '#909090';
+          indicatorLabel.align = 'center';
+          indicatorLabel.valign = 'middle';
           indicatorLabel.dy = 1;
         }
 
@@ -877,7 +877,7 @@ $(function () {
 
       showIndicator();
 
-      series_cloud.events.on("arrangeended", function (ev) {
+      series_cloud.events.on('arrangeended', function (ev) {
         hideIndicator();
       });
     });
@@ -894,37 +894,37 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=연관키워드정보량] .js-chart");
+    const $chart = document.querySelector('[data-section=토픽상세현황] [data-card=연관키워드정보량] .js-chart');
 
     var chart = AmCharts.makeChart($chart, {
-      type: "serial",
-      categoryField: "category",
+      type: 'serial',
+      categoryField: 'category',
       addClassNames: true,
       columnWidth: 0.32,
       autoMarginOffset: 10,
       marginRight: 10,
       marginTop: 15,
-      colors: ["#0B396A"],
+      colors: ['#0B396A'],
       fontSize: 12,
       categoryAxis: {
         labelOffset: -2,
         equalSpacing: true,
-        color: "#666666",
+        color: '#666666',
         fontSize: 11,
         // "parseDates": true,
         axisAlpha: 1,
         fillAlpha: 1,
         gridAlpha: 1,
-        axisColor: "#EDEDEF",
-        gridColor: "#EDEDEF",
+        axisColor: '#EDEDEF',
+        gridColor: '#EDEDEF',
         autoGridCount: false,
         markPeriodChange: false,
         labelFunction: function ($txt, $date, $axis) {
           /* 주별일때 */
-          if ($txt.indexOf("~") > 0) {
-            var year = $txt.split("-")[0];
-            var days = $txt.split("~")[0];
-            var result = year + "_W" + days.getWeekDay() + "\n";
+          if ($txt.indexOf('~') > 0) {
+            var year = $txt.split('-')[0];
+            var days = $txt.split('~')[0];
+            var result = year + '_W' + days.getWeekDay() + '\n';
 
             return result;
           } else {
@@ -935,10 +935,10 @@ $(function () {
       chartCursor: {
         enabled: true,
         animationDuration: 0,
-        categoryBalloonColor: "#505050 ",
-        categoryBalloonDateFormat: "MM-DD",
+        categoryBalloonColor: '#505050 ',
+        categoryBalloonDateFormat: 'MM-DD',
         cursorAlpha: 0.1,
-        cursorColor: "#000000",
+        cursorColor: '#000000',
         fullWidth: true,
       },
       trendLines: [],
@@ -946,33 +946,33 @@ $(function () {
         {
           // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
           balloonFunction: get_chartBalloonValueTextAllLine,
-          bullet: "round",
+          bullet: 'round',
           bulletSize: 10,
-          bulletColor: "#FFFFFF",
+          bulletColor: '#FFFFFF',
           bulletBorderAlpha: 1,
-          bulletBorderColor: "#0B396A",
+          bulletBorderColor: '#0B396A',
           lineThickness: 2,
           stackable: false,
-          id: "AmGraph-1",
-          title: "정보량",
-          valueField: "column-1",
+          id: 'AmGraph-1',
+          title: '정보량',
+          valueField: 'column-1',
           showHandOnHover: true,
         },
       ],
       guides: [],
       valueAxes: [
         {
-          id: "ValueAxis-1",
-          stackType: "regular",
+          id: 'ValueAxis-1',
+          stackType: 'regular',
           zeroGridAlpha: 0,
           axisThickness: 0,
-          color: "#666666",
+          color: '#666666',
           fontSize: 11,
           dashLength: 0,
           gridAlpha: 1,
-          gridColor: "#EDEDEF",
+          gridColor: '#EDEDEF',
           tickLength: 0,
-          title: "",
+          title: '',
         },
       ],
       allLabels: [],
@@ -991,17 +991,17 @@ $(function () {
       },
       legend: {
         enabled: true,
-        align: "center",
+        align: 'center',
         autoMargins: false,
-        color: "#333333",
-        markerType: "circle",
+        color: '#333333',
+        markerType: 'circle',
         marginTop: 0,
         marginRight: 0,
         marginBottom: 0,
         marginLeft: 0,
         markerSize: 0,
         fontSize: 0,
-        position: "top",
+        position: 'top',
         spacing: 15,
         valueFunction: get_chartLegendValueText,
         valueWidth: 0,
@@ -1010,16 +1010,16 @@ $(function () {
       },
       titles: [],
       dataProvider: [
-        { category: "2021-09-23", "column-1": 112 },
-        { category: "2021-09-23", "column-1": 312 },
-        { category: "2021-09-23", "column-1": 212 },
-        { category: "2021-09-23 ~ 2021-09-30", "column-1": 512 },
-        { category: "2021-10-01 ~ 2021-10-07", "column-1": 212 },
-        { category: "2021-10-08 ~ 2021-10-14", "column-1": 112 },
+        { category: '2021-09-23', 'column-1': 112 },
+        { category: '2021-09-23', 'column-1': 312 },
+        { category: '2021-09-23', 'column-1': 212 },
+        { category: '2021-09-23 ~ 2021-09-30', 'column-1': 512 },
+        { category: '2021-10-01 ~ 2021-10-07', 'column-1': 212 },
+        { category: '2021-10-08 ~ 2021-10-14', 'column-1': 112 },
       ],
     });
-    chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ className: "alert", message: "작업중" });
+    chart.addListener('clickGraphItem', function ($e) {
+      $.modal({ className: 'alert', message: '작업중' });
     });
   }
   /*
@@ -1033,19 +1033,19 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    const $chart = document.querySelector("[data-section=뉴스매체현황] [data-card=국가별보도점유율] .js-chart");
+    const $chart = document.querySelector('[data-section=뉴스매체현황] [data-card=국가별보도점유율] .js-chart');
     var chart = AmCharts.makeChart($chart, {
-      type: "pie",
+      type: 'pie',
       fontSize: 12,
       balloonText: "<strong>[[title]] : [[value]] <span style='font-size: 11px;'>([[percents]]%)</span></strong>",
-      innerRadius: "40%",
+      innerRadius: '40%',
       labelRadius: -30,
-      labelText: "[[percents]]%",
-      pullOutRadius: "0%",
-      radius: "45%",
+      labelText: '[[percents]]%',
+      pullOutRadius: '0%',
+      radius: '45%',
       startAngle: 0,
-      startRadius: "0%",
-      colors: ["#2277DA", "#D12A2A", "#31BAA1", "#E7AB12", "#8940E7"],
+      startRadius: '0%',
+      colors: ['#2277DA', '#D12A2A', '#31BAA1', '#E7AB12', '#8940E7'],
       hideLabelsPercent: 5,
       marginTop: 0,
       marginBottom: 0,
@@ -1054,12 +1054,12 @@ $(function () {
       outlineThickness: 1,
       pullOutDuration: 0,
       startDuration: 0,
-      titleField: "category",
-      valueField: "column-1",
+      titleField: 'category',
+      valueField: 'column-1',
       accessible: false,
       addClassNames: true,
       autoResize: true,
-      color: "#ffffff",
+      color: '#ffffff',
       percentPrecision: 0,
       balloon: {
         fillAlpha: 0.95,
@@ -1068,29 +1068,29 @@ $(function () {
       },
       legend: {
         enabled: true,
-        align: "center",
+        align: 'center',
         equalWidths: true,
-        position: "top",
+        position: 'top',
         markerSize: 8,
-        markerType: "circle",
+        markerType: 'circle',
         // spacing: 5,
         valueWidth: 80,
         verticalGap: 5,
         marginTop: 0,
         maxColumns: 2,
-        valueText: ": [[value]] ([[percents]]%)",
+        valueText: ': [[value]] ([[percents]]%)',
       },
       titles: [],
       dataProvider: [
-        { category: "미국", "column-1": "29" },
-        { category: "중국", "column-1": "27" },
-        { category: "러시아", "column-1": "25" },
-        { category: "대한민국", "column-1": "33" },
-        { category: "일본", "column-1": "10" },
+        { category: '미국', 'column-1': '29' },
+        { category: '중국', 'column-1': '27' },
+        { category: '러시아', 'column-1': '25' },
+        { category: '대한민국', 'column-1': '33' },
+        { category: '일본', 'column-1': '10' },
       ],
     });
-    chart.addListener("clickSlice", function () {
-      $.modal({ className: "alert", message: "작업중" });
+    chart.addListener('clickSlice', function () {
+      $.modal({ className: 'alert', message: '작업중' });
     });
   }
   /*
@@ -1104,38 +1104,38 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    const $chart = document.querySelector("[data-section=뉴스매체현황] [data-card=Top10뉴스매체] .js-chart");
+    const $chart = document.querySelector('[data-section=뉴스매체현황] [data-card=Top10뉴스매체] .js-chart');
 
     var chart = AmCharts.makeChart($chart, {
-      type: "serial",
-      categoryField: "category",
+      type: 'serial',
+      categoryField: 'category',
       addClassNames: true,
       fontSize: 12,
       columnWidth: 0.7,
       autoMarginOffset: 10,
       marginRight: 10,
       marginTop: 15,
-      colors: ["#0B396A"],
-      color: "#505050",
+      colors: ['#0B396A'],
+      color: '#505050',
       categoryAxis: {
         labelOffset: -2,
         equalSpacing: true,
-        color: "#666666",
+        color: '#666666',
         fontSize: 11,
         // "parseDates": true,
         axisAlpha: 1,
         fillAlpha: 1,
         gridAlpha: 1,
-        axisColor: "#EDEDEF",
-        gridColor: "#EDEDEF",
+        axisColor: '#EDEDEF',
+        gridColor: '#EDEDEF',
         autoGridCount: true,
         markPeriodChange: false,
         labelFunction: function ($txt, $date, $axis) {
           /* 주별일때 */
-          if ($txt.indexOf("~") > 0) {
-            var year = $txt.split("-")[0];
-            var days = $txt.split("~")[0];
-            var result = year + "_W" + days.getWeekDay() + "\n";
+          if ($txt.indexOf('~') > 0) {
+            var year = $txt.split('-')[0];
+            var days = $txt.split('~')[0];
+            var result = year + '_W' + days.getWeekDay() + '\n';
 
             return result;
           } else {
@@ -1146,38 +1146,43 @@ $(function () {
       chartCursor: {
         enabled: true,
         animationDuration: 0,
-        categoryBalloonDateFormat: "MM-DD",
-        categoryBalloonColor: "#505050 ",
+        categoryBalloonDateFormat: 'MM-DD',
+        categoryBalloonColor: '#505050 ',
         cursorAlpha: 0.1,
-        cursorColor: "#000000",
+        cursorColor: '#000000',
         fullWidth: true,
       },
       trendLines: [],
       graphs: [
         {
           balloonFunction: get_chartBalloonValueTextAllLine,
+          // balloonFunction: function (a, b) {
+          //   // console.log(a);
+          //   console.log(b.data);
+          //   return '<strong>' + a.category + " : <span style='font-size: 12px;'>" + a.dataContext['column-1'] + "건</span> <span style='color:#909090; font-size: 12px;'>([[percents]]%)</span></strong>";
+          // },
           fillAlphas: 1,
-          id: "AmGraph-1",
-          title: "긍정",
-          type: "column",
-          valueField: "column-1",
+          id: 'AmGraph-1',
+          title: '',
+          type: 'column',
+          valueField: 'column-1',
           showHandOnHover: true,
         },
       ],
       guides: [],
       valueAxes: [
         {
-          id: "ValueAxis-1",
-          stackType: "regular",
+          id: 'ValueAxis-1',
+          stackType: 'regular',
           zeroGridAlpha: 0,
           axisThickness: 0,
-          color: "#666666",
+          color: '#666666',
           fontSize: 11,
           dashLength: 0,
           gridAlpha: 1,
-          gridColor: "#EDEDEF",
+          gridColor: '#EDEDEF',
           tickLength: 0,
-          title: "",
+          title: '',
         },
       ],
       allLabels: [],
@@ -1196,17 +1201,17 @@ $(function () {
       },
       legend: {
         enabled: true,
-        align: "center",
+        align: 'center',
         autoMargins: false,
-        color: "#333333",
-        markerType: "circle",
+        color: '#333333',
+        markerType: 'circle',
         marginTop: 0,
         marginRight: 0,
-        marginBottom: 10,
+        marginBottom: 0,
         marginLeft: 0,
-        markerSize: 8,
-        fontSize: 11,
-        position: "top",
+        markerSize: 0,
+        fontSize: 0,
+        position: 'top',
         spacing: 15,
         valueFunction: get_chartLegendValueText,
         valueWidth: 65,
@@ -1215,20 +1220,20 @@ $(function () {
       },
       titles: [],
       dataProvider: [
-        { category: "CNN", "column-1": 56 },
-        { category: "BBC", "column-1": 1226 },
-        { category: "New york<br>Times", "column-1": 1327 },
-        { category: "Fox News", "column-1": 1229 },
-        { category: "The<br>Guardian", "column-1": 1126 },
-        { category: "Yahoo<br>Finance", "column-1": 1227 },
-        { category: "Washington<br>Post", "column-1": 1329 },
-        { category: "CNBC", "column-1": 1226 },
-        { category: "Daily Mail", "column-1": 1127 },
-        { category: "QQ", "column-1": 1129 },
+        { category: 'CNN', 'column-1': 56 },
+        { category: 'BBC', 'column-1': 1226 },
+        { category: 'New york<br>Times', 'column-1': 1327 },
+        { category: 'Fox News', 'column-1': 1229 },
+        { category: 'The<br>Guardian', 'column-1': 1126 },
+        { category: 'Yahoo<br>Finance', 'column-1': 1227 },
+        { category: 'Washington<br>Post', 'column-1': 1329 },
+        { category: 'CNBC', 'column-1': 1226 },
+        { category: 'Daily Mail', 'column-1': 1127 },
+        { category: 'QQ', 'column-1': 1129 },
       ],
     });
-    chart.addListener("clickGraphItem", function () {
-      $.modal({ className: "alert", message: "작업중" });
+    chart.addListener('clickGraphItem', function () {
+      $.modal({ className: 'alert', message: '작업중' });
     });
   }
 }); // DOCUMENT READY...

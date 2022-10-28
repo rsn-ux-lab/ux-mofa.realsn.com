@@ -11,38 +11,43 @@
   
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
+
+  <!-- JS -->
+  <script src="/dashboard/asset/js/config/files.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
 <!-- 페이지 로딩 -->
-<aside id="lodingWrap">
+<!-- 페이지 로딩 -->
+<aside id="loadingWrap">
   <div class="content">
-      <div class="img">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <p>페이지를 불러오고 있습니다.</p>
+    <div class="img"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <p>페이지를 불러오고 있습니다.</p>
   </div>
 
+  
   <style type="text/css">
-      #lodingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.5)}
-      #lodingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
-      #lodingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:lodingWrap 2.4s infinite linear;}
-      #lodingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
-      #lodingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
-      #lodingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
-      #lodingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
-      #lodingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
-      #lodingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
-      #lodingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
-      #lodingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
-      #lodingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
-      #lodingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
-      #lodingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
+      #loadingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.3)}
+      #loadingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+      #loadingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:loadingWrap 2.4s infinite linear;}
+      #loadingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
+      #loadingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
+      #loadingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
+      #loadingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
+      #loadingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
+      #loadingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
+      #loadingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
+      #loadingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
+      #loadingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
+      #loadingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
+      #loadingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
 
       @media screen and (min-width:768px) {
-          #lodingWrap .content .img {width:100px;height:100px;}
+          #loadingWrap .content .img {width:100px;height:100px;}
       }
-      @keyframes lodingWrap {
+      @keyframes loadingWrap {
           0% {transform: rotate(0);}
           100% {transform: rotate(360deg);}
       }
@@ -50,10 +55,6 @@
 </aside>
 <!-- //페이지 로딩 -->
 
-<!-- JS -->
-<script src="/dashboard/asset/js/config/files.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
-<script src="/dashboard/asset/js/import.bundle.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
-<script src="/dashboard/asset/js/config/router.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
 
 <!-- #wrap -->
 <div id="wrap" data-target-device="pc" user-scalable="false" style="opacity: 0; visibility: hidden;">
@@ -74,7 +75,7 @@
           <a href="#" class="ui_btn is-color-blk" target="_blank" title="System 바로가기"><span class="icon">&#xe070;</span></a>
         </li>
         <li class="header-top__item header_fix_pin">
-          <input id="pin_chk_00" type="checkbox" autocomplete="off" />
+          <input id="pin_chk_00" class="js-headerPin" type="checkbox" autocomplete="off" />
           <label class="ui_btn is-icon-only" for="pin_chk_00"><span class="icon">&#xe062;</span></label>
         </li>
       </ul>
@@ -90,7 +91,7 @@
 <!-- //#header -->
 
 
-<div id="container">
+<div id="container" data-quick-title="해외여론주도층 분석">
   <h2 id="page_title" class="ui_invisible">&nbsp;</h2>
   <div id="content" class="page-brand">
     <!-- Search -->
@@ -112,14 +113,7 @@
                     <td>
                       <div class="fr">
                         <strong>검색기간</strong>
-                        <div
-                          class="ui_datepickers"
-                          id="dp11"
-                          data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }'
-                          data-move="true"
-                          data-grps='[ "1", "7", "30", "7MT", "8MT" ]'
-                          data-type-opts="disabled"
-                        ></div>
+                        <div class="ui_datepickers" id="dp11" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }' data-move="true" data-grps='[ "1", "7", "30", "7MT", "8MT" ]' data-type-opts="disabled"></div>
                       </div>
                     </td>
                   </tr>
@@ -135,7 +129,7 @@
     <!-- // Search -->
 
     <!-- SideBar -->
-    <aside id="sidebar">
+    <!-- <aside id="sidebar">
       <div class="side-wrap">
         <div class="side-box">
             <div class="side-box-title">    
@@ -151,11 +145,12 @@
             <li><a href="#qid_07">Input</a></li>
             <li><a href="#qid_08">datepicker</a></li>
             <li><a href="#qid_09">board</a></li>
+            <li><button class="js-anchor" data-anchor="[data-quick-menu=체크박스]" >샘플</button></li>
           </ul>
         </div>
       </div>
       <button type="button" class="side-topBtn"><span>TOP</span></button>
-    </aside>
+    </aside> -->
     <!-- // SideBar -->
 
     <!-- Content -->
@@ -163,7 +158,7 @@
       <section class="ui_section">
         <div class="wrap">
           <!-- 1뎁스 박스 헤더 -->
-          <div class="ui_row on_pad" id="qid_01">
+          <div class="ui_row on_pad" id="qid_01" data-quick-menu="1뎁스 박스 헤더">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">
@@ -219,12 +214,12 @@
           </div>
 
           <!-- 1뎁스 박스 헤더 -->
-          <div class="ui_row on_pad is-pad-05" id="qid_02">
+          <div class="ui_row on_pad is-pad-05" id="qid_02" data-quick-menu="2뎁스 박스 헤더">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">
                   <div class="box_header">
-                    <h4>1뎁스 박스 헤더</h4>
+                    <h4>2뎁스 박스 헤더</h4>
                   </div>
                   <div class="box_content">
                     <div class="ui_row on_pad is-no-pad-top">
@@ -236,13 +231,7 @@
                               <button type="button" class="ui_btn small is-icon-only" data-bubble-id="qid_02_01_bubble">
                                 <span class="icon bubble"></span>
                               </button>
-                              <div
-                                class="ui_bubble_box"
-                                data-bubble-for="qid_02_01_bubble"
-                                data-pos="RB"
-                                data-arrowcenter="true"
-                                style="top: 27px; left: -194px; display: none"
-                              >
+                              <div class="ui_bubble_box" data-bubble-for="qid_02_01_bubble" data-pos="RB" data-arrowcenter="true" style="top: 27px; left: -194px; display: none">
                                 <span class="arrow"></span>
                                 <div class="tip">
                                   <strong class="title"><span>Guide</span></strong>
@@ -280,13 +269,7 @@
                               <button type="button" class="ui_btn small is-icon-only" data-bubble-id="qid_02_02_bubble">
                                 <span class="icon bubble"></span>
                               </button>
-                              <div
-                                class="ui_bubble_box"
-                                data-bubble-for="qid_02_02_bubble"
-                                data-pos="RB"
-                                data-arrowcenter="true"
-                                style="top: 27px; left: -194px; display: none"
-                              >
+                              <div class="ui_bubble_box" data-bubble-for="qid_02_02_bubble" data-pos="RB" data-arrowcenter="true" style="top: 27px; left: -194px; display: none">
                                 <span class="arrow"></span>
                                 <div class="tip">
                                   <strong class="title"><span>Guide</span></strong>
@@ -324,7 +307,7 @@
           </div>
 
           <!-- Button -->
-          <div class="ui_row" id="qid_03">
+          <div class="ui_row" id="qid_03" data-quick-menu="Button">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">
@@ -507,7 +490,7 @@
           </div>
 
           <!-- Checkbox -->
-          <div class="ui_row" id="qid_04">
+          <div class="ui_row" id="qid_04" data-quick-menu="체크박스">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">
@@ -588,16 +571,12 @@
                               </td>
                               <td>
                                 <div class="dcp_switch">
-                                  <input id="chk_43" type="checkbox" checked /><label for="chk_43"
-                                    ><span class="txt">스위치</span><span class="anchor"></span
-                                  ></label>
+                                  <input id="chk_43" type="checkbox" checked /><label for="chk_43"><span class="txt">스위치</span><span class="anchor"></span></label>
                                 </div>
                               </td>
                               <td>
                                 <div class="dcp_switch">
-                                  <input id="chk_44" type="checkbox" disabled /><label for="chk_44"
-                                    ><span class="txt">스위치</span><span class="anchor"></span
-                                  ></label>
+                                  <input id="chk_44" type="checkbox" disabled /><label for="chk_44"><span class="txt">스위치</span><span class="anchor"></span></label>
                                 </div>
                               </td>
                             </tr>
@@ -612,7 +591,7 @@
           </div>
 
           <!-- radio -->
-          <div class="ui_row" id="qid_05">
+          <div class="ui_row" id="qid_05" data-quick-menu="Radio">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">
@@ -667,30 +646,22 @@
                               <th><strong>스위치(라벨포함)</strong></th>
                               <td>
                                 <div class="dcp_switch is-small">
-                                  <input id="radio_41" type="radio" name="radios_05" /><label for="radio_41"
-                                    ><span class="anchor"></span><span class="txt">스위치</span></label
-                                  >
+                                  <input id="radio_41" type="radio" name="radios_05" /><label for="radio_41"><span class="anchor"></span><span class="txt">스위치</span></label>
                                 </div>
                               </td>
                               <td>
                                 <div class="dcp_switch">
-                                  <input id="radio_42" type="radio" name="radios_05" /><label for="radio_42"
-                                    ><span class="txt">스위치</span><span class="anchor"></span
-                                  ></label>
+                                  <input id="radio_42" type="radio" name="radios_05" /><label for="radio_42"><span class="txt">스위치</span><span class="anchor"></span></label>
                                 </div>
                               </td>
                               <td>
                                 <div class="dcp_switch">
-                                  <input id="radio_43" type="radio" name="radios_05" checked /><label for="radio_43"
-                                    ><span class="txt">스위치</span><span class="anchor"></span
-                                  ></label>
+                                  <input id="radio_43" type="radio" name="radios_05" checked /><label for="radio_43"><span class="txt">스위치</span><span class="anchor"></span></label>
                                 </div>
                               </td>
                               <td>
                                 <div class="dcp_switch">
-                                  <input id="radio_44" type="radio" name="radios_05" disabled /><label for="radio_44"
-                                    ><span class="txt">스위치</span><span class="anchor"></span
-                                  ></label>
+                                  <input id="radio_44" type="radio" name="radios_05" disabled /><label for="radio_44"><span class="txt">스위치</span><span class="anchor"></span></label>
                                 </div>
                               </td>
                             </tr>
@@ -705,7 +676,7 @@
           </div>
 
           <!-- select -->
-          <div class="ui_row" id="qid_06">
+          <div class="ui_row" id="qid_06" data-quick-menu="Select">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">
@@ -806,15 +777,15 @@
                                 </button>
                                 <script>
                                   function evt_selChangeClick() {
-                                    $("#sel_13").parent()[0].setAttribute("data-value", "5");
+                                    $('#sel_13').parent()[0].setAttribute('data-value', '5');
                                   }
                                   function evt_selOptAddClick() {
                                     // var opts = '<option value="1">옵션 1</option><option value="2">옵션 2</option><option value="3">옵션 3</option><option value="4">옵션 4</option><option value="5">옵션 5</option><option value="6">옵션 6</option><option value="7">옵션 7</option><option value="8">옵션 8</option>';
                                     // $( "#sel_13" ).html( opts );
 
-                                    var len = $("#sel_13 option").length + 1;
-                                    var opts = '<option value="' + len + '">옵션 ' + len + "</option>";
-                                    $("#sel_13").append(opts);
+                                    var len = $('#sel_13 option').length + 1;
+                                    var opts = '<option value="' + len + '">옵션 ' + len + '</option>';
+                                    $('#sel_13').append(opts);
                                   }
                                 </script>
                               </td>
@@ -831,7 +802,7 @@
           </div>
 
           <!-- Input -->
-          <div class="ui_row" id="qid_07">
+          <div class="ui_row" id="qid_07" data-quick-menu="Input">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">
@@ -876,7 +847,7 @@
           </div>
 
           <!-- datepicker -->
-          <div class="ui_row" id="qid_08">
+          <div class="ui_row" id="qid_08" data-quick-menu="Datepicker">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">
@@ -903,14 +874,7 @@
                             <tr>
                               <th><strong>기본</strong></th>
                               <td>
-                                <div
-                                  class="ui_datepickers"
-                                  id="dp11"
-                                  data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }'
-                                  data-move="true"
-                                  data-grps='[ "1", "7", "30", "7MT", "8MT" ]'
-                                  data-type-opts="disabled"
-                                ></div>
+                                <div class="ui_datepickers" id="dp11" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }' data-move="true" data-grps='[ "1", "7", "30", "7MT", "8MT" ]' data-type-opts="disabled"></div>
                               </td>
                               <td>
                                 <!-- <div class="ui_datepickers" id="dp12" data-date='{ "sDate": "2021-07-01", "eDate": "2021-09-15" }'  data-onecalendar="true" data-type-opts="disabled" ></div> -->
@@ -975,7 +939,7 @@
           </div>
 
           <!-- board -->
-          <div class="ui_row on_pad is-pad-05" id="qid_09">
+          <div class="ui_row on_pad is-pad-05" id="qid_09" data-quick-menu="Board">
             <div class="ui_col">
               <div class="wrap">
                 <div class="ui_box ui_loader_container /*is-loading*/">

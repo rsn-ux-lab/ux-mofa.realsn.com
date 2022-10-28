@@ -11,38 +11,43 @@
   
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
+
+  <!-- JS -->
+  <script src="/dashboard/asset/js/config/files.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221028173252&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
 <!-- 페이지 로딩 -->
-<aside id="lodingWrap">
+<!-- 페이지 로딩 -->
+<aside id="loadingWrap">
   <div class="content">
-      <div class="img">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <p>페이지를 불러오고 있습니다.</p>
+    <div class="img"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <p>페이지를 불러오고 있습니다.</p>
   </div>
 
+  
   <style type="text/css">
-      #lodingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.5)}
-      #lodingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
-      #lodingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:lodingWrap 2.4s infinite linear;}
-      #lodingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
-      #lodingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
-      #lodingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
-      #lodingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
-      #lodingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
-      #lodingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
-      #lodingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
-      #lodingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
-      #lodingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
-      #lodingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
-      #lodingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
+      #loadingWrap {position:fixed;z-index:101;top:0;left:0;width:100%;height:100%;color:#fff;font-family:sans-serif;background-color:rgba(0,0,0,0.3)}
+      #loadingWrap .content {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+      #loadingWrap .content .img {position:relative;margin:auto;width:20vw;height:20vw;transform:rotate(0);animation:loadingWrap 2.4s infinite linear;}
+      #loadingWrap .content .img i {position:absolute;top:0;left:50%;width:50%;height:50%;margin-left:-25%;transform-origin:50% 100%;}
+      #loadingWrap .content .img i:nth-child(1) {transform: rotate(45deg);}
+      #loadingWrap .content .img i:nth-child(2) {transform: rotate(90deg);}
+      #loadingWrap .content .img i:nth-child(3) {transform: rotate(135deg);}
+      #loadingWrap .content .img i:nth-child(4) {transform: rotate(180deg);}
+      #loadingWrap .content .img i:nth-child(5) {transform: rotate(225deg);}
+      #loadingWrap .content .img i:nth-child(6) {transform: rotate(270deg);}
+      #loadingWrap .content .img i:nth-child(7) {transform: rotate(315deg);}
+      #loadingWrap .content .img i:nth-child(8) {transform: rotate(360deg);}
+      #loadingWrap .content .img i::after {content:"";display:block;width:35%;height:35%;background-color:#fff;border-radius:50%;transform:scale(0.6)}
+      #loadingWrap .content p {position:absolute;left:50%;margin:0;padding:0;font-size:16px;white-space:nowrap;transform:translate(-50%, 80%)}
 
       @media screen and (min-width:768px) {
-          #lodingWrap .content .img {width:100px;height:100px;}
+          #loadingWrap .content .img {width:100px;height:100px;}
       }
-      @keyframes lodingWrap {
+      @keyframes loadingWrap {
           0% {transform: rotate(0);}
           100% {transform: rotate(360deg);}
       }
@@ -50,10 +55,6 @@
 </aside>
 <!-- //페이지 로딩 -->
 
-<!-- JS -->
-<script src="/dashboard/asset/js/config/files.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
-<script src="/dashboard/asset/js/import.bundle.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
-<script src="/dashboard/asset/js/config/router.js?v=20221026191320&v=<%= cache.format(nowTime) %>"></script>
 
 <!-- #wrap -->
 <div id="wrap" data-target-device="pc" user-scalable="false" style="opacity: 0; visibility: hidden;">
@@ -74,7 +75,7 @@
           <a href="#" class="ui_btn is-color-blk" target="_blank" title="System 바로가기"><span class="icon">&#xe070;</span></a>
         </li>
         <li class="header-top__item header_fix_pin">
-          <input id="pin_chk_00" type="checkbox" autocomplete="off" />
+          <input id="pin_chk_00" class="js-headerPin" type="checkbox" autocomplete="off" />
           <label class="ui_btn is-icon-only" for="pin_chk_00"><span class="icon">&#xe062;</span></label>
         </li>
       </ul>
@@ -98,7 +99,7 @@
       <h3 class="l-member-header__title">LOGIN</h3>
     </header>
     <main class="l-member-body">
-      <form class="form" action="../pw_set">
+      <form class="form" action="../certify">
         <fieldset class="form-fieldset" data-fieldset="로그인">
           <div class="form-row form-text" data-row="id">
             <input class="form-text__input" placeholder="ID" type="text" required />

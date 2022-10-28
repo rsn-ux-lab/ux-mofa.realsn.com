@@ -290,11 +290,6 @@ $(function () {
       { id: "TJ", name: "Tajikistan", value: 6976958 },
       { id: "TZ", name: "Tanzania", value: 46218486 },
       { id: "TH", name: "Thailand", value: 69518555 },
-    ];
-
-    polygonSeries.data.setAll(data);
-
-    var data2 = [
       { id: "TL", name: "Timor-Leste", value: 69518555 },
       { id: "TG", name: "Togo", value: 6154813 },
       { id: "TT", name: "Trinidad and Tobago", value: 1346350 },
@@ -318,38 +313,7 @@ $(function () {
       { id: "ZW", name: "Zimbabwe", value: 12754378 },
     ];
 
-    setTimeout(() => {
-      polygonSeries = chart.series.push(
-        am5map.MapPolygonSeries.new(root, {
-          geoJSON: am5geodata_worldLow,
-          exclude: ["AQ"],
-          valueField: "value",
-          calculateAggregates: true,
-          paddingBottom: 10,
-        })
-      );
-
-      polygonSeries.mapPolygons.template.setAll({
-        tooltipText: "{name}: {value}",
-      });
-
-      polygonSeries.set("heatRules", [
-        {
-          target: polygonSeries.mapPolygons.template,
-          dataField: "value",
-          min: am5.color(0xdae2ec),
-          max: am5.color(0x10223f),
-          key: "fill",
-        },
-      ]);
-
-      // heatLegend.showValue(500);
-      polygonSeries.mapPolygons.template.events.on("pointerover", function (ev) {
-        heatLegend.showValue(ev.target.dataItem.get("value"));
-      });
-
-      polygonSeries.data.setAll(data2);
-    }, 2000);
+    polygonSeries.data.setAll(data);
 
     var heatLegend = chart.children.push(
       am5.HeatLegend.new(root, {

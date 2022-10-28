@@ -3,11 +3,11 @@
 const routes = [
   {
     path: "/login",
-    script: `${SERVER.asset}/js/pages/member.js`,
+    script: `${SERVER.asset}/js/pages/login.js`,
   },
   {
-    path: "/pw_set",
-    script: `${SERVER.asset}/js/pages/member.js`,
+    path: "/certify",
+    script: `${SERVER.asset}/js/pages/certify.js`,
   },
   {
     path: "/leaders",
