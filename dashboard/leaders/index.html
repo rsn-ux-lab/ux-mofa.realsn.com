@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221031074257&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221031074257&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221031074257&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221031075338&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221031075338&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221031075338&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -92,7 +92,9 @@
 
 
 <!-- #container -->
-<main id="container" class="leaders" role="main">
+<main id="container" class="leaders" role="main" data-quick-title="해외여론주도층 분석">
+  <h2 class="visually-hidden">해외여론주도층 분석</h2>
+
   <!-- 전체검색 -->
   <nav class="c-search-bar">
     <div class="inner">
@@ -114,7 +116,7 @@
   <!-- //전체검색 -->
 
   <!-- 주요현황 -->
-  <section class="l-section" data-section="주요현황" data-loding-spinner="false">
+  <section class="l-section" data-section="주요현황" data-loding-spinner="false" data-quick-menu="주요현황">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">주요현황</h3>
@@ -233,7 +235,7 @@
   <!-- //주요현황 -->
 
   <!-- 해외여론주도층 분석 -->
-  <section class="l-section" data-section="해외여론주도층분석">
+  <section class="l-section" data-section="해외여론주도층분석" data-quick-menu="해외여론주도층 분석">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">해외여론주도층 분석</h3>
