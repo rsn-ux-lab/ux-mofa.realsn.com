@@ -667,9 +667,9 @@ $(function () {
       });
       series_cloud.labels.template.events.on("hit", function ($e) {
         $($e.target.dom).addClass("active").siblings().removeClass("active");
-        console.log("클릭 데이터 >> ");
-        console.log($e.target._dataItem._dataContext);
-        $.modal({ className: "alert", message: "작업중" });
+        console.log("원유빈 작업");
+        // console.log($e.target._dataItem._dataContext);
+        // $.modal({ className: "alert", message: "작업중" });
       });
       var indicator;
       var indicatorInterval;
@@ -840,9 +840,9 @@ $(function () {
       });
       series_cloud.labels.template.events.on("hit", function ($e) {
         $($e.target.dom).addClass("active").siblings().removeClass("active");
-        console.log("클릭 데이터 >> ");
-        console.log($e.target._dataItem._dataContext);
-        $.modal({ className: "alert", message: "작업중" });
+        console.log("원유빈 작업");
+        // console.log($e.target._dataItem._dataContext);
+        // $.modal({ className: "alert", message: "작업중" });
       });
       var indicator;
       var indicatorInterval;
