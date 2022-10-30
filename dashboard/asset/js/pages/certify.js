@@ -80,7 +80,7 @@ $(function () {
               const $btnAgree = args.$modal[0].querySelector(".btn-agree");
 
               $btnAgree.addEventListener("click", () => {
-                console.log("로그인", `location.href = "../../leaders"`);
+                location.href = "../../leaders";
               });
             },
           },
