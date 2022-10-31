@@ -100,7 +100,7 @@ $(function () {
     const tooltip = new Tooltip();
 
     $keyword.classList.add("l-card--is-active");
-    tooltip.init($list);
+    // tooltip.init($list);
 
     //observer
     let observer = new MutationObserver(() => {
@@ -109,7 +109,7 @@ $(function () {
       tooltip.init($list);
     });
 
-    observer.observe($list, { childList: true, subtree: true });
+    // observer.observe($list, { childList: true, subtree: true });
   }
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -169,7 +169,7 @@ $(function () {
         verticalGap: 5,
         marginTop: 0,
         maxColumns: 2,
-        valueText: ": [[value]] ([[percents]]%)",
+        valueText: ": [[value]] ([[percents]]%)", // 밸류 꺼짐시 "표기량 0" 작업 필요함
       },
       titles: [],
       dataProvider: [
@@ -667,9 +667,9 @@ $(function () {
       });
       series_cloud.labels.template.events.on("hit", function ($e) {
         $($e.target.dom).addClass("active").siblings().removeClass("active");
-        console.log("원유빈 작업");
-        // console.log($e.target._dataItem._dataContext);
-        // $.modal({ className: "alert", message: "작업중" });
+        $("[data-card=HOT30연관키워드]").find(".active").removeClass("active");
+
+        console.log($($e.target.dom).find("tspan").text());
       });
       var indicator;
       var indicatorInterval;
@@ -840,9 +840,9 @@ $(function () {
       });
       series_cloud.labels.template.events.on("hit", function ($e) {
         $($e.target.dom).addClass("active").siblings().removeClass("active");
-        console.log("원유빈 작업");
-        // console.log($e.target._dataItem._dataContext);
-        // $.modal({ className: "alert", message: "작업중" });
+        $("[data-card=TOP30연관키워드]").find(".active").removeClass("active");
+
+        console.log($($e.target.dom).find("tspan").text());
       });
       var indicator;
       var indicatorInterval;
@@ -1083,7 +1083,7 @@ $(function () {
         verticalGap: 5,
         marginTop: 0,
         maxColumns: 2,
-        valueText: ": [[value]] ([[percents]]%)",
+        valueText: ": [[value]] ([[percents]]%)", // 밸류 꺼짐시 "표기량 0" 작업 필요함
       },
       titles: [],
       dataProvider: [
@@ -1161,12 +1161,23 @@ $(function () {
       trendLines: [],
       graphs: [
         {
-          balloonFunction: get_chartBalloonValueTextAllLine,
-          // balloonFunction: function (a, b) {
-          //   // console.log(a);
-          //   console.log(b.data);
-          //   return '<strong>' + a.category + " : <span style='font-size: 12px;'>" + a.dataContext['column-1'] + "건</span> <span style='color:#909090; font-size: 12px;'>([[percents]]%)</span></strong>";
-          // },
+          // balloonFunction: get_chartBalloonValueTextAllLine,
+          balloonFunction: function (a, b) {
+            // 전체 값 더하기
+            var sumVal = 0;
+            b.data.filter(function (obj) {
+              sumVal += Number(obj.dataContext["column-1"]);
+            });
+            return (
+              "<strong>" +
+              a.category +
+              " : <span style='font-size: 12px;'>" +
+              a.dataContext["column-1"] +
+              "</span> <span style='font-size: 11px;'>(" +
+              ((a.dataContext["column-1"] / sumVal) * 100).toFixed(1) +
+              "%)</span></strong>"
+            );
+          },
           fillAlphas: 1,
           id: "AmGraph-1",
           title: "",
@@ -1196,14 +1207,6 @@ $(function () {
         fillAlpha: 0.95,
         borderThickness: 1,
         animationDuration: 0,
-      },
-      chartScrollbar: {
-        enabled: true,
-        // dragIcon: 'dragIconRoundSmall',
-        dragIconHeight: 15,
-        dragIconWidth: 15,
-        offset: 15, // 변경
-        scrollbarHeight: 5, // 변경
       },
       legend: {
         enabled: true,

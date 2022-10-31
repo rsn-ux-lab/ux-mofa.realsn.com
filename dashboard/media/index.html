@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221031090412&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221031090412&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221031090412&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221031104916&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221031104916&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221031104916&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -248,14 +248,13 @@
                 </fieldset>
               </header>
               <main class="l-card-body pt-15">
+                <!--  prettier-ignore -->
                 <ol class="ol_list">
                   <li>
                     <div class="ol_list_box">
                       <span class="rank"></span>
-                      <span class="tit"
-                        ><span class="clamp-1"
-                          >1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span
-                        >
+                      <span class="tit" data-tooltip="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
+                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
                       </span>
                       <span class="cnt">29,159</span>
                       <span class="new">NEW</span>
@@ -436,27 +435,33 @@
                 <label for="radioSense2" class="form-check__label"><span class="txt">주별</span></label>
               </div>
             </fieldset>
-            <fieldset class="form-fieldset d-flex w-100 pt-10" data-value-minimum="1" data-fieldset="채널">
-              <div class="form-row form-check form-check-button mr-5" data-row="한반도">
-                <input id="checkboxSense1" class="form-check__input" type="checkbox" checked />
-                <label for="checkboxSense1" class="form-check__label" style="--color-set: #8b3244"><span class="txt">한반도</span></label>
+            <fieldset class="form-fieldset d-flex w-100 pt-10" data-fieldset="전체채녈">
+              <div class="form-row form-check form-switch mr-20" data-row="전체">
+                <input id="checkboxSenseAll" class="form-check__input form-check__input--js-all-checked" type="checkbox" checked />
+                <label for="checkboxSenseAll" class="form-check__label"><span class="txt">전체</span></label>
               </div>
-              <div class="form-row form-check form-check-button mr-5" data-row="외교/정치/군사">
-                <input id="checkboxSense2" class="form-check__input" type="checkbox" checked />
-                <label for="checkboxSense2" class="form-check__label" style="--color-set: #a47e4f"><span class="txt">외교/정치/군사</span></label>
-              </div>
-              <div class="form-row form-check form-check-button mr-5" data-row="경제/통상">
-                <input id="checkboxSense3" class="form-check__input" type="checkbox" checked />
-                <label for="checkboxSense3" class="form-check__label" style="--color-set: #4f8058"><span class="txt">경제/통상</span></label>
-              </div>
-              <div class="form-row form-check form-check-button mr-5" data-row="기후변화">
-                <input id="checkboxSense4" class="form-check__input" type="checkbox" />
-                <label for="checkboxSense4" class="form-check__label" style="--color-set: #3b448a"><span class="txt">기후변화</span></label>
-              </div>
-              <div class="form-row form-check form-check-button mr-5" data-row="기타">
-                <input id="checkboxSense5" class="form-check__input" type="checkbox" />
-                <label for="checkboxSense5" class="form-check__label" style="--color-set: #424242"><span class="txt">기타</span></label>
-              </div>
+              <fieldset class="form-fieldset" data-value-minimum="1" data-fieldset="채널">
+                <div class="form-row form-check form-check-button mr-5" data-row="한반도">
+                  <input id="checkboxSense1" class="form-check__input" type="checkbox" checked />
+                  <label for="checkboxSense1" class="form-check__label" style="--color-set: #8b3244"><span class="txt">한반도</span></label>
+                </div>
+                <div class="form-row form-check form-check-button mr-5" data-row="외교/정치/군사">
+                  <input id="checkboxSense2" class="form-check__input" type="checkbox" checked />
+                  <label for="checkboxSense2" class="form-check__label" style="--color-set: #a47e4f"><span class="txt">외교/정치/군사</span></label>
+                </div>
+                <div class="form-row form-check form-check-button mr-5" data-row="경제/통상">
+                  <input id="checkboxSense3" class="form-check__input" type="checkbox" checked />
+                  <label for="checkboxSense3" class="form-check__label" style="--color-set: #4f8058"><span class="txt">경제/통상</span></label>
+                </div>
+                <div class="form-row form-check form-check-button mr-5" data-row="기후변화">
+                  <input id="checkboxSense4" class="form-check__input" type="checkbox" />
+                  <label for="checkboxSense4" class="form-check__label" style="--color-set: #3b448a"><span class="txt">기후변화</span></label>
+                </div>
+                <div class="form-row form-check form-check-button mr-5" data-row="기타">
+                  <input id="checkboxSense5" class="form-check__input" type="checkbox" />
+                  <label for="checkboxSense5" class="form-check__label" style="--color-set: #424242"><span class="txt">기타</span></label>
+                </div>
+              </fieldset>
             </fieldset>
           </header>
           <main class="l-card-body pt-20">
