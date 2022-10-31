@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221031212437&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221031212437&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221031212437&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221031225328&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221031225328&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221031225328&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -119,11 +119,9 @@
       <header class="l-section-header">
         <h3 class="l-section-header__title">전체 이슈 현황</h3>
         <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="검색">
-          <div class="form-input">
-            <div class="form-row form-search" data-row="검색어">
-              <input class="form-search__input" name="keyword" type="search" placeholder="검색어를 입력하세요." />
-              <button class="form-search__btn-search" type="button" title="검색하기"></button>
-            </div>
+          <div class="form-row form-search form-search--h-lg" data-row="검색어">
+            <input class="form-search__input" name="keyword" type="search" placeholder="검색어를 입력하세요." />
+            <button class="form-search__btn-search" type="button" title="검색하기"></button>
           </div>
         </fieldset>
       </header>
@@ -1647,7 +1645,7 @@
             <!-- // 기간별 연관어 변화 -->
 
             <!-- 연관어 비교-->
-            <article class="l-card bg-fafafa mb-10" data-card="연관어비교" data-loding-spinner="false" data-is-empty="false" style="height: 41rem">
+            <article class="l-card bg-fafafa mb-10 js-is-appear" data-card="연관어비교" data-loding-spinner="false" data-is-empty="false" style="height: 41rem">
               <header class="l-card-header mb-15">
                 <h4 class="l-card-header__title fs-13">연관어 비교</h4>
                 <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
@@ -1662,22 +1660,24 @@
                 </fieldset>
               </header>
               <main class="l-card-body">
-                <ul class="keyword-map">
-                  <li class="is-position-left is-top_1"><span class="item is-color-01">앨렌</span></li>
-                  <li class="is-position-left is-top_2"><span class="item is-color-01">에너지 가격</span></li>
-                  <li class="is-position-left is-top_3"><span class="item is-color-01">식량안보</span></li>
-                  <li class="is-position-left is-top_4"><span class="item is-color-01">유가 폭등</span></li>
-                  <li class="is-position-left is-top_5"><span class="item is-color-01">바이든</span></li>
-                  <li class="is-position-center is-top_1"><span class="item is-color-02">러시아</span></li>
-                  <li class="is-position-center is-top_2"><span class="item is-color-02">미국미국미국</span></li>
-                  <li class="is-position-center is-top_3"><span class="item is-color-02">지원</span></li>
-                  <li class="is-position-center is-top_4"><span class="item is-color-02">위기위기위기위기위기위기위기위기위기위기</span></li>
-                  <li class="is-position-center is-top_5"><span class="item is-color-02">우려하다</span></li>
-                  <li class="is-position-right is-top_1"><span class="item is-color-03">곡물 수출</span></li>
-                  <li class="is-position-right is-top_2"><span class="item is-color-03">협상</span></li>
-                  <li class="is-position-right is-top_3"><span class="item is-color-03">흑해</span></li>
-                  <li class="is-position-right is-top_4"><span class="item is-color-03">기타</span></li>
-                  <li class="is-position-right is-top_5"><span class="item is-color-03">폭염</span></li>
+                <ul class="keyword-list">
+                  <li class="keyword-list__item is-position-left is-top_1"><span class="txt item is-color-01">앨렌</span></li>
+                  <li class="keyword-list__item is-position-left is-top_2"><span class="txt item is-color-01">에너지 가격</span></li>
+                  <li class="keyword-list__item is-position-left is-top_3"><span class="txt item is-color-01">식량안보</span></li>
+                  <li class="keyword-list__item is-position-left is-top_4"><span class="txt item is-color-01">유가 폭등</span></li>
+                  <li class="keyword-list__item is-position-left is-top_5"><span class="txt item is-color-01">바이든</span></li>
+                  <li class="keyword-list__item is-position-center is-top_1"><span class="txt item is-color-02">러시아</span></li>
+                  <li class="keyword-list__item is-position-center is-top_2"><span class="txt item is-color-02">미국미국미국</span></li>
+                  <li class="keyword-list__item is-position-center is-top_3"><span class="txt item is-color-02">지원</span></li>
+                  <li class="keyword-list__item is-position-center is-top_4">
+                    <span class="txt item is-color-02">위기위기위기위기위기위기위기위기위기위기</span>
+                  </li>
+                  <li class="keyword-list__item is-position-center is-top_5"><span class="txt item is-color-02">우려하다</span></li>
+                  <li class="keyword-list__item is-position-right is-top_1"><span class="txt item is-color-03">곡물 수출</span></li>
+                  <li class="keyword-list__item is-position-right is-top_2"><span class="txt item is-color-03">협상</span></li>
+                  <li class="keyword-list__item is-position-right is-top_3"><span class="txt item is-color-03">흑해</span></li>
+                  <li class="keyword-list__item is-position-right is-top_4"><span class="txt item is-color-03">기타</span></li>
+                  <li class="keyword-list__item is-position-right is-top_5"><span class="txt item is-color-03">폭염</span></li>
                 </ul>
               </main>
             </article>

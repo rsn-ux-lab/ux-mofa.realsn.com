@@ -1,5 +1,5 @@
 // DOCUMENT READY...
-document.addEventListener("DOMContentLoaded", function () {
+$(function () {
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
   */
