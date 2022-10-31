@@ -1,5 +1,4 @@
 /* JS loader */
-
 const routes = [
   {
     path: "/login",

@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221031161919&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221031161919&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221031161919&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221101085458&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221101085458&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221101085458&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -99,7 +99,13 @@
       <div class="option">
         <div class="datepickers">
           <strong>검색기간</strong>
-          <div class="ui_datepickers" id="dp11" data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }' data-grps='[ "0", "7", "30", "9MT", "10MT" ]' data-type-opts='[ "day", "week", "month" ]'></div>
+          <div
+            class="ui_datepickers"
+            id="dp11"
+            data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }'
+            data-grps='[ "0", "7", "30", "9MT", "10MT" ]'
+            data-type-opts='[ "day", "week", "month" ]'
+          ></div>
         </div>
       </div>
       <button type="button" class="btn btn-round rounded-0 btn-search"><span class="txt">검색</span></button>
@@ -452,11 +458,11 @@
             <h4 class="l-card-header__title">연관키워드</h4>
             <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
               <div class="form-row form-check form-check-button form-check-button--switch" data-row="연관어">
-                <input id="radioKeyword1" name="radioKeyword" class="form-check__input" type="checkbox" checked />
+                <input id="radioKeyword1" name="radioKeyword" class="form-check__input" type="radio" checked />
                 <label for="radioKeyword1" class="form-check__label"><span class="txt">연관어</span></label>
               </div>
               <div class="form-row form-check form-check-button form-check-button--switch" data-row="감성어">
-                <input id="radioKeyword2" name="radioKeyword" class="form-check__input" type="checkbox" />
+                <input id="radioKeyword2" name="radioKeyword" class="form-check__input" type="radio" />
                 <label for="radioKeyword2" class="form-check__label"><span class="txt">감성어</span></label>
               </div>
             </fieldset>
@@ -592,7 +598,6 @@
                             <td class="text-center clamp-1 fw-bold">영국 여왕</td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                           </tr>
-                          
                           <tr>
                             <td class="text-center">3</td>
                             <td class="text-center clamp-1 fw-bold">런던</td>
@@ -734,6 +739,7 @@
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">975</a></td>
                           </tr>
                           <!-- //요약내용 -->
+
                         </tbody>
                       </table>
                     </div>
@@ -812,7 +818,7 @@
   <!-- //뉴스 매체 현황 -->
 
   <!-- 전체 데이터 -->
-  <section class="l-section" data-section="전체데이터" ata-quick-menu="전체 데이터">
+  <section class="l-section" data-section="전체데이터" data-quick-menu="전체 데이터">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">전체 데이터</h3>
