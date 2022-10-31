@@ -30,6 +30,30 @@ $(function () {
   {
     /**
      *
+     *  depth : 전체 토픽 현황 > 이슈 키워드
+     *  block : 랭킹리스트
+     *  event : toggle active
+     *
+     */
+
+    const $keyword = document.querySelector("[data-section=전체토픽현황] [data-card=이슈키워드]");
+
+    $keyword.classList.add("l-card--is-active");
+
+    //observer
+    const observer = new MutationObserver(() => {
+      $keyword.classList.remove("l-card--is-active");
+      setTimeout(() => $keyword.classList.add("l-card--is-active"), 100);
+    });
+
+    observer.observe($keyword, { childList: true, subtree: true });
+  }
+  /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
+  {
+    /**
+     *
      *  depth : 매체 분석 > 토픽 상세 현황 > 정보량 점유율
      *  block : 차트(워드 클라우드)
      *  event : new AmCharts
