@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221031113750&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221031113750&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221031113750&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221031122435&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221031122435&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221031122435&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -114,7 +114,7 @@
   <!-- //전체검색 -->
 
   <!-- 전체 토픽 현황 -->
-  <section class="l-section" data-section="전체토픽현황" data-loding-spinner="false" data-quick-menu="전체 토픽 현황">
+  <section class="l-section" data-section="전체토픽현황" data-quick-menu="전체 토픽 현황">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">전체 토픽 현황</h3>
@@ -122,7 +122,7 @@
       <main class="l-section-body">
         <div class="row gx-10" style="height: 52rem">
           <div class="col col-8">
-            <article class="l-card" data-card="주요현황요약" data-is-empty="false">
+            <article class="l-card" data-card="주요현황요약" data-loding-spinner="false" data-is-empty="false">
               <header class="l-card-header">
                 <h4 class="l-card-header__title">주요 현황 요약</h4>
               </header>
@@ -233,7 +233,7 @@
             </article>
           </div>
           <div class="col col-4">
-            <article class="l-card" data-card="이슈키워드" data-is-empty="false">
+            <article class="l-card" data-card="이슈키워드" data-loding-spinner="false" data-is-empty="false">
               <header class="l-card-header">
                 <h4 class="l-card-header__title w-100 mb-10">이슈 키워드</h4>
                 <fieldset class="form-fieldset d-flex" data-fieldset="TOP/HOT">
@@ -379,7 +379,7 @@
   <!-- //전체 토픽 현황 -->
 
   <!-- 토픽 상세 현황 -->
-  <section class="l-section" data-section="토픽상세현황" data-loding-spinner="false" data-quick-menu="토픽 상세 현황">
+  <section class="l-section" data-section="토픽상세현황" data-quick-menu="토픽 상세 현황">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">토픽 상세 현황</h3>
@@ -389,7 +389,7 @@
         <!-- 정보량 점유율 & 정보량 추이 -->
         <div class="row gx-10 mb-10" style="height: 44rem">
           <div class="col col-4">
-            <article class="l-card" data-card="정보량점유율" data-is-empty="false">
+            <article class="l-card" data-card="정보량점유율" data-loding-spinner="false" data-is-empty="false">
               <header class="l-card-header">
                 <h4 class="l-card-header__title">정보량 점유율</h4>
               </header>
@@ -399,7 +399,7 @@
             </article>
           </div>
           <div class="col col-8">
-            <article class="l-card" data-card="정보량추이" data-is-empty="false">
+            <article class="l-card" data-card="정보량추이" data-loding-spinner="false" data-is-empty="false">
               <header class="l-card-header">
                 <h4 class="l-card-header__title">정보량 추이</h4>
                 <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="일별/주별">
@@ -422,7 +422,7 @@
         <!-- //정보량 점유율 & 정보량 추이 -->
 
         <!-- 감성 추이 -->
-        <article class="l-card mb-10" data-card="감성추이" data-is-empty="false" style="height: 39rem">
+        <article class="l-card mb-10" data-card="감성추이" data-loding-spinner="false" data-is-empty="false" style="height: 39rem">
           <header class="l-card-header">
             <h4 class="l-card-header__title">감성 추이</h4>
             <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="일별/주별">
@@ -437,7 +437,7 @@
             </fieldset>
             <fieldset class="form-fieldset d-flex w-100 pt-10" data-fieldset="전체채녈">
               <div class="form-row form-check form-switch mr-20" data-row="전체">
-                <input id="checkboxSenseAll" class="form-check__input form-check__input--js-all-checked" type="checkbox" checked />
+                <input id="checkboxSenseAll" class="form-check__input form-check__input--js-all-checked" type="checkbox" />
                 <label for="checkboxSenseAll" class="form-check__label"><span class="txt">전체</span></label>
               </div>
               <fieldset class="form-fieldset" data-value-minimum="1" data-fieldset="채널">
@@ -471,7 +471,7 @@
         <!-- //감성 추이 -->
 
         <!-- 연관키워드 -->
-        <article class="l-card" data-card="연관키워드" data-is-empty="false">
+        <article class="l-card" data-card="연관키워드">
           <header class="l-card-header mb-10">
             <h4 class="l-card-header__title">연관키워드</h4>
             <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
@@ -484,33 +484,39 @@
                 <label for="radioKeyword2" class="form-check__label"><span class="txt">감성어</span></label>
               </div>
             </fieldset>
-            <fieldset class="form-fieldset d-flex w-100 pt-10" data-fieldset="채널" data-value-minimum="1">
-              <div class="form-row form-check form-check-button mr-5" data-row="한반도">
-                <input id="checkboxKeyword1" class="form-check__input" type="checkbox" checked />
-                <label for="checkboxKeyword1" class="form-check__label" style="--color-set: #8b3244"><span class="txt">한반도</span></label>
+            <fieldset class="form-fieldset d-flex w-100 pt-10" data-fieldset="전체채녈">
+              <div class="form-row form-check form-switch mr-20" data-row="전체">
+                <input id="checkboxKeywordAll" class="form-check__input form-check__input--js-all-checked" type="checkbox" />
+                <label for="checkboxKeywordAll" class="form-check__label"><span class="txt">전체</span></label>
               </div>
-              <div class="form-row form-check form-check-button mr-5" data-row="외교/정치/군사">
-                <input id="checkboxKeyword2" class="form-check__input" type="checkbox" />
-                <label for="checkboxKeyword2" class="form-check__label" style="--color-set: #a47e4f"><span class="txt">외교/정치/군사</span></label>
-              </div>
-              <div class="form-row form-check form-check-button mr-5" data-row="경제/통상">
-                <input id="checkboxKeyword3" class="form-check__input" type="checkbox" />
-                <label for="checkboxKeyword3" class="form-check__label" style="--color-set: #4f8058"><span class="txt">경제/통상</span></label>
-              </div>
-              <div class="form-row form-check form-check-button mr-5" data-row="기후변화">
-                <input id="checkboxKeyword4" class="form-check__input" type="checkbox" checked />
-                <label for="checkboxKeyword4" class="form-check__label" style="--color-set: #3b448a"><span class="txt">기후변화</span></label>
-              </div>
-              <div class="form-row form-check form-check-button mr-5" data-row="기타">
-                <input id="checkboxKeyword5" class="form-check__input" type="checkbox" />
-                <label for="checkboxKeyword5" class="form-check__label" style="--color-set: #424242"><span class="txt">기타</span></label>
-              </div>
+              <fieldset class="form-fieldset" data-fieldset="채널" data-value-minimum="1">
+                <div class="form-row form-check form-check-button mr-5" data-row="한반도">
+                  <input id="checkboxKeyword1" class="form-check__input" type="checkbox" checked />
+                  <label for="checkboxKeyword1" class="form-check__label" style="--color-set: #8b3244"><span class="txt">한반도</span></label>
+                </div>
+                <div class="form-row form-check form-check-button mr-5" data-row="외교/정치/군사">
+                  <input id="checkboxKeyword2" class="form-check__input" type="checkbox" />
+                  <label for="checkboxKeyword2" class="form-check__label" style="--color-set: #a47e4f"><span class="txt">외교/정치/군사</span></label>
+                </div>
+                <div class="form-row form-check form-check-button mr-5" data-row="경제/통상">
+                  <input id="checkboxKeyword3" class="form-check__input" type="checkbox" />
+                  <label for="checkboxKeyword3" class="form-check__label" style="--color-set: #4f8058"><span class="txt">경제/통상</span></label>
+                </div>
+                <div class="form-row form-check form-check-button mr-5" data-row="기후변화">
+                  <input id="checkboxKeyword4" class="form-check__input" type="checkbox" checked />
+                  <label for="checkboxKeyword4" class="form-check__label" style="--color-set: #3b448a"><span class="txt">기후변화</span></label>
+                </div>
+                <div class="form-row form-check form-check-button mr-5" data-row="기타">
+                  <input id="checkboxKeyword5" class="form-check__input" type="checkbox" />
+                  <label for="checkboxKeyword5" class="form-check__label" style="--color-set: #424242"><span class="txt">기타</span></label>
+                </div>
+              </fieldset>
             </fieldset>
           </header>
           <main class="l-card-body">
             <div class="row" style="height: 38rem">
               <div class="col-6">
-                <article class="l-card h-100 bg-fafafa" data-card="TOP30연관키워드" data-is-empty="false">
+                <article class="l-card h-100 bg-fafafa" data-card="TOP30연관키워드" data-loding-spinner="false" data-is-empty="false">
                   <header class="l-card-header">
                     <h4 class="l-card-header__title fs-13">TOP 30 연관키워드</h4>
                   </header>
@@ -520,7 +526,7 @@
                 </article>
               </div>
               <div class="col-6">
-                <article class="l-card h-100 border-start-0 bg-fafafa" data-card="HOT30연관키워드" data-is-empty="false">
+                <article class="l-card h-100 border-start-0 bg-fafafa" data-card="HOT30연관키워드" data-loding-spinner="false" data-is-empty="false">
                   <header class="l-card-header">
                     <h4 class="l-card-header__title fs-13">HOT 30 연관키워드</h4>
                   </header>
@@ -532,7 +538,7 @@
             </div>
             <div class="row p-20 border-start border-bottom border-end bg-fafafa" style="height: 50rem">
               <div class="col-6">
-                <article class="l-card h-100 bg-fff" data-card="연관키워드정보량" data-is-empty="false">
+                <article class="l-card h-100 bg-fff" data-card="연관키워드정보량" data-loding-spinner="false" data-is-empty="false">
                   <header class="l-card-header mb-10">
                     <h4 class="l-card-header__title fs-13">
                       연관키워드 정보량
@@ -573,7 +579,7 @@
                 </article>
               </div>
               <div class="col-6">
-                <article class="l-card h-100 border-start-0 bg-fff" data-card="2차연관키워드" data-is-empty="false">
+                <article class="l-card h-100 border-start-0 bg-fff" data-card="2차연관키워드" data-loding-spinner="false" data-is-empty="false">
                   <header class="l-card-header mb-20">
                     <h4 class="l-card-header__title fs-13">
                       2차 연관키워드
@@ -768,7 +774,7 @@
   <!-- //토픽 상세 현황 -->
 
   <!-- 뉴스 매체 현황 -->
-  <section class="l-section" data-section="뉴스매체현황" data-loding-spinner="false" data-quick-menu="뉴스매체 현황">
+  <section class="l-section" data-section="뉴스매체현황" data-quick-menu="뉴스매체 현황">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">뉴스매체 현황</h3>
@@ -776,7 +782,7 @@
       <main class="l-section-body">
         <div class="row gx-10" style="height: 44rem">
           <div class="col col-4">
-            <article class="l-card" data-card="국가별보도점유율" data-is-empty="false">
+            <article class="l-card" data-card="국가별보도점유율" data-loding-spinner="false" data-is-empty="false">
               <header class="l-card-header">
                 <h4 class="l-card-header__title">국가별 보도 점유율</h4>
               </header>
@@ -786,30 +792,36 @@
             </article>
           </div>
           <div class="col col-8">
-            <article class="l-card" data-card="Top10뉴스매체" data-is-empty="false">
+            <article class="l-card" data-card="Top10뉴스매체" data-loding-spinner="false" data-is-empty="false">
               <header class="l-card-header">
                 <h4 class="l-card-header__title w-100 mb-10">Top10 뉴스매체<span class="pl-10 fs-12 fw-normal color-666">*최대 10개 분석 가능</span></h4>
-                <fieldset class="form-fieldset d-flex" data-fieldset="채널" data-value-minimum="1">
-                  <div class="form-row form-check form-check-button mr-5" data-row="한반도">
-                    <input id="checkboxNewsMedia1" class="form-check__input" type="checkbox" checked />
-                    <label for="checkboxNewsMedia1" class="form-check__label" style="--color-set: #8b3244"><span class="txt">한반도</span></label>
+                <fieldset class="form-fieldset d-flex w-100" data-fieldset="전체채녈">
+                  <div class="form-row form-check form-switch mr-20" data-row="전체">
+                    <input id="checkboxNewsMediaAll" class="form-check__input form-check__input--js-all-checked" type="checkbox" />
+                    <label for="checkboxNewsMediaAll" class="form-check__label"><span class="txt">전체</span></label>
                   </div>
-                  <div class="form-row form-check form-check-button mr-5" data-row="외교/정치/군사">
-                    <input id="checkboxNewsMedia2" class="form-check__input" type="checkbox" />
-                    <label for="checkboxNewsMedia2" class="form-check__label" style="--color-set: #a47e4f"><span class="txt">외교/정치/군사</span></label>
-                  </div>
-                  <div class="form-row form-check form-check-button mr-5" data-row="경제/통상">
-                    <input id="checkboxNewsMedia3" class="form-check__input" type="checkbox" />
-                    <label for="checkboxNewsMedia3" class="form-check__label" style="--color-set: #4f8058"><span class="txt">경제/통상</span></label>
-                  </div>
-                  <div class="form-row form-check form-check-button mr-5" data-row="기후변화">
-                    <input id="checkboxNewsMedia4" class="form-check__input" type="checkbox" checked />
-                    <label for="checkboxNewsMedia4" class="form-check__label" style="--color-set: #3b448a"><span class="txt">기후변화</span></label>
-                  </div>
-                  <div class="form-row form-check form-check-button mr-5" data-row="기타">
-                    <input id="checkboxNewsMedia5" class="form-check__input" type="checkbox" />
-                    <label for="checkboxNewsMedia5" class="form-check__label" style="--color-set: #424242"><span class="txt">기타</span></label>
-                  </div>
+                  <fieldset class="form-fieldset" data-fieldset="채널" data-value-minimum="1">
+                    <div class="form-row form-check form-check-button mr-5" data-row="한반도">
+                      <input id="checkboxNewsMedia1" class="form-check__input" type="checkbox" checked />
+                      <label for="checkboxNewsMedia1" class="form-check__label" style="--color-set: #8b3244"><span class="txt">한반도</span></label>
+                    </div>
+                    <div class="form-row form-check form-check-button mr-5" data-row="외교/정치/군사">
+                      <input id="checkboxNewsMedia2" class="form-check__input" type="checkbox" />
+                      <label for="checkboxNewsMedia2" class="form-check__label" style="--color-set: #a47e4f"><span class="txt">외교/정치/군사</span></label>
+                    </div>
+                    <div class="form-row form-check form-check-button mr-5" data-row="경제/통상">
+                      <input id="checkboxNewsMedia3" class="form-check__input" type="checkbox" />
+                      <label for="checkboxNewsMedia3" class="form-check__label" style="--color-set: #4f8058"><span class="txt">경제/통상</span></label>
+                    </div>
+                    <div class="form-row form-check form-check-button mr-5" data-row="기후변화">
+                      <input id="checkboxNewsMedia4" class="form-check__input" type="checkbox" checked />
+                      <label for="checkboxNewsMedia4" class="form-check__label" style="--color-set: #3b448a"><span class="txt">기후변화</span></label>
+                    </div>
+                    <div class="form-row form-check form-check-button mr-5" data-row="기타">
+                      <input id="checkboxNewsMedia5" class="form-check__input" type="checkbox" />
+                      <label for="checkboxNewsMedia5" class="form-check__label" style="--color-set: #424242"><span class="txt">기타</span></label>
+                    </div>
+                  </fieldset>
                 </fieldset>
               </header>
               <main class="l-card-body pt-20">
@@ -824,7 +836,7 @@
   <!-- //뉴스 매체 현황 -->
 
   <!-- 전체 데이터 -->
-  <section class="l-section" data-section="전체데이터" data-loding-spinner="false" data-quick-menu="전체 데이터">
+  <section class="l-section" data-section="전체데이터" ata-quick-menu="전체 데이터">
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">전체 데이터</h3>
@@ -840,7 +852,7 @@
         </fieldset>
       </header>
       <main class="l-section-body">
-        <article class="l-card p-0 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false">
+        <article class="l-card p-0 border-0" data-card="전체데이터" data-loding-spinner="false" data-is-empty="false">
           <header class="l-card-header mb-15">
             TOTAL. <span class="count">155,474</span> (1/1 pages)
             <fieldset class="form-fieldse d-flex ml-auto">
