@@ -26,78 +26,43 @@ $(function () {
   {
     /**
      *
+     *  depth : 급상승 이슈 분석 > 전체 이슈 현황
+     *  block : 젠체 이슈 현황 컨텐츠
+     *  event : amChart
+     *
+     */
+    const $charts = document.querySelectorAll('[data-section=전체이슈현황] [data-card=전체이슈현황] .js-chart');
+
+    for (var i = 0; $charts.length > i; i++) {
+      //  ------- 차트 그리는 한 사이클 -------
+      if ($charts[i].querySelector('svg') !== null) {
+        $charts[i].querySelector('svg').removeChild('path');
+      }
+
+      $($charts[i]).sparkline({
+        stroke: '#18A0FB',
+        // data_before: [Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random()],
+        data: [Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random()],
+      });
+      // ------- 차트 그리는 사이클 끝 -------
+    }
+  }
+  /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
+  {
+    /**
+     *
      *  depth : 급상승 이슈 분석 > 전체 이슈 현황 > 이슈 상세 현황 > 기간별 연관어 변화
      *  block : 랭킹리스트
      *  event : tooltip, mouseover - mouseout
      *
      */
-    class Tooltip {
-      /* 기본값 */
-      constructor() {
-        this.$list;
-        this.$tits;
-      }
-
-      /* 초기화 */
-      init(_$list) {
-        this.removeEvent();
-
-        this.$list = _$list;
-        this.$tits = this.$list.querySelectorAll('.keyword');
-
-        this.$tits && this.$tits.forEach((_$tit) => this.setTootip(_$tit));
-      }
-
-      /* 이벤트 제거 */
-      removeEvent() {
-        this.$tits && this.$tits.forEach((_$tit) => this.removeTootip(_$tit));
-      }
-
-      /* tooltip */
-      setTootip = (_$tit) => {
-        const hasTooltip = _$tit.querySelectorAll('.tooltip').length;
-        const $clamp = _$tit.querySelector('[class*=clamp]');
-
-        if (hasTooltip === 0) {
-          const msg = $clamp.textContent;
-          const $template = `<aside class="tooltip">${msg}</aside> `;
-
-          _$tit.insertAdjacentHTML('beforeend', $template);
-        }
-        $clamp.addEventListener('mouseover', this.mouseoverTootip);
-        $clamp.addEventListener('mouseout', this.mouseoutTootip);
-      };
-
-      /* tooltip - remove */
-      removeTootip = (_$tit) => {
-        const $clamp = _$tit.querySelector('[class*=clamp]');
-
-        $clamp.removeEventListener('mouseover', this.mouseoverTootip);
-        $clamp.removeEventListener('mouseout', this.mouseoutTootip);
-      };
-
-      /* tooltip - mouseover */
-      mouseoverTootip = (e) => {
-        e.target.style.overflow = 'visible';
-        e.target.siblings('.tooltip')[0].classList.add('tooltip--is-active');
-      };
-
-      /* tooltip - mouseout */
-      mouseoutTootip = (e) => {
-        e.target.style.overflow = '';
-        e.target.siblings('.tooltip')[0].classList.remove('tooltip--is-active');
-      };
-    }
-
     // install
     const $keyword = document.querySelector('[data-section=전체이슈현황] [data-card=이슈상세현황] [data-card=기간별연관어변화] .scroll-container');
-    const tooltip = new Tooltip();
 
     // let $table = $keyword.querySelectorAll('.c-table');
     // let $tableTr = document.querySelectorAll('[data-section=전체이슈현황] [data-card=이슈상세현황] [data-card=기간별연관어변화] .c-table [data-idx]');
-
-    $keyword.classList.add('l-card--is-active');
-    tooltip.init($keyword);
 
     //  같은 키워드 색상 액티브
     let addHoverEvent = function () {
@@ -130,11 +95,6 @@ $(function () {
 
     //observer
     let observer = new MutationObserver(() => {
-      $keyword.classList.remove('l-card--is-active');
-      setTimeout(() => $keyword.classList.add('l-card--is-active'), 100);
-      // 툴팁 생성
-      tooltip.init($keyword);
-
       // 엘리먼트 새로 생성시 이벤트 추가 - 같은 키워드 색상 액티브
       addHoverEvent();
     });
@@ -324,24 +284,6 @@ $(function () {
     chart.addListener('clickGraphItem', function ($e) {
       $.modal({ className: 'alert', message: '작업중' });
     });
-  }
-  /*
-  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-  */
-  {
-    // $('#qid_01_03 .ui_brd_list tbody tr').hover(function ($e) {
-    //   var keyCode;
-    //   $('#qid_01_03 .ui_brd_list tbody tr').removeClass('is-active');
-    //   if ($e.type == 'mouseenter') {
-    //     keyCode = $(this).find('td:nth-child(2)').attr('data-key-id');
-    //     if (keyCode)
-    //       $('#qid_01_03 .ui_brd_list tbody td[data-key-id=' + keyCode + ']')
-    //         .parent()
-    //         .addClass('is-active');
-    //   } else {
-    //     keyCode = null;
-    //   }
-    // });
   }
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

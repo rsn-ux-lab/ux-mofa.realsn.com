@@ -6,6 +6,15 @@
 /*!
  *
  * @author: GUNI, h2dlhs@realsn.com
+ *
+ * $options
+ *      - stroke: 컬러값 | #000000
+ *      - strokeWidth: 라인 두께 | 1
+ **/
+
+/*!
+ *
+ * @author: GUNI, h2dlhs@realsn.com
  **/
 
 /*!

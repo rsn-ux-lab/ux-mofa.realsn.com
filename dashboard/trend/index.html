@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221031135810&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221031135810&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221031135810&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221031152222&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221031152222&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221031152222&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -112,28 +112,161 @@
     <div class="inner">
       <header class="l-section-header">
         <h3 class="l-section-header__title">전체 이슈 현황</h3>
-        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="한국어/영어">
-          <div class="form-row form-check form-check-button form-check-button--switch" data-row="한국어">
-            <input id="radioLang_2_1" name="radioLang_2" class="form-check__input" type="radio" checked />
-            <label for="radioLang_2_1" class="form-check__label"><span class="txt">한국어</span></label>
-          </div>
-          <div class="form-row form-check form-check-button form-check-button--switch" data-row="영어">
-            <input id="radioLang_2_2" name="radioLang_2" class="form-check__input" type="radio" />
-            <label for="radioLang_2_2" class="form-check__label"><span class="txt">영어</span></label>
+        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="검색">
+          <div class="form-input">
+            <input type="search" id="issue-search" name="issue-cate_search" placeholder="검색어를 입력하세요." />
+            <label for="issue-search"></label>
+            <button class="ui_btn is-icon-only btn_search" title="검색"><span class="icon"></span></button>
           </div>
         </fieldset>
       </header>
       <main class="l-section-body">
-        <article class="l-card p-0 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false" data-quick-menu="전체 이슈 현황">
+        <article class="l-card p-0 border-0" data-card="전체이슈현황" data-loding-spinner="false dimmed" data-is-empty="false" data-quick-menu="전체 이슈 현황">
           <header class="l-card-header mb-15">TOTAL. <span class="count">155,474</span> (1/1 pages)</header>
-          <main class="l-card-body">테이블</main>
+          <main class="l-card-body">
+            <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+            <table class="c-table">
+              <colgroup>
+                <col width="3.428%" />
+                <col width="12.428%" />
+                <col width="*" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="*" />
+                <col width="7%" />
+                <col width="7%" />
+              </colgroup>
+              <thead class="is-sticky">
+                <tr>
+                  <th class="is-color-cfcfcf">순위</th>
+                  <th class="is-color-cfcfcf">토픽</th>
+                  <th class="is-color-cfcfcf">이슈</th>
+                  <th class="is-color-cfcfcf">증감률</th>
+                  <th>정보량</th>
+                  <th>정보량 추이</th>
+                  <th>부정률</th>
+                  <th>부정 증감률</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--  prettier-ignore -->
+                <!-- 
+                    <i class="c-badge" style="--color-set: #8b3244">한반도</i>
+                    <i class="c-badge" style="--color-set: #a47e4f">외교/정치/군사</i>
+                    <i class="c-badge" style="--color-set: #4f8058">경제/통상</i>
+                    <i class="c-badge" style="--color-set: #3b448a">기후환경</i>
+                    <i class="c-badge" style="--color-set: #424242">기타</i>
+                 -->
+                <tr>
+                  <td class="text-center">1</td>
+                  <td class="pd-2">
+                    <i class="c-badge" style="--color-set: #8b3244">한반도</i>
+                    <i class="c-badge" style="--color-set: #a47e4f">외교/정치/군사</i>
+                  </td>
+                  <td>
+                    <div class="issue_anal_box">
+                      <strong class="tit" data-tooltip-text="포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약"><span class="clamp-1">포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약포괄적핵실험금지조약</span></strong>
+                      <span><button type="button" class="analyze_btn">분석</button></span>
+                    </div>
+                  </td>
+                  <td class="text-right"><i class="icon-svg-triangle-up" title="상승"></i><span class="percent">17.8</span></td>
+                  <td class="text-right">16,553,000</td>
+                  <td>
+                    <div class="js-chart" id="js-chart__1"></div>
+                  </td>
+                  <td class="text-right"><span class="is-color-negative">20.0%</span></td>
+                  <td class="text-right"><i class="icon-svg-triangle-up" title="상승"></i><span class="percent">30.0%p</span></td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td class="pd-2">
+                    <i class="c-badge" style="--color-set: #4f8058">경제/통상</i>
+                    <i class="c-badge" style="--color-set: #3b448a">기후환경</i>
+                  </td>
+                  <td>
+                    <div class="issue_anal_box">
+                      <strong class="tit" data-tooltip-text="포괄적핵실험금지조약"><span class="clamp-1">포괄적핵실험금지조약</span></strong>
+                      <span><button type="button" class="analyze_btn">분석</button></span>
+                    </div>
+                  </td>
+                  <td class="text-right"><i class="icon-svg-triangle-down" title="하락"></i><span class="percent">17.8</span></td>
+                  <td class="text-right">16,553,000</td>
+                  <td>
+                    <div class="js-chart" id="js-chart__2"></div>
+                  </td>
+                  <td class="text-right"><span class="is-color-negative">20.0%</span></td>
+                  <td class="text-right"><i class="icon-svg-triangle-down" title="하락"></i><span class="percent">30.0%p</span></td>
+                </tr>
+                <tr>
+                  <td class="text-center">3</td>
+                  <td class="pd-2">
+                    <i class="c-badge" style="--color-set: #3b448a">기후환경</i>
+                    <i class="c-badge" style="--color-set: #424242">기타</i>
+                  </td>
+                  <td>
+                    <div class="issue_anal_box">
+                      <strong class="tit" data-tooltip-text="포괄적핵실험금지조약"><span class="clamp-1">포괄적핵실험금지조약</span></strong>
+                      <span><button type="button" class="analyze_btn">분석</button></span>
+                    </div>
+                  </td>
+                  <td class="text-right"><i class="icon-svg-bar" title="동일"></i><span class="percent">17.8</span></td>
+                  <td class="text-right">16,553,000</td>
+                  <td>
+                    <div class="js-chart" id="js-chart__3"></div>
+                  </td>
+                  <td class="text-right"><span class="is-color-negative">20.0%</span></td>
+                  <td class="text-right"><i class="icon-svg-bar" title="동일"></i><span class="percent">30.0%p</span></td>
+                </tr>
+                <tr>
+                  <td class="text-center">4</td>
+                  <td class="pd-2">
+                    <i class="c-badge" style="--color-set: #4f8058">경제/통상</i>
+                  </td>
+                  <td>
+                    <div class="issue_anal_box">
+                      <strong class="tit" data-tooltip-text="포괄적핵실험금지조약"><span class="clamp-1">포괄적핵실험금지조약</span></strong>
+                      <span><button type="button" class="analyze_btn">분석</button></span>
+                    </div>
+                  </td>
+                  <td class="text-right"><i class="icon-svg-bar" title="동일"></i><span class="percent">17.8</span></td>
+                  <td class="text-right">16,553,000</td>
+                  <td>
+                    <div class="js-chart" id="js-chart__3"></div>
+                  </td>
+                  <td class="text-right"><span class="is-color-negative">20.0%</span></td>
+                  <td class="text-right"><i class="icon-svg-bar" title="동일"></i><span class="percent">30.0%p</span></td>
+                </tr>
+                <tr>
+                  <td class="text-center">5</td>
+                  <td class="pd-2">
+                    <i class="c-badge" style="--color-set: #8b3244">한반도</i>
+                    <i class="c-badge" style="--color-set: #a47e4f">외교/정치/군사</i>
+                    <i class="c-badge" style="--color-set: #4f8058">경제/통상</i>
+                  </td>
+                  <td>
+                    <div class="issue_anal_box">
+                      <strong class="tit" data-tooltip-text="포괄적핵실험금지조약"><span class="clamp-1">포괄적핵실험금지조약</span></strong>
+                      <span><button type="button" class="analyze_btn">분석</button></span>
+                    </div>
+                  </td>
+                  <td class="text-right"><i class="icon-svg-bar" title="동일"></i><span class="percent">17.8</span></td>
+                  <td class="text-right">16,553,000</td>
+                  <td>
+                    <div class="js-chart" id="js-chart__3"></div>
+                  </td>
+                  <td class="text-right"><span class="is-color-negative">20.0%</span></td>
+                  <td class="text-right"><i class="icon-svg-bar" title="동일"></i><span class="percent">30.0%p</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </main>
           <footer class="l-card-footer pt-30">
             <ol class="c-pagination">
               <li class="c-pagination__item c-pagination__item--first">
-                <button class="c-pagination__btn" type="button" title="첫 페이지"><i class="icon-svg-chevrons-left" aria-hidden="true"></i></button>
+                <button class="c-pagination__btn" type="button" title="첫 페이지" disabled><i class="icon-svg-chevrons-left" aria-hidden="true"></i></button>
               </li>
               <li class="c-pagination__item c-pagination__item--prev">
-                <button class="c-pagination__btn" type="button" title="이전 페이지"><i class="icon-svg-chevron-left" aria-hidden="true"></i></button>
+                <button class="c-pagination__btn" type="button" title="이전 페이지" disabled><i class="icon-svg-chevron-left" aria-hidden="true"></i></button>
               </li>
               <li class="c-pagination__item">
                 <button class="c-pagination__btn c-pagination__btn--is-active" type="button">1</button>
@@ -255,7 +388,7 @@
                           
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -265,7 +398,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -275,7 +408,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -285,7 +418,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -295,7 +428,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -305,7 +438,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -315,7 +448,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -325,7 +458,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -335,7 +468,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -345,7 +478,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -355,7 +488,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -365,7 +498,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -375,7 +508,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -385,7 +518,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -395,7 +528,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -405,7 +538,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -415,7 +548,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -425,7 +558,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -435,7 +568,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -445,7 +578,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -483,7 +616,7 @@
                           
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -493,7 +626,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -503,7 +636,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -513,7 +646,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -523,7 +656,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -533,7 +666,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -543,7 +676,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -553,7 +686,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -563,7 +696,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -573,7 +706,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -583,7 +716,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -593,7 +726,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -603,7 +736,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -613,7 +746,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -623,7 +756,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -633,7 +766,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -643,7 +776,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -653,7 +786,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -663,7 +796,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -673,7 +806,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -711,7 +844,7 @@
                           
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -721,7 +854,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -731,7 +864,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -741,7 +874,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -751,7 +884,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -761,7 +894,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -771,7 +904,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -781,7 +914,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -791,7 +924,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -801,7 +934,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -811,7 +944,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -821,7 +954,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -831,7 +964,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -841,7 +974,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -851,7 +984,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -861,7 +994,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -871,7 +1004,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -881,7 +1014,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -891,7 +1024,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -901,7 +1034,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -939,7 +1072,7 @@
                           
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -949,7 +1082,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -959,7 +1092,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -969,7 +1102,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -979,7 +1112,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -989,7 +1122,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -999,7 +1132,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1009,7 +1142,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -1019,7 +1152,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1029,7 +1162,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -1039,7 +1172,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1049,7 +1182,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1059,7 +1192,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -1069,7 +1202,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1079,7 +1212,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -1089,7 +1222,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1099,7 +1232,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1109,7 +1242,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -1119,7 +1252,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1129,7 +1262,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -1167,7 +1300,7 @@
                           
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1177,7 +1310,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1187,7 +1320,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -1197,7 +1330,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1207,7 +1340,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -1217,7 +1350,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1227,7 +1360,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1237,7 +1370,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -1247,7 +1380,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1257,7 +1390,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -1267,7 +1400,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1277,7 +1410,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1287,7 +1420,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -1297,7 +1430,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1307,7 +1440,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -1317,7 +1450,7 @@
                           </tr>
                           <tr data-idx="영국 여왕">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">영국 여왕</span></span>
+                              <span class="keyword" data-tooltip-text="영국 여왕"><span class="clamp-1">영국 여왕</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1327,7 +1460,7 @@
                           </tr>
                           <tr data-idx="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
+                              <span class="keyword" data-tooltip-text="에스토니아 에스토니아 에스토니아 에스토니아 에스토니아"><span class="clamp-1">에스토니아 에스토니아 에스토니아 에스토니아 에스토니아</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1337,7 +1470,7 @@
                           </tr>
                           <tr data-idx="장례식">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">장례식</span></span>
+                              <span class="keyword" data-tooltip-text="장례식"><span class="clamp-1">장례식</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">9,366</a></td>
                             <td class="text-right">
@@ -1347,7 +1480,7 @@
                           </tr>
                           <tr data-idx="발리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">발리</span></span>
+                              <span class="keyword" data-tooltip-text="발리"><span class="clamp-1">발리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">18,366</a></td>
                             <td class="text-right">
@@ -1357,7 +1490,7 @@
                           </tr>
                           <tr data-idx="총리">
                             <td class="text-left fw-bold">
-                              <span class="keyword"><span class="clamp-1">총리</span></span>
+                              <span class="keyword" data-tooltip-text="총리"><span class="clamp-1">총리</span></span>
                             </td>
                             <td class="text-right"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">7,521</a></td>
                             <td class="text-right">
@@ -1377,7 +1510,7 @@
             <!-- // 기간별 연관어 변화 -->
 
             <!-- 연관어 비교-->
-            <article class="l-card bg-fafafa" data-card="연관어비교" data-is-empty="false" style="height: 41rem">
+            <article class="l-card bg-fafafa mb-10" data-card="연관어비교" data-is-empty="false" style="height: 41rem">
               <header class="l-card-header">
                 <h4 class="l-card-header__title fs-13">연관어 비교</h4>
                 <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
@@ -1412,6 +1545,240 @@
               </main>
             </article>
             <!-- // 연관어 비교 -->
+
+            <!-- 데이터 목록 -->
+            <article class="l-card bg-fafafa" data-card="데이터목록" data-is-empty="false" data-quick-menu="데이터 목록">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title fs-13">데이터 목록</h4>
+                <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="한국어/영어">
+                  <div class="form-row form-check form-check-button form-check-button--switch" data-row="한국어">
+                    <input id="radioKeyword3_1" name="radioKeyword3" class="form-check__input" type="radio" checked />
+                    <label for="radioKeyword3_1" class="form-check__label"><span class="txt">한국어</span></label>
+                  </div>
+                  <div class="form-row form-check form-check-button form-check-button--switch" data-row="영어">
+                    <input id="radioKeyword3_2" name="radioKeyword3" class="form-check__input" type="radio" />
+                    <label for="radioKeyword3_2" class="form-check__label"><span class="txt">영어</span></label>
+                  </div>
+                </fieldset>
+              </header>
+
+              <main class="l-section-body">
+                <article class="l-card p-0 pb-30 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false">
+                  <header class="l-card-header mb-15">
+                    TOTAL. <span class="count">155,474</span> (1/1 pages)
+                    <fieldset class="form-fieldse d-flex ml-auto">
+                      <div class="form-row form-select mr-10" data-row="기본정렬">
+                        <select class="form-select__select">
+                          <option value="0" selected>최신 수집 순</option>
+                          <option value="1">오래된 수집 순</option>
+                          <option value="2">유사글 많은 순</option>
+                        </select>
+                      </div>
+                      <div class="form-row form-select" data-row="기본정렬">
+                        <select class="form-select__select">
+                          <option value="0" selected>10건 씩 보기</option>
+                          <option value="1">30건 씩 보기</option>
+                          <option value="2">50건 씩 보기</option>
+                        </select>
+                      </div>
+                    </fieldset>
+                  </header>
+                  <main class="l-card-body">
+                    <table class="c-table">
+                      <colgroup>
+                        <col width="8.428%" />
+                        <col width="*" />
+                        <col width="10%" />
+                        <col width="3.574%" />
+                        <col width="5.142%" />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>출처</th>
+                          <th>제목</th>
+                          <th>수집일시</th>
+                          <th>감성</th>
+                          <th>유사</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!--  prettier-ignore -->
+                        <!-- 요약내용 -->
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="text-center">arirang</td>
+                          <td>
+                            <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
+                              <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
+                            </a>
+                          </td>
+                          <td class="text-center">2022-07-01 12:43</td>
+                          <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
+                          <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
+                        </tr>
+                        <!-- //요약내용 -->
+
+                      </tbody>
+                    </table>
+                  </main>
+                  <footer class="l-card-footer pt-30">
+                    <ol class="c-pagination">
+                      <li class="c-pagination__item c-pagination__item--first">
+                        <button class="c-pagination__btn" type="button" title="첫 페이지"><i class="icon-svg-chevrons-left" aria-hidden="true"></i></button>
+                      </li>
+                      <li class="c-pagination__item c-pagination__item--prev">
+                        <button class="c-pagination__btn" type="button" title="이전 페이지"><i class="icon-svg-chevron-left" aria-hidden="true"></i></button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn c-pagination__btn--is-active" type="button">1</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">2</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">3</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">4</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">5</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">6</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">7</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">8</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">9</button>
+                      </li>
+                      <li class="c-pagination__item">
+                        <button class="c-pagination__btn" type="button">10</button>
+                      </li>
+                      <li class="c-pagination__item c-pagination__item--next">
+                        <button class="c-pagination__btn" type="button" title="다음 페이지"><i class="icon-svg-chevrons-right" aria-hidden="true"></i></button>
+                      </li>
+                      <li class="c-pagination__item c-pagination__item--last">
+                        <button class="c-pagination__btn" type="button" title="마지막 페이지"><i class="icon-svg-chevron-right" aria-hidden="true"></i></button>
+                      </li>
+                    </ol>
+                  </footer>
+                </article>
+              </main>
+            </article>
+            <!-- //데이터 목록 -->
           </main>
         </article>
         <!-- // 이슈 상세 현황 -->
@@ -1419,241 +1786,6 @@
     </div>
   </section>
   <!-- //전체 이슈 현황 -->
-
-  <!-- 전체 데이터 -->
-  <section class="l-section" data-section="전체데이터" data-loding-spinner="false" data-quick-menu="전체 데이터">
-    <div class="inner">
-      <header class="l-section-header">
-        <h3 class="l-section-header__title">전체 데이터</h3>
-        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="한국어/영어">
-          <div class="form-row form-check form-check-button form-check-button--switch" data-row="한국어">
-            <input id="radioLang_0_1" name="radioLang_0" class="form-check__input" type="radio" checked />
-            <label for="radioLang_0_1" class="form-check__label"><span class="txt">한국어</span></label>
-          </div>
-          <div class="form-row form-check form-check-button form-check-button--switch" data-row="영어">
-            <input id="radioLang_0_2" name="radioLang_0" class="form-check__input" type="radio" />
-            <label for="radioLang_0_2" class="form-check__label"><span class="txt">영어</span></label>
-          </div>
-        </fieldset>
-      </header>
-      <main class="l-section-body">
-        <article class="l-card p-0 pb-30 border-0" data-card="전체데이터" data-loding-spinner="false dimmed" data-is-empty="false">
-          <header class="l-card-header mb-15">
-            TOTAL. <span class="count">155,474</span> (1/1 pages)
-            <fieldset class="form-fieldse d-flex ml-auto">
-              <div class="form-row form-select mr-10" data-row="기본정렬">
-                <select class="form-select__select">
-                  <option value="0" selected>최신 수집 순</option>
-                  <option value="1">오래된 수집 순</option>
-                  <option value="2">유사글 많은 순</option>
-                </select>
-              </div>
-              <div class="form-row form-select" data-row="기본정렬">
-                <select class="form-select__select">
-                  <option value="0" selected>10건 씩 보기</option>
-                  <option value="1">30건 씩 보기</option>
-                  <option value="2">50건 씩 보기</option>
-                </select>
-              </div>
-            </fieldset>
-          </header>
-          <main class="l-card-body">
-            <table class="c-table">
-              <colgroup>
-                <col width="8.428%" />
-                <col width="*" />
-                <col width="10%" />
-                <col width="3.574%" />
-                <col width="5.142%" />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>출처</th>
-                  <th>제목</th>
-                  <th>수집일시</th>
-                  <th>감성</th>
-                  <th>유사</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!--  prettier-ignore -->
-                <!-- 요약내용 -->
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({className : 'alert', message: '작업중'})">205</a></td>
-                </tr>
-                <!-- //요약내용 -->
-
-              </tbody>
-            </table>
-          </main>
-          <footer class="l-card-footer pt-30">
-            <ol class="c-pagination">
-              <li class="c-pagination__item c-pagination__item--first">
-                <button class="c-pagination__btn" type="button" title="첫 페이지"><i class="icon-svg-chevrons-left" aria-hidden="true"></i></button>
-              </li>
-              <li class="c-pagination__item c-pagination__item--prev">
-                <button class="c-pagination__btn" type="button" title="이전 페이지"><i class="icon-svg-chevron-left" aria-hidden="true"></i></button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn c-pagination__btn--is-active" type="button">1</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">2</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">3</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">4</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">5</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">6</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">7</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">8</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">9</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">10</button>
-              </li>
-              <li class="c-pagination__item c-pagination__item--next">
-                <button class="c-pagination__btn" type="button" title="다음 페이지"><i class="icon-svg-chevrons-right" aria-hidden="true"></i></button>
-              </li>
-              <li class="c-pagination__item c-pagination__item--last">
-                <button class="c-pagination__btn" type="button" title="마지막 페이지"><i class="icon-svg-chevron-right" aria-hidden="true"></i></button>
-              </li>
-            </ol>
-          </footer>
-        </article>
-      </main>
-    </div>
-  </section>
-  <!-- //전체 데이터 -->
 </main>
 <!-- //#container -->
 
