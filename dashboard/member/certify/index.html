@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221101153352&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221101153352&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221101153352&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221101154027&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221101154027&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221101154027&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -122,19 +122,39 @@
         </fieldset>
         <!-- 
               상황별 화면 확인 - url 제일 뒤에 ?preview=... 붙여주시면 됩니다.
+              ---- 스크립트 파일 : static/dashboard/asset/js/pages/certify.js ----
 
               // 팝업 - 유효시간 만료 시 알럿 (확인 알럿)
-                ?preview=timeOver
+                ?preview=timeout
                 > 사용된 스크립트 
-                msgMngr.send('입력 시간을 초과했습니다.<br>인증 코드를 다시 요청해주세요.', '', 0, 0);
+                $.modal({ className: 'alert', message: `<p class="text-center">2단계 인증에 실패하였습니다.<br>다시 시도해주세요.</p>` });
 
               // 팝업 - 2단계 인증 실패
                 ?preview=fail
                 > 사용된 스크립트 
                 msgMngr.send('2단계 인증에 실패하였습니다.<br>다시 시도해주세요.', '', 0, 0);
 
+              // 팝업 - 중복사용자 체크 
+                ?preview=logout
+                > 사용된 스크립트 
+                // 팝업 - 중복사용자
+                $.modal({
+                  className: 'confirm',
+                  message: `<p class="text-center">동일 아이디 사용자가 존재합니다.<br>기존 사용자를 강제 로그아웃 후 로그인하시겠습니까?</p>`,
+                  btnAgree: '로그인',
+                  on: {
+                    complete({ ...args }) {
+                      const $btnAgree = args.$modal[0].querySelector('.btn-agree');
+
+                      $btnAgree.addEventListener('click', () => {
+                        location.href = '../../leaders';
+                      });
+                    },
+                  },
+                });
+
               // 팝업 - 2단계 인증 완료
-                ?preview=success
+              ?preview=success
             -->
 
         <!-- [코드전송] 클릭 → SMS로 전송된 인증코드 입력 → [인증하기] 클릭 → 완료 -->
