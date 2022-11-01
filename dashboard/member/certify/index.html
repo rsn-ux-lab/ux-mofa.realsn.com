@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221101114059&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221101114059&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221101114059&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221101152815&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221101152815&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221101152815&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -99,20 +99,11 @@
       <h3 class="l-member-header__title">2단계 인증</h3>
     </header>
     <main class="l-member-body">
-      <form class="form" action="../../leaders">
+      <form class="form">
         <fieldset class="form-fieldset" data-fieldset="2단계인증">
           <div class="form-row form-text" data-row="phone">
-            <input
-              type="tel"
-              id="tel_input"
-              class="form-text__input"
-              placeholder="전화번호 입력"
-              pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"
-              maxlength="13"
-              value="010-1234-5678"
-              disabled
-            />
-            <label class="form-text__label visually-hidden">전화번호를 입력하세요</label>
+            <input type="tel" id="tel_input" class="form-text__input" placeholder="전화번호 입력" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}" maxlength="13" value="010-1234-5678" readonly />
+            <label class="form-text__label visually-hidden">코드 전송이 완료되었습니다.</label>
             <button type="button" class="btn btn-round btn-code btn-round--sm">
               <span class="txt">코드전송</span>
             </button>
@@ -124,9 +115,9 @@
             -->
           <div class="form-row form-text" data-row="certification">
             <!-- data-number 에 세팅된 값이 입력되면 알아서 success 클래스가 추가됩니다 -->
-            <input class="form-text__input" id="code_input" data-number="123456" placeholder="코드입력" type="number" required />
-            <label class="visually-hidden">인증번호를 입력하세요</label>
-            <p class="form-text__watch">유효시간<em class="color-f86666 pr-5 pl-5">4:59</em><button type="button">[시간연장]</button></p>
+            <input class="form-text__input" id="code_input" data-number="123456" type="number" placeholder="코드 입력" required />
+            <label class="form-text__label visually-hidden" id="timeoutTxt">유효시간이 만료되었습니다. 코드 재전송해주세요.</label>
+            <p class="form-text__watch visually-hidden">유효시간<em class="color-f86666 pr-5 pl-5">4:59</em><button type="button">[시간연장]</button></p>
           </div>
         </fieldset>
         <!-- 
@@ -147,10 +138,10 @@
             -->
 
         <!-- [코드전송] 클릭 → SMS로 전송된 인증코드 입력 → [인증하기] 클릭 → 완료 -->
-        <button class="btn btn-round btn-round--lg btn-login w-100">
+        <button type="button" class="btn btn-round btn-round--lg btn-login w-100" disabled>
           <span class="txt">인증하기</span>
         </button>
-        <p class="form__cmt">회원가입/비밀번호 등의 업무는 각 부서의 담당자에게 문의해 주세요.</p>
+        <p class="form__cmt">[코드전송] 클릭 → SMS로 전송된 인증코드 입력 → [인증하기] 클릭 → 완료</p>
       </form>
     </main>
   </section>
