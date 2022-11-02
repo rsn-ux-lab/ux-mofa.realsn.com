@@ -88,7 +88,7 @@ $(function () {
       addClassNames: true,
       autoResize: true,
       color: "#ffffff",
-      percentPrecision: 0,
+      percentPrecision: 1,
       balloon: {
         fillAlpha: 0.95,
         borderThickness: 1,
@@ -106,7 +106,8 @@ $(function () {
         verticalGap: 5,
         marginTop: 0,
         maxColumns: 2,
-        valueText: ": [[value]] ([[percents]]%)", // 밸류 꺼짐시 "표기량 0" 작업 필요함
+        // valueText: ': [[value]] ([[percents]]%)', // 밸류 꺼짐시 "표기량 0" 작업 필요함
+        valueFunction: get_chartLegendValueTextPie,
       },
       titles: [],
       dataProvider: [
@@ -118,7 +119,7 @@ $(function () {
       ],
     });
     chart.addListener("clickSlice", function () {
-      $.modal({ className: "alert", message: "작업중" });
+      $.modal({ isExist: false, className: "related" });
     });
   }
   /*
@@ -319,7 +320,7 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ className: "alert", message: "작업중" });
+      $.modal({ isExist: false, className: "related" });
     });
   }
   /*
@@ -473,7 +474,7 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ className: "alert", message: "작업중" });
+      $.modal({ isExist: false, className: "related" });
     });
   }
   /*
@@ -960,7 +961,7 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ className: "alert", message: "작업중" });
+      $.modal({ isExist: false, className: "related" });
     });
   }
   /*
@@ -1002,7 +1003,7 @@ $(function () {
       addClassNames: true,
       autoResize: true,
       color: "#ffffff",
-      percentPrecision: 0,
+      percentPrecision: 1,
       balloon: {
         fillAlpha: 0.95,
         borderThickness: 1,
@@ -1020,7 +1021,7 @@ $(function () {
         verticalGap: 5,
         marginTop: 0,
         maxColumns: 2,
-        valueText: ": [[value]] ([[percents]]%)", // 밸류 꺼짐시 "표기량 0" 작업 필요함
+        valueFunction: get_chartLegendValueTextPie,
       },
       titles: [],
       dataProvider: [
@@ -1032,7 +1033,7 @@ $(function () {
       ],
     });
     chart.addListener("clickSlice", function () {
-      $.modal({ className: "alert", message: "작업중" });
+      $.modal({ isExist: false, className: "related" });
     });
   }
   /*
@@ -1179,7 +1180,33 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function () {
-      $.modal({ className: "alert", message: "작업중" });
+      $.modal({ isExist: false, className: "related" });
     });
   }
+  /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
+  {
+    /*
+     *
+     * 상황별 preview 가져오기
+     *
+     **/
+    const name = new URLSearchParams(location.search).get("preview");
+
+    switch (name) {
+      // modal - 관련정보
+      case "modalRelated":
+        $.modal({ isExist: false, className: "related" });
+        break;
+
+      // modal - 유사목록
+      case "modalSimilar":
+        $.modal({ isExist: false, className: "similar" });
+        break;
+    }
+  }
+  /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
 }); // DOCUMENT READY...

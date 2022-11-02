@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221101154027&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221101154027&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221101154027&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221103022255&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221103022255&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221103022255&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -75,7 +75,7 @@
           <a href="#" class="ui_btn is-color-blk" target="_blank" title="System 바로가기"><span class="icon">&#xe070;</span></a>
         </li>
         <li class="header-top__item header_fix_pin">
-          <input id="pin_chk_00" class="js-headerPin" type="checkbox" autocomplete="off" />
+          <input id="pin_chk_00" class="js-header-pin" type="checkbox" autocomplete="off" />
           <label class="ui_btn is-icon-only" for="pin_chk_00"><span class="icon">&#xe062;</span></label>
         </li>
       </ul>
@@ -292,7 +292,7 @@
                 <col width="*" />
                 <col width="4.643%" />
               </colgroup>
-              <thead class="is-sticky">
+              <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
                 <tr>
                   <th rowspan="2" class="bg-cfcfcf">순위</th>
                   <th rowspan="2" class="bg-cfcfcf">채널</th>
@@ -4777,50 +4777,25 @@
             </table>
           </main>
           <footer class="l-card-footer pt-30">
+            <!--  prettier-ignore -->
+            
             <ol class="c-pagination">
-              <li class="c-pagination__item c-pagination__item--first">
-                <button class="c-pagination__btn" type="button" title="첫 페이지"><i class="icon-svg-chevrons-left" aria-hidden="true"></i></button>
-              </li>
-              <li class="c-pagination__item c-pagination__item--prev">
-                <button class="c-pagination__btn" type="button" title="이전 페이지"><i class="icon-svg-chevron-left" aria-hidden="true"></i></button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn c-pagination__btn--is-active" type="button">1</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">2</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">3</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">4</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">5</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">6</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">7</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">8</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">9</button>
-              </li>
-              <li class="c-pagination__item">
-                <button class="c-pagination__btn" type="button">10</button>
-              </li>
-              <li class="c-pagination__item c-pagination__item--next">
-                <button class="c-pagination__btn" type="button" title="다음 페이지"><i class="icon-svg-chevrons-right" aria-hidden="true"></i></button>
-              </li>
-              <li class="c-pagination__item c-pagination__item--last">
-                <button class="c-pagination__btn" type="button" title="마지막 페이지"><i class="icon-svg-chevron-right" aria-hidden="true"></i></button>
-              </li>
+              <li class="c-pagination__item c-pagination__item--first"><button class="c-pagination__btn" type="button" title="첫 페이지" disabled><i class="icon-svg-chevrons-left" aria-hidden="true"></i></button></li>
+              <li class="c-pagination__item c-pagination__item--prev"><button class="c-pagination__btn" type="button" title="이전 페이지" disabled><i class="icon-svg-chevron-left" aria-hidden="true"></i></button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn c-pagination__btn--is-active" type="button">1</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">2</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">3</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">4</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">5</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">6</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">7</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">8</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">9</button></li>
+              <li class="c-pagination__item"><button class="c-pagination__btn" type="button">10</button></li>
+              <li class="c-pagination__item c-pagination__item--next"><button class="c-pagination__btn" type="button" title="다음 페이지"><i class="icon-svg-chevrons-right" aria-hidden="true"></i></button></li>
+              <li class="c-pagination__item c-pagination__item--last"><button class="c-pagination__btn" type="button" title="마지막 페이지"><i class="icon-svg-chevron-right" aria-hidden="true"></i></button></li>
             </ol>
+
           </footer>
         </article>
       </main>

@@ -272,7 +272,7 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ className: "alert", message: "작업중" });
+      $.modal({ isExist: false, className: "related" });
     });
   }
   /*
