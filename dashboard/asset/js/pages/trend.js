@@ -276,6 +276,29 @@ $(function () {
     });
   }
   /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
+  {
+    /*
+     *
+     * 상황별 preview 가져오기
+     *
+     **/
+    const name = new URLSearchParams(location.search).get("preview");
+
+    switch (name) {
+      // modal - 관련정보
+      case "modalRelated":
+        $.modal({ isExist: false, className: "related" });
+        break;
+
+      // modal - 유사목록
+      case "modalSimilar":
+        $.modal({ isExist: false, className: "similar" });
+        break;
+    }
+  }
+  /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
   */
 }); // DOCUMENT READY...
