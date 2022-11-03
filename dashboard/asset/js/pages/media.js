@@ -119,7 +119,7 @@ $(function () {
       ],
     });
     chart.addListener("clickSlice", function () {
-      $.modal({ isExist: false, className: "related" });
+      $.modal({ isExist: true, className: "data-table--related" });
     });
   }
   /*
@@ -320,7 +320,7 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ isExist: false, className: "related" });
+      $.modal({ isExist: true, className: "data-table--related" });
     });
   }
   /*
@@ -474,7 +474,7 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ isExist: false, className: "related" });
+      $.modal({ isExist: true, className: "data-table--related" });
     });
   }
   /*
@@ -961,7 +961,7 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function ($e) {
-      $.modal({ isExist: false, className: "related" });
+      $.modal({ isExist: true, className: "data-table--related" });
     });
   }
   /*
@@ -1033,7 +1033,7 @@ $(function () {
       ],
     });
     chart.addListener("clickSlice", function () {
-      $.modal({ isExist: false, className: "related" });
+      $.modal({ isExist: true, className: "data-table--related" });
     });
   }
   /*
@@ -1180,7 +1180,7 @@ $(function () {
       ],
     });
     chart.addListener("clickGraphItem", function () {
-      $.modal({ isExist: false, className: "related" });
+      $.modal({ isExist: true, className: "data-table--related" });
     });
   }
   /*
@@ -1197,12 +1197,12 @@ $(function () {
     switch (name) {
       // modal - 관련정보
       case "modalRelated":
-        $.modal({ isExist: false, className: "related" });
+        $.modal({ isExist: true, className: "data-table--related" });
         break;
 
       // modal - 유사목록
       case "modalSimilar":
-        $.modal({ isExist: false, className: "similar" });
+        $.modal({ isExist: true, className: "data-table--similar" });
         break;
     }
   }

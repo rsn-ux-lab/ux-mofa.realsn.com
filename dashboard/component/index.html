@@ -13,9 +13,9 @@
   <link rel="shortcut icon" href="/dashboard/asset/img/favicon.ico" />  
 
   <!-- JS -->
-  <script src="/dashboard/asset/js/config/files.js?v=20221103112933&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/import.bundle.js?v=20221103112933&v=<%= cache.format(nowTime) %>" defer></script>
-  <script src="/dashboard/asset/js/config/router.js?v=20221103112933&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/files.js?v=20221103130718&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/import.bundle.js?v=20221103130718&v=<%= cache.format(nowTime) %>" defer></script>
+  <script src="/dashboard/asset/js/config/router.js?v=20221103130718&v=<%= cache.format(nowTime) %>" defer></script>
 </head>
 
 <body>
@@ -89,6 +89,7 @@
   </div>
 </header>
 <!-- //#header -->
+
 
 
 <div id="container" data-quick-title="해외여론주도층 분석">
@@ -1117,6 +1118,104 @@
               </div>
             </div>
           </div>
+
+          <!-- notys -->
+          <div class="ui_row" id="qid_10" data-quick-menu="Notys">
+            <div class="ui_col">
+              <div class="wrap">
+                <div class="ui_box ui_loader_container /*is-loading*/">
+                  <div class="box_header">
+                    <h4>Notys</h4>
+                  </div>
+                  <div class="box_content">
+                    <div class="ui_brd_list">
+                      <div class="wrap">
+                        <table class="c-table-notys">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th><strong>좌측</strong></th>
+                              <th><strong>중앙</strong></th>
+                              <th><strong>우측</strong></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th><strong>상단</strong></th>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'left top' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'left top' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'left top' )"><span class="txt">error</span></button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'center top' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'center top' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'center top' )"><span class="txt">error</span></button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'right top' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'right top' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'right top' )"><span class="txt">error</span></button> 
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>중앙</strong></th>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'left center' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'left center' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'left center' )"><span class="txt">error</span></button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'center center' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'center center' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'center center' )"><span class="txt">error</span></button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'right center' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'right center' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'right center' )"><span class="txt">error</span></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>하단</strong></th>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'left bottom' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'left bottom' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'left bottom' )"><span class="txt">error</span></button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'center bottom' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'center bottom' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'center bottom' )"><span class="txt">error</span></button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '데이터를 불러오고 있습니다.', 'right bottom' )"><span class="txt">info</span></button>
+                                <button class="ui_btn" onclick="notys.success( '데이터 불러오기가 완료되었습니다.', 'right bottom' )"><span class="txt">success</span></button>
+                                <button class="ui_btn" onclick="notys.error( '데이터 불러오기에 실패하였습니다.', 'right bottom' )"><span class="txt">error</span></button> 
+                              </td>
+                            </tr>
+                            <tr>
+                              <th><strong>2줄 이상일 때(정중앙)</strong></th>
+                              <td>
+                                <button class="ui_btn" onclick="notys.info( '텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.', 'center center' )"><span class="txt">info</span></button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" onclick="notys.success( '텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.', 'center center' )"><span class="txt">success</span></button>
+                              </td>
+                              <td>
+                                <button class="ui_btn" onclick="notys.error( '텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.텍스트가 길어요.', 'center center' )"><span class="txt">error</span></button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
     </div>
