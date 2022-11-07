@@ -108,6 +108,8 @@ $(function () {
 
     polygonSeries.mapPolygons.template.setAll({
       tooltipText: "{name}: {value}",
+      fill: am5.color(0xdae2ec),
+      stroke : am5.color(0xffffff)
     });
 
     polygonSeries.set("heatRules", [
@@ -332,6 +334,7 @@ $(function () {
     heatLegend.startLabel.setAll({
       fontSize: 12,
       fill: heatLegend.get("startColor"),
+      
     });
 
     heatLegend.endLabel.setAll({
@@ -347,7 +350,7 @@ $(function () {
 
     // hover
     polygonSeries.mapPolygons.template.states.create("hover", {
-      fill: am5.color(0x677935),
+      fill: am5.color(0x356EA6)
     });
   }
   /*
