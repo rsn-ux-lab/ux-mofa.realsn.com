@@ -123,8 +123,14 @@ $(function () {
     ]);
 
     // heatLegend.showValue(500);
+    //map에서 마우스 오버 시 하단에 tooltip으로 수치를 띄움
     polygonSeries.mapPolygons.template.events.on("pointerover", function (ev) {
       heatLegend.showValue(ev.target.dataItem.get("value"));
+    });
+
+    //map에서 마우스 오버 해제 시 tooltip을 숨김
+    polygonSeries.mapPolygons.template.events.on("pointerout", function() {
+      heatLegend.getTooltip().hide();
     });
 
     // map data name 으로 ID 찾는 스크립트
