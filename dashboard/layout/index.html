@@ -100,13 +100,7 @@
       <div class="option">
         <div class="datepickers">
           <strong>검색기간</strong>
-          <div
-            class="ui_datepickers"
-            id="dp11"
-            data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }'
-            data-grps='[ "0", "7", "30", "9MT", "10MT" ]'
-            data-type-opts='[ "day", "week", "month" ]'
-          ></div>
+          <div class="ui_datepickers" id="dp11" data-date='{ "maxDate": "2022-05-24", "sDate": "2021-07-01", "eDate": "2022-05-24" }' data-grps='[ "0", "7", "30", "9MT", "10MT" ]' data-type-opts='[ "day", "week", "month" ]'></div>
         </div>
       </div>
       <button type="button" class="btn btn-round rounded-0 btn-search"><span class="txt">검색</span></button>
@@ -114,130 +108,38 @@
   </nav>
   <!-- //전체검색 -->
 
-  <!-- 전체 토픽 현황 -->
-  <section class="l-section" data-section="전체토픽현황" data-quick-menu="전체 토픽 현황">
+  <!-- 1뎁스 -->
+  <section class="l-section" data-section="섹션1-기본" data-quick-menu="섹션1-기본">
     <div class="inner">
       <header class="l-section-header">
-        <h3 class="l-section-header__title">전체 토픽 현황</h3>
+        <h3 class="l-section-header__title">섹션1 - 기본</h3>
+      </header>
+      <main class="l-section-body">단일컨텐츠 영역</main>
+    </div>
+  </section>
+  <!-- //1뎁스 -->
+
+  <!-- 1뎁스 -->
+  <section class="l-section" data-section="섹션2-섹션컨텐츠2개이상" data-quick-menu="섹션2-섹션컨텐츠2개이상">
+    <div class="inner">
+      <header class="l-section-header">
+        <h3 class="l-section-header__title">섹션2-섹션컨텐츠2개이상</h3>
       </header>
       <main class="l-section-body">
-        <div class="row gx-10" style="height: 52rem">
+        <!-- height 정의 : row에 style로 -->
+        <div class="row gx-10" style="height: 25rem">
           <div class="col col-8">
-            <article class="l-card" data-card="주요현황요약" data-loding-spinner="false" data-is-empty="false">
+            <article class="l-card" data-card="카드1" data-loding-spinner="false" data-is-empty="false">
               <header class="l-card-header">
-                <h4 class="l-card-header__title">주요 현황 요약</h4>
+                <h4 class="l-card-header__title">카드1</h4>
               </header>
-              <main class="l-card-body pt-20">
-                <ul class="summary-list">
-                  <li class="summary-list__item">
-                    <div class="graph-box" style="--color-set: #8b3244">
-                      <p class="tit">한반도</p>
-                      <i class="graph" style="height: 75.25%" aria-hidden="true"><span class="percent">75.25</span></i>
-                    </div>
-                    <div class="info-box">
-                      <p class="tit">정보량</p>
-                      <a class="count" onclick="$.modal({isExist: true, className: 'data-table--related'})">6,553</a>
-                      <p class="rate">
-                        2차연관키워드
-                        <i class="icon-svg-triangle-up" title="상승"></i>
-                        <span class="percent">17.8</span>
-                      </p>
-                    </div>
-                    <dl class="emotion-list">
-                      <dt class="tit">감성</dt>
-                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
-                    </dl>
-                  </li>
-                  <li class="summary-list__item">
-                    <div class="graph-box" style="--color-set: #a47e4f">
-                      <p class="tit">외교/정치/군사</p>
-                      <i class="graph" style="height: 100%" aria-hidden="true"><span class="percent">100</span></i>
-                    </div>
-                    <div class="info-box">
-                      <p class="tit">정보량</p>
-                      <a class="count" onclick="$.modal({isExist: true, className: 'data-table--related'})">6,553</a>
-                      <p class="rate">
-                        <i class="icon-svg-bar" title="동일"></i>
-                        <span class="percent">17.8</span>
-                      </p>
-                    </div>
-                    <dl class="emotion-list">
-                      <dt class="tit">감성</dt>
-                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
-                    </dl>
-                  </li>
-                  <li class="summary-list__item">
-                    <div class="graph-box" style="--color-set: #4f8058">
-                      <p class="tit">경제/통상</p>
-                      <i class="graph" style="height: 56.789%" aria-hidden="true"><span class="percent">56.789</span></i>
-                    </div>
-                    <div class="info-box">
-                      <p class="tit">정보량</p>
-                      <a class="count" onclick="$.modal({isExist: true, className: 'data-table--related'})">6,553</a>
-                      <p class="rate">
-                        <i class="icon-svg-triangle-down" title="동일"></i>
-                        <span class="percent">17.8</span>
-                      </p>
-                    </div>
-                    <dl class="emotion-list">
-                      <dt class="tit">감성</dt>
-                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
-                    </dl>
-                  </li>
-                  <li class="summary-list__item">
-                    <div class="graph-box" style="--color-set: #3b448a">
-                      <p class="tit">기후변화</p>
-                      <i class="graph" style="height: 11.11%" aria-hidden="true"><span class="percent">11.11</span></i>
-                    </div>
-                    <div class="info-box">
-                      <p class="tit">정보량</p>
-                      <a class="count" onclick="$.modal({isExist: true, className: 'data-table--related'})">6,553</a>
-                      <p class="rate">
-                        <i class="icon-svg-triangle-down" title="동일"></i>
-                        <span class="percent">17.8</span>
-                      </p>
-                    </div>
-                    <dl class="emotion-list">
-                      <dt class="tit">감성</dt>
-                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
-                    </dl>
-                  </li>
-                  <li class="summary-list__item">
-                    <div class="graph-box">
-                      <p class="tit">기타</p>
-                      <i class="graph" style="height: 5.9%" aria-hidden="true"><span class="percent">5.9</span></i>
-                    </div>
-                    <div class="info-box">
-                      <p class="tit">정보량</p>
-                      <a class="count" onclick="$.modal({isExist: true, className: 'data-table--related'})">6,553</a>
-                      <p class="rate">
-                        <i class="icon-svg-triangle-down" title="동일"></i>
-                        <span class="percent">17.8</span>
-                      </p>
-                    </div>
-                    <dl class="emotion-list">
-                      <dt class="tit">감성</dt>
-                      <dd class="desc"><i class="icon-svg-emotion-positive" title="좋음"></i><span class="percent">59.1</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-neutral" title="보통"></i><span class="percent">40.8</span></dd>
-                      <dd class="desc"><i class="icon-svg-emotion-negative" title="나쁨"></i><span class="percent">0.1</span></dd>
-                    </dl>
-                  </li>
-                </ul>
-              </main>
+              <main class="l-card-body pt-20">컨텐츠 영역</main>
             </article>
           </div>
           <div class="col col-4">
-            <article class="l-card" data-card="이슈키워드" data-loding-spinner="false" data-is-empty="false">
+            <article class="l-card" data-card="카드2-카드제목 밑 소팅버튼 포함" data-loding-spinner="false" data-is-empty="false">
               <header class="l-card-header">
-                <h4 class="l-card-header__title w-100 mb-10">이슈 키워드</h4>
+                <h4 class="l-card-header__title w-100 mb-10">카드2-카드제목 밑 소팅버튼 포함</h4>
                 <fieldset class="form-fieldset d-flex" data-fieldset="TOP/HOT">
                   <div class="form-row form-check form-check-button form-check-button--switch" data-row="TOP">
                     <input id="radioIssueRank1" name="radioIssueRank" class="form-check__input" type="radio" checked />
@@ -249,166 +151,37 @@
                   </div>
                 </fieldset>
               </header>
-              <main class="l-card-body pt-15">
-                <!--  prettier-ignore -->
-                <ol class="ol_list">
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="ol_list_box">
-                      <span class="rank"></span>
-                      <span class="tit" data-tooltip-text="1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award">
-                        <span class="clamp-1">1Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award Directorate Award</span>
-                      </span>
-                      <span class="cnt">29,159</span>
-                      <span class="new">NEW</span>
-                    </div>
-                  </li>                  
-                </ol>
-              </main>
+              <main class="l-card-body pt-15">카드 밑 소팅 버튼 있을 경우</main>
             </article>
           </div>
         </div>
       </main>
     </div>
   </section>
-  <!-- //전체 토픽 현황 -->
+  <!-- //1뎁스 -->
 
-  <!-- 토픽 상세 현황 -->
-  <section class="l-section" data-section="토픽상세현황" data-quick-menu="토픽 상세 현황">
+  <!-- 제목 옆 소팅버튼 + 카드 옆 소팅버튼 -->
+  <section class="l-section" data-section="제목옆소팅버튼+카드옆소팅버튼" data-quick-menu="제목옆소팅버튼+카드옆소팅버튼">
     <div class="inner">
       <header class="l-section-header">
-        <h3 class="l-section-header__title">토픽 상세 현황</h3>
+        <h3 class="l-section-header__title">제목 옆 소팅버튼 + 카드 옆 소팅버튼</h3>
+        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="언어" data-radio-index="0">
+          <div class="form-row form-check form-check-button form-check-button--h-lg form-check-button--switch" data-row="한국어" data-radio-value="true">
+            <input id="radioLanguage1" name="radioLanguage" class="form-check__input" type="radio" checked="" />
+            <label for="radioLanguage1" class="form-check__label"><span class="txt">한국어</span></label>
+          </div>
+          <div class="form-row form-check form-check-button form-check-button--h-lg form-check-button--switch" data-row="영어" data-radio-value="false">
+            <input id="radioLanguage2" name="radioLanguage" class="form-check__input" type="radio" />
+            <label for="radioLanguage2" class="form-check__label"><span class="txt">영어</span></label>
+          </div>
+        </fieldset>
       </header>
 
       <main class="l-section-body">
-        <!-- 정보량 점유율 & 정보량 추이 -->
-        <div class="row gx-10 mb-10" style="height: 44rem">
-          <div class="col col-4">
-            <article class="l-card" data-card="정보량점유율" data-loding-spinner="false" data-is-empty="false">
-              <header class="l-card-header">
-                <h4 class="l-card-header__title">정보량 점유율</h4>
-              </header>
-              <main class="l-card-body">
-                <div class="js-chart h-100">도넛차트</div>
-              </main>
-            </article>
-          </div>
-          <div class="col col-8">
-            <article class="l-card" data-card="정보량추이" data-loding-spinner="false" data-is-empty="false">
-              <header class="l-card-header">
-                <h4 class="l-card-header__title">정보량 추이</h4>
-                <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="일별/주별">
-                  <div class="form-row form-check form-check-button form-check-button--switch" data-row="일별">
-                    <input id="radioInfo1" name="radioInfo" class="form-check__input" type="radio" checked />
-                    <label for="radioInfo1" class="form-check__label"><span class="txt">일별</span></label>
-                  </div>
-                  <div class="form-row form-check form-check-button form-check-button--switch" data-row="주별">
-                    <input id="radioInfo2" name="radioInfo" class="form-check__input" type="radio" />
-                    <label for="radioInfo2" class="form-check__label"><span class="txt">주별</span></label>
-                  </div>
-                </fieldset>
-              </header>
-              <main class="l-card-body pt-10">
-                <div class="js-chart h-100"></div>
-              </main>
-            </article>
-          </div>
-        </div>
-        <!-- //정보량 점유율 & 정보량 추이 -->
-
         <!-- 감성 추이 -->
-        <article class="l-card mb-10" data-card="감성추이" data-loding-spinner="false" data-is-empty="false" style="height: 39rem">
+        <article class="l-card mb-10" data-card="제목 옆 소팅버튼 + 카드 옆 소팅버튼" data-loding-spinner="false" data-is-empty="false" style="height: 25rem">
           <header class="l-card-header">
-            <h4 class="l-card-header__title">감성 추이</h4>
+            <h4 class="l-card-header__title">제목 옆 소팅버튼 + 카드 옆 소팅버튼</h4>
             <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="일별/주별">
               <div class="form-row form-check form-check-button form-check-button--switch" data-row="일별">
                 <input id="radioSense1" name="radioSense" class="form-check__input" type="radio" checked />
@@ -453,10 +226,36 @@
           </main>
         </article>
         <!-- //감성 추이 -->
-        <!-- 연관키워드 -->
-        <article class="l-card" data-card="연관키워드">
+      </main>
+    </div>
+  </section>
+  <!-- //제목 옆 소팅버튼 + 카드 옆 소팅버튼 -->
+
+  <!-- 카드 안 하위 박스 있을 경우 -->
+  <section class="l-section" data-section="카드안하위박스있을경우" data-quick-menu="카드안하위박스있을경우">
+    <div class="inner">
+      <header class="l-section-header">
+        <h3 class="l-section-header__title">카드 안 하위 박스 있을 경우</h3>
+        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="언어" data-radio-index="0">
+          <div class="form-row form-check form-check-button form-check-button--h-lg form-check-button--switch" data-row="한국어" data-radio-value="true">
+            <input id="radioLanguage1" name="radioLanguage" class="form-check__input" type="radio" checked="" />
+            <label for="radioLanguage1" class="form-check__label"><span class="txt">한국어</span></label>
+          </div>
+          <div class="form-row form-check form-check-button form-check-button--h-lg form-check-button--switch" data-row="영어" data-radio-value="false">
+            <input id="radioLanguage2" name="radioLanguage" class="form-check__input" type="radio" />
+            <label for="radioLanguage2" class="form-check__label"><span class="txt">영어</span></label>
+          </div>
+        </fieldset>
+      </header>
+
+      <main class="l-section-body">
+        <!-- 섹션 컨텐츠 -->
+        <article class="l-card" data-card="섹션컨텐츠">
           <header class="l-card-header mb-10">
-            <h4 class="l-card-header__title">연관키워드</h4>
+            <h4 class="l-card-header__title">
+              섹션 컨텐츠
+              <i class="c-badge" style="--color-set: #8b3244">한반도</i>
+            </h4>
             <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="연관어/감성어">
               <div class="form-row form-check form-check-button form-check-button--switch" data-row="연관어">
                 <input id="radioKeyword1" name="radioKeyword" class="form-check__input" type="radio" checked />
@@ -497,67 +296,42 @@
             </fieldset>
           </header>
           <main class="l-card-body">
-            <div class="row" style="height: 38rem">
+            <div class="row" style="height: 25rem">
               <div class="col-6">
-                <article class="l-card h-100 bg-fafafa" data-card="TOP30연관키워드" data-loding-spinner="false" data-is-empty="false">
+                <article class="l-card h-100 bg-fafafa" data-card="하위박스1" data-loding-spinner="false" data-is-empty="false">
                   <header class="l-card-header">
-                    <h4 class="l-card-header__title fs-13">TOP 30 연관키워드</h4>
+                    <h4 class="l-card-header__title fs-13">
+                      하위박스1
+                      <i class="c-badge" style="--color-set: #8b3244">한반도</i>
+                    </h4>
                   </header>
                   <main class="l-card-body pt-20">
-                    <div class="js-chart h-100">워드클라우드 차트</div>
+                    <div class="js-chart h-100">컨텐츠</div>
                   </main>
                 </article>
               </div>
               <div class="col-6">
-                <article class="l-card h-100 border-start-0 bg-fafafa" data-card="HOT30연관키워드" data-loding-spinner="false" data-is-empty="false">
+                <article class="l-card h-100 border-start-0 bg-fafafa" data-card="하위박스2" data-loding-spinner="false" data-is-empty="false">
                   <header class="l-card-header">
-                    <h4 class="l-card-header__title fs-13">HOT 30 연관키워드</h4>
+                    <h4 class="l-card-header__title fs-13">하위박스2</h4>
                   </header>
                   <main class="l-card-body pt-20">
-                    <div class="js-chart h-100">워드클라우드 차트</div>
+                    <div class="js-chart h-100">컨텐츠</div>
                   </main>
                 </article>
               </div>
             </div>
-            <div class="row p-20 border-start border-bottom border-end bg-fafafa" style="height: 50rem">
+            <div class="row p-20 border-start border-bottom border-end bg-fafafa" style="height: 25rem">
               <div class="col-6">
                 <article class="l-card h-100 bg-fff" data-card="연관키워드정보량" data-loding-spinner="false" data-is-empty="false">
                   <header class="l-card-header mb-10">
                     <h4 class="l-card-header__title fs-13">
-                      연관키워드 정보량
+                      하위박스 유형2
                       <i class="c-badge" style="--color-set: #a47e4f">엘리자베스 여왕</i>
                     </h4>
                   </header>
                   <main class="l-card-body d-flex flex-column">
-                    <div class="cnt_box">
-                      <div class="cnt_box_row">
-                        <div class="cnt_box_cell">
-                          <div class="cnt_box_wrap"><span class="cnt_box_label">정보량 순위</span><span class="cnt_box_cnt">No.610</span></div>
-                        </div>
-                        <div class="cnt_box_cell">
-                          <div class="cnt_box_wrap"><span class="cnt_box_label">정보량</span><span class="cnt_box_cnt">18,366</span></div>
-                        </div>
-                      </div>
-                      <div class="cnt_box_row">
-                        <div class="cnt_box_cell">
-                          <div class="cnt_box_wrap"><span class="cnt_box_label">증감률 순위</span><span class="cnt_box_cnt">No.7</span></div>
-                        </div>
-                        <div class="cnt_box_cell">
-                          <div class="cnt_box_wrap"><span class="cnt_box_label">증감률</span><span class="cnt_box_cnt new">NEW</span></div>
-                        </div>
-                      </div>
-                    </div>
-                    <fieldset class="form-fieldset d-flex pt-10" data-fieldset="일별/주별">
-                      <div class="form-row form-check form-check-button form-check-button--switch" data-row="일별">
-                        <input id="radioRange_2_1" name="radioRange_2" class="form-check__input" type="radio" checked />
-                        <label for="radioRange_2_1" class="form-check__label"><span class="txt">일별</span></label>
-                      </div>
-                      <div class="form-row form-check form-check-button form-check-button--switch" data-row="주별">
-                        <input id="radioRange_2_2" name="radioRange_2" class="form-check__input" type="radio" />
-                        <label for="radioRange_2_2" class="form-check__label"><span class="txt">주별</span></label>
-                      </div>
-                    </fieldset>
-                    <div class="js-chart h-100">선형그래프</div>
+                    <div class="js-chart h-100">컨텐츠 - 차트</div>
                   </main>
                 </article>
               </div>
@@ -580,8 +354,8 @@
                         <thead class="is-sticky">
                           <tr>
                             <th>순위</th>
-                            <th>연관키워드</th>
-                            <th>정보량</th>
+                            <th>스크롤 컨테이너 예시</th>
+                            <th>예시</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -754,279 +528,444 @@
       </main>
     </div>
   </section>
-  <!-- //토픽 상세 현황 -->
+  <!-- //제목 옆 소팅버튼 + 카드 옆 소팅버튼 -->
 
-  <!-- 뉴스 매체 현황 -->
-  <section class="l-section" data-section="뉴스매체현황" data-quick-menu="뉴스매체 현황">
+  <!-- 컴포넌트 모음 -->
+  <section class="l-section" data-section="컴포넌트 모음" data-quick-menu="컴포넌트 모음">
     <div class="inner">
       <header class="l-section-header">
-        <h3 class="l-section-header__title">뉴스매체 현황</h3>
-      </header>
-      <main class="l-section-body">
-        <div class="row gx-10" style="height: 44rem">
-          <div class="col col-4">
-            <article class="l-card" data-card="국가별보도점유율" data-loding-spinner="false" data-is-empty="false">
-              <header class="l-card-header">
-                <h4 class="l-card-header__title">국가별 보도 점유율</h4>
-              </header>
-              <main class="l-card-body pt-20">
-                <div class="js-chart h-100">도넛차트</div>
-              </main>
-            </article>
-          </div>
-          <div class="col col-8">
-            <article class="l-card" data-card="Top10뉴스매체" data-loding-spinner="false" data-is-empty="false">
-              <header class="l-card-header">
-                <h4 class="l-card-header__title w-100 mb-10">Top10 뉴스매체<span class="pl-10 fs-12 fw-normal color-666">*최대 10개 분석 가능</span></h4>
-                <fieldset class="form-fieldset d-flex w-100" data-fieldset="전체채널">
-                  <div class="form-row form-check form-switch mr-20" data-row="전체">
-                    <input id="checkboxNewsMediaAll" class="form-check__input form-check__input--js-all-checked" type="checkbox" />
-                    <label for="checkboxNewsMediaAll" class="form-check__label"><span class="txt">전체</span></label>
-                  </div>
-                  <fieldset class="form-fieldset" data-fieldset="채널" data-value-minimum="1">
-                    <div class="form-row form-check form-check-button" data-row="한반도">
-                      <input id="checkboxNewsMedia1" class="form-check__input" type="checkbox" checked />
-                      <label for="checkboxNewsMedia1" class="form-check__label" style="--color-set: #8b3244"><span class="txt">한반도</span></label>
-                    </div>
-                    <div class="form-row form-check form-check-button" data-row="외교/정치/군사">
-                      <input id="checkboxNewsMedia2" class="form-check__input" type="checkbox" />
-                      <label for="checkboxNewsMedia2" class="form-check__label" style="--color-set: #a47e4f"><span class="txt">외교/정치/군사</span></label>
-                    </div>
-                    <div class="form-row form-check form-check-button" data-row="경제/통상">
-                      <input id="checkboxNewsMedia3" class="form-check__input" type="checkbox" />
-                      <label for="checkboxNewsMedia3" class="form-check__label" style="--color-set: #4f8058"><span class="txt">경제/통상</span></label>
-                    </div>
-                    <div class="form-row form-check form-check-button" data-row="기후변화">
-                      <input id="checkboxNewsMedia4" class="form-check__input" type="checkbox" checked />
-                      <label for="checkboxNewsMedia4" class="form-check__label" style="--color-set: #3b448a"><span class="txt">기후변화</span></label>
-                    </div>
-                    <div class="form-row form-check form-check-button" data-row="기타">
-                      <input id="checkboxNewsMedia5" class="form-check__input" type="checkbox" />
-                      <label for="checkboxNewsMedia5" class="form-check__label" style="--color-set: #424242"><span class="txt">기타</span></label>
-                    </div>
-                  </fieldset>
-                </fieldset>
-              </header>
-              <main class="l-card-body pt-20">
-                <div class="js-chart h-100">막대그래프</div>
-              </main>
-            </article>
-          </div>
-        </div>
-      </main>
-    </div>
-  </section>
-  <!-- //뉴스 매체 현황 -->
-
-  <!-- 전체 데이터 -->
-  <section class="l-section" data-section="전체데이터" data-quick-menu="전체 데이터">
-    <div class="inner">
-      <header class="l-section-header">
-        <h3 class="l-section-header__title">전체 데이터</h3>
-        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="한국어/영어">
-          <div class="form-row form-check form-check-button form-check-button--h-lg form-check-button--switch" data-row="한국어">
-            <input id="radioLang1" name="radioLang" class="form-check__input" type="radio" checked />
-            <label for="radioLang1" class="form-check__label"><span class="txt">한국어</span></label>
-          </div>
-          <div class="form-row form-check form-check-button form-check-button--h-lg form-check-button--switch" data-row="영어">
-            <input id="radioLang2" name="radioLang" class="form-check__input" type="radio" />
-            <label for="radioLang2" class="form-check__label"><span class="txt">영어</span></label>
-          </div>
-        </fieldset>
+        <h3 class="l-section-header__title">컴포넌트 모음</h3>
       </header>
       <main class="l-section-body">
         <article class="l-card p-0 border-0" data-card="전체데이터" data-loding-spinner="false" data-is-empty="false">
-          <header class="l-card-header mb-15">
-            <fieldset class="form-fieldset d-flex w-100 mb-20" data-fieldset="전체채널">
-              <div class="form-row form-check form-switch mr-20" data-row="전체">
-                <input id="checkboxAllDataAll" class="form-check__input form-check__input--js-all-checked" type="checkbox" />
-                <label for="checkboxAllDataAll" class="form-check__label"><span class="txt">전체</span></label>
-              </div>
-              <fieldset class="form-fieldset" data-fieldset="채널" data-value-minimum="1">
-                <div class="form-row form-check form-check-button" data-row="한반도">
-                  <input id="checkboxAllData1" class="form-check__input" type="checkbox" checked />
-                  <label for="checkboxAllData1" class="form-check__label" style="--color-set: #8b3244"><span class="txt">한반도</span></label>
-                </div>
-                <div class="form-row form-check form-check-button" data-row="외교/정치/군사">
-                  <input id="checkboxAllData2" class="form-check__input" type="checkbox" />
-                  <label for="checkboxAllData2" class="form-check__label" style="--color-set: #a47e4f"><span class="txt">외교/정치/군사</span></label>
-                </div>
-                <div class="form-row form-check form-check-button" data-row="경제/통상">
-                  <input id="checkboxAllData3" class="form-check__input" type="checkbox" />
-                  <label for="checkboxAllData3" class="form-check__label" style="--color-set: #4f8058"><span class="txt">경제/통상</span></label>
-                </div>
-                <div class="form-row form-check form-check-button" data-row="기후변화">
-                  <input id="checkboxAllData4" class="form-check__input" type="checkbox" checked />
-                  <label for="checkboxAllData4" class="form-check__label" style="--color-set: #3b448a"><span class="txt">기후변화</span></label>
-                </div>
-                <div class="form-row form-check form-check-button" data-row="기타">
-                  <input id="checkboxAllData5" class="form-check__input" type="checkbox" />
-                  <label for="checkboxAllData5" class="form-check__label" style="--color-set: #424242"><span class="txt">기타</span></label>
-                </div>
-              </fieldset>
-            </fieldset>
-            <p class="c-data-table-total">TOTAL. <span class="count">155,474</span> (1/1 Pages)</p>
-            <fieldset class="form-fieldse d-flex ml-auto">
-              <div class="form-row form-select mr-10" data-row="기본정렬">
-                <select class="form-select__select">
-                  <option value="0" selected>최신 수집 순</option>
-                  <option value="1">오래된 수집 순</option>
-                  <option value="2">유사글 많은 순</option>
-                </select>
-              </div>
-              <div class="form-row form-select" data-row="기본정렬">
-                <select class="form-select__select">
-                  <option value="0" selected>10건 씩 보기</option>
-                  <option value="1">30건 씩 보기</option>
-                  <option value="2">50건 씩 보기</option>
-                </select>
-              </div>
-            </fieldset>
-          </header>
           <main class="l-card-body">
-            <table class="c-table">
-              <colgroup>
-                <col width="8.428%" />
-                <col width="*" />
-                <col width="10%" />
-                <col width="3.574%" />
-                <col width="5.142%" />
-              </colgroup>
-              <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
-                <tr>
-                  <th>출처</th>
-                  <th>제목</th>
-                  <th>수집일시</th>
-                  <th>감성</th>
-                  <th>유사</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- 요약내용 -->
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #8b3244">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #5BA1E0" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #a47e4f">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #EA7070" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                
-                <tr>
-                  <td class="text-center">arirang</td>
-                  <td>
-                    <a href="#" class="link" target="_blank" data-tooltip-text="Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next Squid Game Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra..">
-                      <span class="clamp-1"> Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘<mark style="--color: #4f8058">Squid Game</mark>?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big raNext ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Next ‘Squid Game?’ Big ratings on Netflix boosts hope for next. Big ra.. </span>
-                    </a>
-                  </td>
-                  <td class="text-center">2022-07-01 12:43</td>
-                  <td class="text-center"> <i class="icon-circle" style="--color-set: #808080" aria-hidden="true" title=""></i> </td>
-                  <td class="text-center"><a class="link" onclick="$.modal({ isExist: true, className: 'data-table--similar' })">205</a></td>
-                </tr>
-                <!-- //요약내용 -->
+            <!-- 버튼 / Button -->
+            <article class="l-card mb-10" data-card="button" data-loding-spinner="false" data-is-empty="false">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title w-100 mb-10">Button</h4>
+              </header>
+              <main class="l-card-body pt-15">
+                <table class="c-table">
+                  <colgroup>
+                    <col />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                  </colgroup>
+                  <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
+                    <tr>
+                      <th></th>
+                      <th>small</th>
+                      <th>normal</th>
+                      <th>big</th>
+                      <th>large</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>일반</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>아이콘</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>텍스트+아이콘</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>액티브색상(유효성)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>색상정의컬러</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>disabled</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </main>
+            </article>
 
-              </tbody>
-            </table>
+            <!-- 인풋 / Input -->
+            <article class="l-card mb-10" data-card="input" data-loding-spinner="false" data-is-empty="false">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title w-100 mb-10">Input</h4>
+              </header>
+              <main class="l-card-body pt-15">
+                <table class="c-table">
+                  <colgroup>
+                    <col />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                  </colgroup>
+                  <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
+                    <tr>
+                      <th></th>
+                      <th>small</th>
+                      <th>normal</th>
+                      <th>big</th>
+                      <th>large</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>일반(내용삭제+검색버튼 포함)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>라운드형</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>Readonly</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>disabled</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </main>
+            </article>
+
+            <!-- 체크박스 / checkbox -->
+            <article class="l-card mb-10" data-card="checkbox" data-loding-spinner="false" data-is-empty="false">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title w-100 mb-10">Checkbox</h4>
+              </header>
+              <main class="l-card-body pt-15">
+                <table class="c-table">
+                  <colgroup>
+                    <col />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                  </colgroup>
+                  <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
+                    <tr>
+                      <th></th>
+                      <th>small</th>
+                      <th>normal</th>
+                      <th>big</th>
+                      <th>large</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>일반(체크박스 + 텍스트)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>체크박스 단독</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>버튼형태</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>스위치</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>스위치(라벨포함)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>스위치(라운드)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>그룹 체크박스(전체기능)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </main>
+            </article>
+
+            <!-- 라디오 / Radio -->
+            <article class="l-card mb-10" data-card="radio" data-loding-spinner="false" data-is-empty="false">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title w-100 mb-10">Radio</h4>
+              </header>
+              <main class="l-card-body pt-15">
+                <table class="c-table">
+                  <colgroup>
+                    <col />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                  </colgroup>
+                  <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
+                    <tr>
+                      <th></th>
+                      <th>small</th>
+                      <th>normal</th>
+                      <th>big</th>
+                      <th>large</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>일반(라디오 + 텍스트)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>라디오 단독</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>버튼형태</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>스위치</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>스위치(라벨포함)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>스위치(라운드)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>그룹 라디오</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>그룹 라디오(아이콘+텍스트)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </main>
+            </article>
+
+            <!-- 셀렉트박스 / Select -->
+            <article class="l-card mb-10" data-card="select" data-loding-spinner="false" data-is-empty="false">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title w-100 mb-10">Select</h4>
+              </header>
+              <main class="l-card-body pt-15">
+                <table class="c-table">
+                  <colgroup>
+                    <col />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                  </colgroup>
+                  <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
+                    <tr>
+                      <th></th>
+                      <th>small</th>
+                      <th>normal</th>
+                      <th>big</th>
+                      <th>large</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>일반<br />(클릭영역만 디자인 적용)</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                    <tr>
+                      <th>멀티셀렉트 (추후 추가예정)</th>
+                      <th>-</th>
+                      <th>-</th>
+                      <th>-</th>
+                      <th>-</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </main>
+            </article>
+
+            <!-- 툴팁 / Tooltip -->
+            <article class="l-card mb-10" data-card="tooltip" data-loding-spinner="false" data-is-empty="false">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title w-100 mb-10">Tooltip</h4>
+              </header>
+              <main class="l-card-body pt-15">
+                <table class="c-table">
+                  <colgroup>
+                    <col />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                  </colgroup>
+                  <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
+                    <tr>
+                      <th></th>
+                      <th>내용</th>
+                      <th>제목+내용</th>
+                      <th>제목</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>마우스 오버시 - 내용</th>
+                      <th></th>
+                      <th></th>
+                      <th>-</th>
+                      <th>-</th>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <th>-</th>
+                      <th>-</th>
+                      <th>-</th>
+                      <th>-</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </main>
+            </article>
+
+            <!-- 탭 / tabs -->
+            <article class="l-card mb-10" data-card="tabs" data-loding-spinner="false" data-is-empty="false">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title w-100 mb-10">Tabs</h4>
+              </header>
+              <main class="l-card-body pt-15">탭 - 1뎁스 (페이지용) 탭 - 2뎁스 (컨텐츠용)</main>
+            </article>
+
+            <!-- 팝업 / Popup -->
+            <article class="l-card mb-10" data-card="popup" data-loding-spinner="false" data-is-empty="false">
+              <header class="l-card-header">
+                <h4 class="l-card-header__title w-100 mb-10">Popup</h4>
+              </header>
+              <main class="l-card-body pt-15">
+                <table class="c-table">
+                  <colgroup>
+                    <col />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                    <col width="21%" />
+                  </colgroup>
+                  <thead class="is-sticky" data-sticky-except="#header, .c-search-bar">
+                    <tr>
+                      <th></th>
+                      <th>기본</th>
+                      <th>팝업1</th>
+                      <th>팝업2</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th>-</th>
+                      <th>-</th>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <th>-</th>
+                      <th>-</th>
+                      <th>-</th>
+                      <th>-</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </main>
+            </article>
           </main>
           <footer class="l-card-footer pt-30">
             <!--  prettier-ignore -->
