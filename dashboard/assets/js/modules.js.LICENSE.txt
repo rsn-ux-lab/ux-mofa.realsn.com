@@ -1,9 +1,4 @@
 /*!
-   *
-   * @author: GUNI, h2dlhs@realsn.com
-   **/
-
-/*!
  *
  * @author: GUNI, h2dlhs@realsn.com
  *
