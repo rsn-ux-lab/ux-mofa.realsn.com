@@ -23,7 +23,7 @@ $(function () {
      *  event : amChart
      *
      */
-     if (HOST.develop || HOST.product) return;
+    if (HOST.develop || HOST.product) return;
     const $charts = document.querySelectorAll('[data-section=전체이슈현황] [data-card=전체이슈현황] .js-chart');
 
     for (var i = 0; $charts.length > i; i++) {
@@ -102,7 +102,7 @@ $(function () {
      *  event : new AmCharts
      *
      */
-     if (HOST.develop || HOST.product) return;
+    if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector('[data-section=전체이슈현황] [data-card=이슈상세현황] [data-card=정보량및감성추이] .js-chart');
     var chart = AmCharts.makeChart($chart, {
       type: 'serial',
@@ -320,7 +320,7 @@ $(function () {
           // center 지정
           setOption = {
             root: null,
-            rootMargin: '-25% 0% 0% 0%',
+            rootMargin: '0% 0% -25% 0%',
             threshold: 1,
           };
         } else if (positionTxt === 'bottom') {
