@@ -376,30 +376,36 @@ $(function () {
 
     am4core.ready(function () {
       var data = [
-        { name: "경제", fill: "#d73b9e", value: 285, fluc: 38.7 },
-        { name: "인플레이션", fill: "#d73b9e", value: 183, fluc: 38.7 },
-        { name: "정책", fill: "#d73b9e", value: 338, fluc: 38.7 },
-        { name: "우려하다", fill: "#ffa800", value: 312, fluc: 38.7 },
-        { name: "포인트", fill: "#5ba1e0", value: 279, fluc: 38.7 },
-        { name: "가능성", fill: "#2cb24a", value: 218, fluc: 38.7 },
-        { name: "인상", fill: "#54c2f0", value: 197, fluc: 38.7 },
-        { name: "상승", fill: "#2cb24a", value: 80, fluc: -40.1 },
-        { name: "높다", fill: "#54c2f0", value: 222, fluc: 38.7 },
-        { name: "가격", fill: "#2cb24a", value: 30, fluc: -40.1 },
-        { name: "기준", fill: "#54c2f0", value: 191, fluc: 38.7 },
-        { name: "기준금리", fill: "#f1711b", value: 188, fluc: -36.0 },
-        { name: "달러", fill: "#d73b9e", value: 125, fluc: 38.7 },
-        { name: "확대대응", fill: "#d73b9e", value: 283, fluc: 38.7 },
-        { name: "위기", fill: "#d73b9e", value: 132, fluc: 38.7 },
-        { name: "둔화", fill: "#ffa800", value: 232, fluc: 38.7 },
-        { name: "한국", fill: "#5ba1e0", value: 179, fluc: 38.7 },
-        { name: "소비자 물가", fill: "#2cb24a", value: 188, fluc: 38.7 },
-        { name: "급등", fill: "#54c2f0", value: 227, fluc: 38.7 },
-        { name: "금융", fill: "#2cb24a", value: 150, fluc: -40.1 },
-        { name: "발표", fill: "#54c2f0", value: 252, fluc: 38.7 },
-        { name: "제도", fill: "#2cb24a", value: 60, fluc: -40.1 },
-        { name: "침체", fill: "#54c2f0", value: 80, fluc: 38.7 },
-        { name: "물가 상승", fill: "#f1711b", value: 90, fluc: -36.0 },
+        { name: "우리", fill: "#d73b9e", value: 1100, fluc: 38.7 },
+        { name: "오늘", fill: "#d73b9e", value: 536, fluc: 38.7 },
+        { name: "지역", fill: "#d73b9e", value: 368, fluc: 38.7 },
+        { name: "지역", fill: "#ffa800", value: 363, fluc: 38.7 },
+        { name: "지역", fill: "#5ba1e0", value: 358, fluc: 38.7 },
+        { name: "지역", fill: "#2cb24a", value: 312, fluc: 38.7 },
+        { name: "지역", fill: "#54c2f0", value: 271, fluc: 38.7 },
+        { name: "지역", fill: "#2cb24a", value: 267, fluc: -40.1 },
+        { name: "지역", fill: "#54c2f0", value: 255, fluc: 38.7 },
+        { name: "지역", fill: "#2cb24a", value: 235, fluc: -40.1 },
+        { name: "지역", fill: "#54c2f0", value: 234, fluc: 38.7 },
+        { name: "지역", fill: "#f1711b", value: 229, fluc: -36.0 },
+        { name: "지역", fill: "#d73b9e", value: 225, fluc: 38.7 },
+        { name: "지역", fill: "#d73b9e", value: 211, fluc: 38.7 },
+        { name: "지역", fill: "#d73b9e", value: 194, fluc: 38.7 },
+        { name: "지역", fill: "#ffa800", value: 190, fluc: 38.7 },
+        { name: "지역", fill: "#5ba1e0", value: 188, fluc: 38.7 },
+        { name: "지역", fill: "#2cb24a", value: 184, fluc: 38.7 },
+        { name: "지역", fill: "#54c2f0", value: 183, fluc: 38.7 },
+        { name: "지역", fill: "#2cb24a", value: 182, fluc: -40.1 },
+        { name: "지역", fill: "#54c2f0", value: 171, fluc: 38.7 },
+        { name: "지역", fill: "#2cb24a", value: 171, fluc: -40.1 },
+        { name: "지역", fill: "#54c2f0", value: 168, fluc: 38.7 },
+        { name: "지역", fill: "#f1711b", value: 167, fluc: -36.0 },
+        { name: "지역", fill: "#f1711b", value: 163, fluc: -36.0 },
+        { name: "지역", fill: "#f1711b", value: 160, fluc: -36.0 },
+        { name: "지역", fill: "#f1711b", value: 160, fluc: -36.0 },
+        { name: "지역", fill: "#f1711b", value: 153, fluc: -36.0 },
+        { name: "지역", fill: "#f1711b", value: 148, fluc: -36.0 },
+        { name: "지역", fill: "#f1711b", value: 148, fluc: -36.0 },
       ];
 
       var chart_cloud = am4core.create($chart, am4plugins_wordCloud.WordCloud);
@@ -415,6 +421,8 @@ $(function () {
       series_cloud.dataFields.word = "name";
       series_cloud.dataFields.value = "value";
       series_cloud.dataFields.color = "fill";
+      series_cloud.minFontSize = 25;
+      series_cloud.maxFontSize = 70;
 
       series_cloud.labels.template.hiddenState.transitionDuration = 0;
       series_cloud.labels.template.defaultState.transitionDuration = 0;

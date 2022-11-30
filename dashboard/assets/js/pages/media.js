@@ -504,7 +504,7 @@ $(function () {
         #424242 -  기타
       */
       var data = [
-        { name: "우리", fill: "#8B3244", value: 285, fluc: 38.7 },
+        { name: "우리", fill: "#8B3244", value: 2850, fluc: 38.7 },
         { name: "생각", fill: "#8B3244", value: 183, fluc: 38.7 },
         { name: "좋아하다", fill: "#8B3244", value: 338, fluc: 38.7 },
         { name: "한국", fill: "#8B3244", value: 312, fluc: 38.7 },
@@ -528,6 +528,12 @@ $(function () {
         { name: "새로운", fill: "#424242", value: 60, fluc: -40.1 },
         { name: "전하", fill: "#424242", value: 80, fluc: 38.7 },
         { name: "중요하다", fill: "#424242", value: 90, fluc: -36.0 },
+        { name: "나라", fill: "#3B448A", value: 227, fluc: 38.7 },
+        { name: "중요", fill: "#3B448A", value: 150, fluc: -40.1 },
+        { name: "세계", fill: "#3B448A", value: 252, fluc: 38.7 },
+        { name: "새로운", fill: "#424242", value: 60, fluc: -40.1 },
+        { name: "전하", fill: "#424242", value: 80, fluc: 38.7 },
+        { name: "중요하다", fill: "#424242", value: 90, fluc: -36.0 },
       ];
 
       var chart_cloud = am4core.create($chart, am4plugins_wordCloud.WordCloud);
@@ -543,6 +549,8 @@ $(function () {
       series_cloud.dataFields.word = "name";
       series_cloud.dataFields.value = "value";
       series_cloud.dataFields.color = "fill";
+      series_cloud.minFontSize = 25;
+      series_cloud.maxFontSize = 70;
 
       series_cloud.labels.template.hiddenState.transitionDuration = 0;
       series_cloud.labels.template.defaultState.transitionDuration = 0;
@@ -678,23 +686,30 @@ $(function () {
         #424242 -  기타
       */
       var data = [
-        { name: "우리", fill: "#8B3244", value: 285, fluc: 38.7 },
+        { name: "우리", fill: "#8B3244", value: 2850, fluc: 38.7 },
         { name: "생각", fill: "#8B3244", value: 183, fluc: 38.7 },
         { name: "좋아하다", fill: "#8B3244", value: 338, fluc: 38.7 },
         { name: "한국", fill: "#8B3244", value: 312, fluc: 38.7 },
         { name: "못한다", fill: "#8B3244", value: 279, fluc: 38.7 },
-        { name: "어렵다", fill: "#8B3244", value: 218, fluc: 38.7 },
+        { name: "어렵다어렵다", fill: "#8B3244", value: 218, fluc: 38.7 },
         { name: "생각", fill: "#A47E4F", value: 197, fluc: 38.7 },
         { name: "높다", fill: "#A47E4F", value: 80, fluc: -40.1 },
-        { name: "현재", fill: "#A47E4F", value: 222, fluc: 38.7 },
-        { name: "지역", fill: "#A47E4F", value: 30, fluc: -40.1 },
-        { name: "문제", fill: "#A47E4F", value: 191, fluc: 38.7 },
-        { name: "사업", fill: "#A47E4F", value: 188, fluc: -36.0 },
+        { name: "어렵다어렵다", fill: "#A47E4F", value: 222, fluc: 38.7 },
+        { name: "어렵다어렵다", fill: "#A47E4F", value: 30, fluc: -40.1 },
+        { name: "어렵다어렵다", fill: "#A47E4F", value: 191, fluc: 38.7 },
+        { name: "어렵다어렵다", fill: "#A47E4F", value: 188, fluc: -36.0 },
         { name: "기업", fill: "#4F8058", value: 125, fluc: 38.7 },
         { name: "대상", fill: "#4F8058", value: 283, fluc: 38.7 },
         { name: "대표", fill: "#4F8058", value: 132, fluc: 38.7 },
-        { name: "국내", fill: "#4F8058", value: 232, fluc: 38.7 },
-        { name: "기대하다", fill: "#4F8058", value: 179, fluc: 38.7 },
+        { name: "어렵다어렵다", fill: "#4F8058", value: 232, fluc: 38.7 },
+        { name: "어렵다어렵다", fill: "#4F8058", value: 179, fluc: 38.7 },
+        { name: "어렵다어렵다", fill: "#4F8058", value: 188, fluc: 38.7 },
+        { name: "나라", fill: "#3B448A", value: 227, fluc: 38.7 },
+        { name: "어렵다어렵다", fill: "#3B448A", value: 150, fluc: -40.1 },
+        { name: "세계", fill: "#3B448A", value: 252, fluc: 38.7 },
+        { name: "새로운", fill: "#424242", value: 60, fluc: -40.1 },
+        { name: "전하", fill: "#424242", value: 80, fluc: 38.7 },
+        { name: "중요하다", fill: "#424242", value: 10, fluc: -36.0 },
         { name: "기준", fill: "#4F8058", value: 188, fluc: 38.7 },
         { name: "나라", fill: "#3B448A", value: 227, fluc: 38.7 },
         { name: "중요", fill: "#3B448A", value: 150, fluc: -40.1 },
@@ -717,6 +732,8 @@ $(function () {
       series_cloud.dataFields.word = "name";
       series_cloud.dataFields.value = "value";
       series_cloud.dataFields.color = "fill";
+      series_cloud.minFontSize = 20;
+      series_cloud.maxFontSize = 70;
 
       series_cloud.labels.template.hiddenState.transitionDuration = 0;
       series_cloud.labels.template.defaultState.transitionDuration = 0;
