@@ -389,4 +389,43 @@ $(function () {
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
   */
+ 
+  /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
+  {
+    
+    /*
+    *
+    * 전체 이슈 현황 tr active
+    * 
+    *
+    */
+
+    let analyze_btns = document.querySelectorAll(".c-table .analyze_btn");
+
+    analyze_btns.forEach(function($each) {
+      
+      $each.addEventListener("click", function() {
+        let $trEl = $each.closest("tr");
+        let $trSiblings = $trEl.parentElement.children;
+
+        for (var i=0; i<$trSiblings.length; i++) {
+          $trSiblings[i].classList.remove("tr_active");
+        }
+
+        $trEl.classList.add("tr_active");
+      });
+    })
+
+    // var btns = $(".c-table .analyze_btn");
+
+    // btns.click(function(){
+    //   $(".c-table tr").removeClass("tr_active");
+    //   $(this).closest("tr").addClass("tr_active");
+    // });
+  }
+  /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
 }); // DOCUMENT READY...

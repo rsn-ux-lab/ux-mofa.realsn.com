@@ -30,13 +30,13 @@ $(function () {
   {
     /**
      *
-     *  depth : 전체 토픽 현황 > 이슈 키워드
+     *  depth : 전체 토픽 현황 > 주요이슈
      *  block : 랭킹리스트
      *  event : toggle active
      *
      */
 
-    const $keyword = document.querySelector("[data-section=전체토픽현황] [data-card=이슈키워드]");
+    const $keyword = document.querySelector("[data-section=전체토픽현황] [data-card=주요이슈]");
 
     $keyword.classList.add("l-card--is-active");
 
@@ -909,8 +909,8 @@ $(function () {
       trendLines: [],
       graphs: [
         {
-          // "balloonText": "<strong>[[title]]</strong> : <span style='font-size: 14px;'>[[value]]</span> <span style='color:#909090'>([[percents]]%)</span>",
-          balloonFunction: get_chartBalloonValueTextAllLine,
+          balloonText: "<strong>[[category]]</strong> : <strong>[[value]]</strong>",
+          // balloonFunction: get_chartBalloonValueTextAllLine,
           bullet: "round",
           bulletSize: 10,
           bulletColor: "#FFFFFF",
