@@ -21,9 +21,9 @@ window.HOST = {
 window.SERVER = new Object();
 
 if (HOST.localhost || HOST.publish) { // 로컬 환경
-    SERVER.assets = "/dashboard/assets";    
+    SERVER.asset = "/dashboard/asset";    
 } else if (HOST.develop || HOST.product) { // 개발 및 운영서버
-    SERVER.assets = "/dashboard/assets";    
+    SERVER.asset = "/dashboard/asset";    
 }
 /*
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
