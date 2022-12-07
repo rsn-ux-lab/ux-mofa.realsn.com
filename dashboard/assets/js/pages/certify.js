@@ -77,8 +77,6 @@ $(function () {
             location.href = '../../leaders';
           });
         }
-      } else {
-        $loginBtn.setAttribute('disabled', ''); // 로그인 버튼 disabled 삭제
       }
     };
 
