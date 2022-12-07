@@ -2,23 +2,23 @@
 const routes = [
   {
     path: "/login",
-    script: `${SERVER.asset}/js/pages/login.js`,
+    script: `${SERVER.assets}/js/pages/login.js`,
   },
   {
     path: "/certify",
-    script: `${SERVER.asset}/js/pages/certify.js`,
+    script: `${SERVER.assets}/js/pages/certify.js`,
   },
   {
     path: "/leaders",
-    script: `${SERVER.asset}/js/pages/leaders.js`,
+    script: `${SERVER.assets}/js/pages/leaders.js`,
   },
   {
     path: "/media",
-    script: `${SERVER.asset}/js/pages/media.js`,
+    script: `${SERVER.assets}/js/pages/media.js`,
   },
   {
     path: "/trend",
-    script: `${SERVER.asset}/js/pages/trend.js`,
+    script: `${SERVER.assets}/js/pages/trend.js`,
   },
 ];
 
