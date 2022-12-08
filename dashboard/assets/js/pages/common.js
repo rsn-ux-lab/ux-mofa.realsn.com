@@ -19,6 +19,23 @@ $(function () {
   {
     /**
      *
+     * 검색기간 "30일" input 값 강제로 checked 처리
+     *
+     */
+
+    setTimeout(() => {
+      const $datepicker = document.querySelector(".ui_datepickers .grps");
+      const $inpMonth = $datepicker.childNodes.item(2).querySelector("input");
+
+      $inpMonth.checked = true;
+    }, 3000);
+  }
+  /*
+  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  */
+  {
+    /**
+     *
      *  Device 체크 (custom data attributes)
      *
      */
