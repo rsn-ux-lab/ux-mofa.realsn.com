@@ -28,7 +28,7 @@ $(function () {
       const $inpMonth = $datepicker.childNodes.item(2).querySelector("input");
 
       $inpMonth.checked = true;
-    }, 3000);
+    }, 1000);
   }
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
