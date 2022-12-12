@@ -59,12 +59,12 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    if (HOST.develop || HOST.product) return;
+     if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=정보량점유율] .js-chart");
     var chart = AmCharts.makeChart($chart, {
       type: "pie",
       path: "//public.realsn.com/libs/amcharts/v3",
-      fontSize: 14,
+      fontSize: 12,
       balloonText: "<strong>[[title]] : [[value]] <span style='font-size: 11px;'>([[percents]]%)</span></strong>",
       // '<strong>' + $b.title + ': <span>' + String($a.dataContext[$b['valueField']]).addComma() + '</span> <span style="font-size: 11px;">(' + percents + '%)</span></strong>';
       innerRadius: "40%",
@@ -134,7 +134,7 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    if (HOST.develop || HOST.product) return;
+     if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=정보량추이] .js-chart");
 
     var chart = AmCharts.makeChart($chart, {
@@ -147,12 +147,12 @@ $(function () {
       marginRight: 10,
       marginTop: 15,
       colors: ["#8B3244", "#A47E4F", "#4F8058", "#3B448A", "#424242"],
-      fontSize: 14,
+      fontSize: 12,
       categoryAxis: {
         labelOffset: -2,
         equalSpacing: true,
         color: "#666666",
-        fontSize: 14,
+        fontSize: 11,
         // "parseDates": true,
         axisAlpha: 1,
         fillAlpha: 1,
@@ -269,7 +269,7 @@ $(function () {
           zeroGridAlpha: 0,
           axisThickness: 0,
           color: "#666666",
-          fontSize: 14,
+          fontSize: 11,
           dashLength: 0,
           gridAlpha: 1,
           gridColor: "#EDEDEF",
@@ -297,14 +297,14 @@ $(function () {
         autoMargins: false,
         color: "#333333",
         markerType: "circle",
-        // marginTop: 0,
-        // marginRight: 0,
-        // marginBottom: 10,
-        // marginLeft: 0,
+        marginTop: 0,
+        marginRight: 0,
+        marginBottom: 10,
+        marginLeft: 0,
         markerSize: 8,
-        fontSize: 14,
+        fontSize: 11,
         position: "top",
-        spacing: 35,
+        spacing: 15,
         valueFunction: get_chartLegendValueText,
         valueWidth: 65,
         verticalGap: 0,
@@ -336,7 +336,7 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    if (HOST.develop || HOST.product) return;
+     if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=감성추이] .js-chart");
 
     var chart = AmCharts.makeChart($chart, {
@@ -344,7 +344,7 @@ $(function () {
       path: "//public.realsn.com/libs/amcharts/v3",
       categoryField: "category",
       addClassNames: true,
-      fontSize: 14,
+      fontSize: 12,
       columnWidth: 0.32,
       autoMarginOffset: 10,
       marginRight: 10,
@@ -355,7 +355,7 @@ $(function () {
         labelOffset: -2,
         equalSpacing: true,
         color: "#666666",
-        fontSize: 14,
+        fontSize: 11,
         // "parseDates": true,
         axisAlpha: 1,
         fillAlpha: 1,
@@ -427,7 +427,7 @@ $(function () {
           zeroGridAlpha: 0,
           axisThickness: 0,
           color: "#666666",
-          fontSize: 14,
+          fontSize: 11,
           dashLength: 0,
           gridAlpha: 1,
           gridColor: "#EDEDEF",
@@ -460,9 +460,9 @@ $(function () {
         marginBottom: 10,
         marginLeft: 0,
         markerSize: 8,
-        fontSize: 14,
+        fontSize: 11,
         position: "top",
-        spacing: 35,
+        spacing: 15,
         valueFunction: get_chartLegendValueText,
         valueWidth: 65,
         verticalGap: 0,
@@ -492,7 +492,7 @@ $(function () {
      *
      */
 
-    if (HOST.develop || HOST.product) return;
+     if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-card=연관키워드] [data-card=TOP30연관키워드] .js-chart");
 
     am4core.ready(function () {
@@ -674,7 +674,7 @@ $(function () {
      *
      */
 
-    if (HOST.develop || HOST.product) return;
+     if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-card=연관키워드] [data-card=HOT30연관키워드] .js-chart");
 
     am4core.ready(function () {
@@ -857,7 +857,7 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    if (HOST.develop || HOST.product) return;
+     if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-section=토픽상세현황] [data-card=연관키워드정보량] .js-chart");
 
     var chart = AmCharts.makeChart($chart, {
@@ -870,12 +870,12 @@ $(function () {
       marginRight: 10,
       marginTop: 15,
       colors: ["#0B396A"],
-      fontSize: 14,
+      fontSize: 12,
       categoryAxis: {
         labelOffset: -2,
         equalSpacing: true,
         color: "#666666",
-        fontSize: 14,
+        fontSize: 11,
         // "parseDates": true,
         axisAlpha: 1,
         fillAlpha: 1,
@@ -932,7 +932,7 @@ $(function () {
           zeroGridAlpha: 0,
           axisThickness: 0,
           color: "#666666",
-          fontSize: 14,
+          fontSize: 11,
           dashLength: 0,
           gridAlpha: 1,
           gridColor: "#EDEDEF",
@@ -998,12 +998,12 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    if (HOST.develop || HOST.product) return;
+     if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-section=뉴스매체현황] [data-card=국가별보도점유율] .js-chart");
     var chart = AmCharts.makeChart($chart, {
       type: "pie",
       path: "//public.realsn.com/libs/amcharts/v3",
-      fontSize: 14,
+      fontSize: 12,
       balloonText: "<strong>[[title]] : [[value]] <span style='font-size: 11px;'>([[percents]]%)</span></strong>",
       innerRadius: "40%",
       labelRadius: -30,
@@ -1071,7 +1071,7 @@ $(function () {
      *  event : new AmCharts
      *
      */
-    if (HOST.develop || HOST.product) return;
+     if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-section=뉴스매체현황] [data-card=Top10뉴스매체] .js-chart");
 
     var chart = AmCharts.makeChart($chart, {
@@ -1079,7 +1079,7 @@ $(function () {
       path: "//public.realsn.com/libs/amcharts/v3",
       categoryField: "category",
       addClassNames: true,
-      fontSize: 14,
+      fontSize: 12,
       columnWidth: 0.7,
       autoMarginOffset: 10,
       marginRight: 10,
@@ -1090,7 +1090,7 @@ $(function () {
         labelOffset: -2,
         equalSpacing: true,
         color: "#666666",
-        fontSize: 14,
+        fontSize: 11,
         // "parseDates": true,
         axisAlpha: 1,
         fillAlpha: 1,
@@ -1157,7 +1157,7 @@ $(function () {
           zeroGridAlpha: 0,
           axisThickness: 0,
           color: "#666666",
-          fontSize: 14,
+          fontSize: 11,
           dashLength: 0,
           gridAlpha: 1,
           gridColor: "#EDEDEF",
