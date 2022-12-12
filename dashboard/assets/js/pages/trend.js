@@ -259,7 +259,7 @@ $(function () {
         markerSize: 8,
         fontSize: 14,
         position: "top",
-        spacing: 15,
+        spacing: 35,
         valueFunction: get_chartLegendValueText,
         valueWidth: 65,
         verticalGap: 0,
