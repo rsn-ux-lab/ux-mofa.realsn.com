@@ -340,12 +340,12 @@ $(function () {
     );
 
     heatLegend.startLabel.setAll({
-      fontSize: 12,
+      fontSize: 14,
       fill: heatLegend.get("startColor"),
     });
 
     heatLegend.endLabel.setAll({
-      fontSize: 12,
+      fontSize: 14,
       fill: heatLegend.get("endColor"),
     });
 
@@ -371,7 +371,7 @@ $(function () {
      *  event : new AmCharts
      *
      */
-     if (HOST.develop || HOST.product) return;
+    if (HOST.develop || HOST.product) return;
     const $chart = document.querySelector("[data-section=주요현황] [data-card=연관키워드] .js-chart");
 
     am4core.ready(function () {
