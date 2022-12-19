@@ -1,5 +1,5 @@
 
-<!-- reBuild :  20221219145607 -->
+<!-- reBuild :  20221219152110 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -265,9 +265,9 @@
         </fieldset>
       </header>
       <main class="l-section-body">
-        <article class="l-card p-0 border-0" data-card="해외여론주도층분석" data-loding-spinner="false dimmed" data-is-empty="false">
-          <header class="l-card-header mb-15">
-            <fieldset class="form-fieldset d-flex" data-fieldset="전체채널">
+        <article class="l-card p-0 border-0 " data-card="해외여론주도층분석" data-loding-spinner="false dimmed" data-is-empty="false">
+          <header class="l-card-header mb-15 d-flex">
+            <fieldset class="form-fieldset" data-fieldset="전체채널">
               <div class="form-row form-check form-switch mr-20" data-row="전체">
                 <input id="checkboxChannerAll" class="form-check__input form-check__input--js-all-checked" type="checkbox" checked />
                 <label for="checkboxChannerAll" class="form-check__label"><span class="txt">전체</span></label>
@@ -283,7 +283,13 @@
                 </div>
               </fieldset>
             </fieldset>
-            <fieldset class="form-fieldse d-flex ml-auto">
+            <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="검색">
+              <div class="form-row form-search form-search--h-lg" data-row="검색어">
+                <input class="form-search__input" name="keyword" type="search" placeholder="검색어를 입력하세요." />
+                <button class="form-search__btn-search" type="button" title="검색하기"></button>
+              </div>
+            </fieldset>
+            <fieldset class="form-fieldse d-flex">
               <div class="form-row form-select" data-row="기본정렬">
                 <select class="form-select__select">
                   <option value="0" selected>10건 씩 보기</option>
