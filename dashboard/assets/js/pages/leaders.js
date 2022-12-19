@@ -142,7 +142,7 @@ $(function () {
     polygonSeries.mapPolygons.template.events.on("click", function (ev) {
       
       ev.target.setAll({
-        fill: am5.color(0x10223f)
+        fill: am5.color(0x83e0fe)
       });
       
 
