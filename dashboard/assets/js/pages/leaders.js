@@ -135,6 +135,12 @@ $(function () {
       heatLegend.getTooltip().hide();
     });
 
+    polygonSeries.mapPolygons.template.events.on("click", function(ev) {
+      console.log(ev.target);
+      console.log(ev.target.settingEvents);
+      // polygonSeries.mapPolygons.template.states.fill(0x000000);
+    });
+
     // map data name 으로 ID 찾는 스크립트
     // am5geodata_worldLow.features.find((data) => {
     //   if (data.properties.name == 'Vanuatu') console.log(data.properties);

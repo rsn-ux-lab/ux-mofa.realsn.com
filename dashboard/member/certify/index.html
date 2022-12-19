@@ -1,5 +1,5 @@
 
-<!-- reBuild :  20221212161419 -->
+<!-- reBuild :  20221219131808 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -106,17 +106,13 @@
     <main class="l-member-body">
       <form class="form">
         <fieldset class="form-fieldset" data-fieldset="2단계인증">
+          <div class="form-row form-text" data-row="methodType">
+            <div class="form-radio"><input type="radio" id="method_type_01" name="method_type" checked /><label for="method_type_01">SMS</label></div>
+            <div class="form-radio"><input type="radio" id="method_type_02" name="method_type" /><label for="method_type_02">E-mail</label></div>
+            <button type="button" class="form-button is-hide">[인증수단 변경]</button>
+          </div>
           <div class="form-row form-text" data-row="phone">
-            <input
-              type="tel"
-              id="tel_input"
-              class="form-text__input"
-              placeholder="전화번호 입력"
-              pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"
-              maxlength="13"
-              value="010-1234-5678"
-              readonly
-            />
+            <input type="tel" id="tel_input" class="form-text__input" placeholder="전화번호 입력" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}" maxlength="13" value="010-1234-5678" readonly />
             <label class="form-text__label visually-hidden">코드 전송이 완료되었습니다.</label>
             <button type="button" class="btn btn-round btn-code btn-round--sm">
               <span class="txt">코드전송</span>

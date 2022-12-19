@@ -28,22 +28,41 @@ $(function () {
      * 2단계 인증
      *
      **/
-
-    // 코드 전송 클릭시 발생하는 인터렉션
     const $codeBtn = document.querySelector('.btn-code');
     const $codeTxt = document.querySelector('.form-text__label'); // 코드전송 완료 텍스트
     const $codeTimeTxt = document.querySelector('.form-text__watch'); // 코드 유효시간 카운트
     const $timeoutTxt = document.getElementById('timeoutTxt'); // 유효시간 만료 텍스트
+    const $formRadios = document.querySelectorAll('.form-radio input'); // 인증수단 라디오
+    const $formButton = document.querySelector('.form-button'); // 인증수단 변경용 버튼
 
+    // 코드 전송 클릭시 발생하는 인터렉션
     $codeBtn.addEventListener('click', function () {
       // 출력되어있던 유효시간 만료 텍스트 제거
       $timeoutTxt.classList.add('visually-hidden');
       // 코드 발송 시 나오는 안내 텍스트 출력
       $codeTxt.classList.remove('visually-hidden');
       $codeTimeTxt.classList.remove('visually-hidden');
+      $formButton.classList.remove('is-hide');
+
+      for (let i = 0; i < $formRadios.length; i++) $formRadios[i].setAttribute('disabled', 'disabled');
 
       // 코드 발송 후 '재발송' 버튼으로 변경
       $codeBtn.innerHTML = '코드 재전송';
+    });
+
+    // 인증수단 변경 클릭시 발생하는 인터렉션
+    $formButton.addEventListener('click', function () {
+      // 출력되어있던 유효시간 만료 텍스트 제거
+      $timeoutTxt.classList.add('visually-hidden');
+      // 코드 발송 시 나오는 안내 텍스트 제거
+      $codeTxt.classList.add('visually-hidden');
+      $codeTimeTxt.classList.add('visually-hidden');
+      $formButton.classList.add('is-hide');
+
+      for (let i = 0; i < $formRadios.length; i++) $formRadios[i].removeAttribute('disabled');
+
+      // 코드 발송 후 '재발송' 버튼으로 변경
+      $codeBtn.innerHTML = '코드전송';
     });
   }
   /*
