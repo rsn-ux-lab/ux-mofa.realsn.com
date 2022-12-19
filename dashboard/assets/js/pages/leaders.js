@@ -128,17 +128,40 @@ $(function () {
     //map에서 마우스 오버 시 하단에 tooltip으로 수치를 띄움
     polygonSeries.mapPolygons.template.events.on("pointerover", function (ev) {
       heatLegend.showValue(ev.target.dataItem.get("value"));
+      
     });
 
     //map에서 마우스 오버 해제 시 tooltip을 숨김
     polygonSeries.mapPolygons.template.events.on("pointerout", function () {
       heatLegend.getTooltip().hide();
     });
+    // hover
+    polygonSeries.mapPolygons.template.states.create("hover", {
+      fill: am5.color(0x356ea6),
+    });
+    polygonSeries.mapPolygons.template.events.on("click", function (ev) {
+      
+      ev.target.setAll({
+        fill: am5.color(0x10223f)
+      });
+      
 
-    polygonSeries.mapPolygons.template.events.on("click", function(ev) {
-      console.log(ev.target);
-      console.log(ev.target.settingEvents);
-      // polygonSeries.mapPolygons.template.states.fill(0x000000);
+
+      const nation = ev.target.dataItem.dataContext.name;
+      const div = document.getElementById("nations");
+      const buttons = document.createElement("button");
+      buttons.className = "icon-svg-close closed";
+      
+      div.innerHTML = "";
+      div.append(nation, buttons);
+
+      if(div.style.display == "none"){
+        div.style.display = "inline-flex";
+      }
+
+      document.querySelector(".closed").addEventListener("click",function(){
+        div.style.display = "none";
+      });
     });
 
     // map data name 으로 ID 찾는 스크립트
@@ -280,7 +303,7 @@ $(function () {
       { id: "PR", name: "Puerto Rico", value: 3745526 },
       { id: "QA", name: "Qatar", value: 1870041 },
       { id: "RO", name: "Romania", value: 21436495 },
-      { id: "RU", name: "Russia", value: 142835555 },
+      { id: "RU", name: "Russia", value: 123123123, sample : 123123 },
       { id: "RW", name: "Rwanda", value: 10942950 },
       { id: "SA", name: "Saudi Arabia", value: 28082541 },
       { id: "SN", name: "Senegal", value: 12767556 },
@@ -361,10 +384,7 @@ $(function () {
       heatLegend.set("endValue", polygonSeries.getPrivate("valueHigh"));
     });
 
-    // hover
-    polygonSeries.mapPolygons.template.states.create("hover", {
-      fill: am5.color(0x356ea6),
-    });
+    
   }
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
