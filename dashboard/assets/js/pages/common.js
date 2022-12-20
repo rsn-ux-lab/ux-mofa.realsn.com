@@ -40,7 +40,7 @@ $(function () {
      *
      */
 
-    $("#wrap").wait(100).attr("data-device-detail", $.getDevice().detail);
+    $("#wrap").wait(100).attr({ "data-target-device": $.getDevice().type, "data-device-detail": $.getDevice().detail });
   }
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
