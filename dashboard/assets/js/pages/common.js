@@ -25,9 +25,9 @@ $(function () {
 
     setTimeout(() => {
       const $datepicker = document.querySelector(".ui_datepickers .grps");
-      const $inpMonth = $datepicker.childNodes.item(2).querySelector("input");
+      const $inpMonth = $datepicker?.childNodes.item(2).querySelector("input");
 
-      $inpMonth.checked = true;
+      $inpMonth && ($inpMonth.checked = true);
     }, 1000);
   }
   /*
