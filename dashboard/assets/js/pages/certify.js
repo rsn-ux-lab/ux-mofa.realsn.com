@@ -34,6 +34,7 @@ $(function () {
     const $timeoutTxt = document.getElementById('timeoutTxt'); // 유효시간 만료 텍스트
     const $formRadios = document.querySelectorAll('.form-radio input'); // 인증수단 라디오
     const $formButton = document.querySelector('.form-button'); // 인증수단 변경용 버튼
+    const $formInput = document.querySelector('.form-text__input'); // 코드 받을 정보가 들어갈 인풋
 
     // 코드 전송 클릭시 발생하는 인터렉션
     $codeBtn.addEventListener('click', function () {
@@ -64,6 +65,19 @@ $(function () {
       // 코드 발송 후 '재발송' 버튼으로 변경
       $codeBtn.innerHTML = '코드전송';
     });
+
+    // 인증수단 변경 시 하단 인풋 타입 변경
+    for (let i = 0; i < $formRadios.length; i++) {
+      $formRadios[i].addEventListener('change', function () {
+        if (this.getAttribute('id') == 'method_type_01') {
+          $formInput.setAttribute('type', 'tel');
+          $formInput.setAttribute('maxLength', '13');
+        } else if (this.getAttribute('id') == 'method_type_02') {
+          $formInput.setAttribute('type', 'text');
+          $formInput.setAttribute('maxLength', '30');
+        }
+      });
+    }
   }
   /*
   ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
