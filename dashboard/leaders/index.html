@@ -1,5 +1,5 @@
 
-<!-- reBuild :  20221229102859 -->
+<!-- reBuild :  20221230092857 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -253,7 +253,13 @@
           <i class="c-badge" style="--color-set: #424242">기타</i>
           <i id = "nations" class="c-badge" style="display: none; --color-set : #83E0FE; color : #333;"></i>
         </h4>
-        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="언어">
+        <fieldset class="form-fieldset d-flex ml-auto" data-fieldset="검색">
+          <div class="form-row form-search form-search--h-lg" data-row="검색어">
+            <input class="form-search__input" name="keyword" type="search" placeholder="검색어를 입력하세요." />
+            <button class="form-search__btn-search" type="button" title="검색하기"></button>
+          </div>
+        </fieldset>
+        <fieldset class="form-fieldset d-flex ml-5" data-fieldset="언어">
           <div class="form-row form-check form-check-button form-check-button--h-lg form-check-button--switch" data-row="한국어">
             <input id="radioLanguage1" name="radioLanguage" class="form-check__input" type="radio" checked />
             <label for="radioLanguage1" class="form-check__label"><span class="txt">한국어</span></label>
@@ -297,12 +303,6 @@
                   <option value="8">언론인</option>
                   <option value="9">기타</option>
                 </select>
-              </div>
-            </fieldset>
-            <fieldset class="form-fieldset d-flex ml-5" data-fieldset="검색">
-              <div class="form-row form-search form-search--h-lg" data-row="검색어">
-                <input class="form-search__input" name="keyword" type="search" placeholder="검색어를 입력하세요." />
-                <button class="form-search__btn-search" type="button" title="검색하기"></button>
               </div>
             </fieldset>
             <fieldset class="form-fieldse d-flex ml-5">
