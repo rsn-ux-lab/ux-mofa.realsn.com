@@ -88,13 +88,18 @@ $(function () {
      * 2단계 인증
      *
      **/
-
     // 코드인풋 키업시 success 처리
     const $codeNum = document.getElementById('code_input');
     const $loginBtn = document.querySelector('.btn-login');
 
+    if (HOST.localhost || HOST.publish) {
+      $loginBtn.removeAttribute('disabled'); // 로그인 버튼 disabled 삭제
+      loginLocation(); // 로그인 버튼에 로케이션 활성화
+      return;
+    }
+
     $codeNum.onkeyup = function () {
-      if (this.value.length >= 6) {
+      if (this.value.length == 6) {
         $loginBtn.removeAttribute('disabled'); // 로그인 버튼 disabled 삭제
         $loginBtn.removeEventListener('click', clickBtn); // 이벤트 한번 제거
         $loginBtn.addEventListener('click', clickBtn); // 이벤트 다시 바인딩
@@ -105,22 +110,23 @@ $(function () {
           this.setAttribute('readonly', ''); // 코드 인증 성공 했으므로 입력 막기
           $loginBtn.removeAttribute('disabled'); // 로그인 버튼 disabled 삭제
 
-          $loginBtn.addEventListener('click', function () {
-            // 로그인 버튼에 로케이션 활성화
-            location.href = '../../leaders';
-          });
+          loginLocation();
         }
-      } else {
-        $loginBtn.setAttribute('disabled', ''); // 로그인 버튼 disabled 삭제
+        return;
       }
+      $loginBtn.setAttribute('disabled', ''); // 로그인 버튼 disabled 삭제
     };
 
     $codeNum.oninput = function () {
-      if (this.value.length > 6) {
-        this.value = this.value.substr(0, 6);
-      }
+      if (this.value.length > 6) this.value = this.value.substr(0, 6);
     };
 
+    // 로그인 버튼에 로케이션 활성화
+    function loginLocation() {
+      $loginBtn.addEventListener('click', function () {
+        location.href = '../../leaders';
+      });
+    }
     // 버블링 방지를 위해 클릭 이벤트 함수로 설정
     function clickBtn() {
       // 인증 실패 알럿
